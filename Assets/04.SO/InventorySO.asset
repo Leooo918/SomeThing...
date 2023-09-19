@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6378f8e6a1bfb4145abe210e18268d2c, type: 3}
+  m_Name: InventorySO
+  m_EditorClassIdentifier: 
+  inventoryStructs:
+  - inventoryName: MyInventory
+    width: 7
+    height: 9
+    slotSize: 100
+    pfInvnetory: {fileID: 611539462182061560, guid: 4de1b2b2d46e0c14d82af0954066cabe, type: 3}
+    pfSlot: {fileID: 8078821638899943036, guid: 3d5b23375921bca45a19df1b7f82e444, type: 3}

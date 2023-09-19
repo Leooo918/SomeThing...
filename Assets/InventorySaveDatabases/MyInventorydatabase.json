@@ -1,0 +1,48 @@
+{
+    "inventoryName": "MyInventory",
+    "itemName": [
+        "Pistol",
+        "Ammo",
+        "Katana",
+        "Katana",
+        "Medkit",
+        "Medkit",
+        "Medkit"
+    ],
+    "itemAmount": [
+        1,
+        15,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "positionX": [
+        0,
+        2,
+        6,
+        2,
+        0,
+        2,
+        4
+    ],
+    "positionY": [
+        5,
+        5,
+        5,
+        6,
+        7,
+        7,
+        7
+    ],
+    "rotation": [
+        90.0,
+        180.0,
+        0.0,
+        270.0,
+        0.0,
+        0.0,
+        0.0
+    ]
+}

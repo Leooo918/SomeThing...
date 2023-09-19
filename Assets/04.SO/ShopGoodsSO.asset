@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e19e6ccc4e2904daf5ef63a531a185, type: 3}
+  m_Name: ShopGoodsSO
+  m_EditorClassIdentifier: 
+  shopGoods:
+  - goodsName: Pistol
+    pfItem: {fileID: 2999265541510268186, guid: 42883ed0d2f6cec4cb30259547cccc2f, type: 3}
+    value: 10
+    size: {x: 2, y: 2}
+  - goodsName: MedKit
+    pfItem: {fileID: 2999265541510268186, guid: 45dc682a09f520843ad49d5c05316f44, type: 3}
+    value: 5
+    size: {x: 2, y: 2}
