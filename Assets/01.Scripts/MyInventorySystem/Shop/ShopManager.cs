@@ -151,6 +151,7 @@ public class ShopManager : MonoBehaviour
                     {
                         shop.shopGoodses[j].itemAmount = saves.itemAmounts[i];
                         shop.shopGoodses[j].SetText();
+                        if (shop.shopGoodses[j].itemAmount <= 0) shop.shopGoodses[i].SoldOut();
                     }
                 }
             }

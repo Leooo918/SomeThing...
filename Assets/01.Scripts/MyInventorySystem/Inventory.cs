@@ -254,7 +254,6 @@ public class Inventory : MonoBehaviour
 
     public bool SetItem(Item item, int amount = 1)
     {
-        print(amount);
         for (int i = slots.GetLength(1) - 1; i >= 0; i--)
         {
             for (int j = 0; j < slots.GetLength(0); j++)
@@ -271,6 +270,7 @@ public class Inventory : MonoBehaviour
                         slots[j, i].SetItem(item);
                     }
 
+                    JsonSave();
                     return true;
                 }
             }

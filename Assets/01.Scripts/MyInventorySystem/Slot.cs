@@ -274,6 +274,12 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             for (int j = 0; j < item.SizeY; j++)
             {
+                if (posX + i >= inventory.Width || posY + j >= inventory.Height)
+                {
+                    print("으악");
+                    Destroy(item.gameObject);
+                    return;
+                }
                 item.assignedSlot.Add(inventory.slots[posX + i, posY + j]); //슬롯이랑 아이템에 그 아이템과 슬롯 지정
                 inventory.slots[posX + i, posY + j].assignedItem = item;    //
             }
@@ -284,7 +290,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (item == null) return false;
 
-        if (posX + item.SizeX > inventory.Width || posY + item.SizeY > inventory.Height) //아이템이 인벤토리 밖으로 나가면
+        if (posX + item.SizeX - 1 >= inventory.Width || posY + item.SizeY - 1 >= inventory.Height) //아이템이 인벤토리 밖으로 나가면
         {
             return false;
         }
@@ -315,5 +321,4 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         this.inventory = inventory;
     }
-
 }

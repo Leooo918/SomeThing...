@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenShop : MonoBehaviour
@@ -8,12 +6,13 @@ public class OpenShop : MonoBehaviour
 
     public void ShopOpen()
     {
-
+        assignedShop.gameObject.SetActive(true);
+        //assignedShop.Init();
     }
 
     public void ShopClose()
     {
-
+        assignedShop.gameObject.SetActive(false);
     }
 
     public void Init(Shop shop)

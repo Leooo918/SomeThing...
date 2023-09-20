@@ -246,7 +246,16 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
         clickPointInt = new Vector2Int(errorRangeX, errorRangeY);
     }
 
+    public void RotateThis()
+    {
+        Vector3 rotation = new Vector3(0, 0, rectTransform.eulerAngles.z + 90);
 
+        rectTransform.eulerAngles = rotation;
+
+        int temp = sizeX;
+        sizeX = sizeY;
+        sizeY = temp;
+    }
 
     protected virtual void RotateItem()
     {

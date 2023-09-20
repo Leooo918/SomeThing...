@@ -51,7 +51,7 @@ public class ItemBuyHelper : MonoBehaviour
         inputField.text = devideNum.ToString();
         slider.value = devideNum;
 
-        valueTxt.SetText((goodsToBuy.Value * amount).ToString());
+        valueTxt.SetText((goodsToBuy.Value * (int)slider.value).ToString());
     }
 
     private void OnSliderValueChange(float value)
@@ -59,11 +59,16 @@ public class ItemBuyHelper : MonoBehaviour
         slider.value = (int)value;
         inputField.text = slider.value.ToString();
 
-        valueTxt.SetText((goodsToBuy.Value * amount).ToString());
+        valueTxt.SetText((goodsToBuy.Value * (int)slider.value).ToString());
     }
 
     private void EndShopping()
     {
+        if (goodsToBuy.itemAmount <= 0)
+        {
+            goodsToBuy.SoldOut();
+        }
+
         ShopManager.instance.isBuying = false;
         gameObject.SetActive(false);
     }
@@ -92,16 +97,26 @@ public class ItemBuyHelper : MonoBehaviour
             {
                 if (InventoryManager.instance.openInventoryList[i].SetItem(items[j]) == false)
                 {
-                    errorScreen.SetActive(true);
-                    errorScreen.transform.Find("Text").GetComponent<TextMeshProUGUI>().SetText(spacelackless);
-                    EndShopping();
-                    return;
+                    items[j].RotateThis();
+
+                    if (InventoryManager.instance.openInventoryList[i].SetItem(items[j]) == true)
+                    {
+                        goodsToBuy.itemAmount--;
+                        ShopManager.instance.SaveShop();
+                        ShopManager.instance.LoadShop();
+                        EndShopping();
+                    }
+                    else
+                    {
+                        errorScreen.SetActive(true);
+                        errorScreen.transform.Find("Text").GetComponent<TextMeshProUGUI>().SetText(spacelackless);
+                        Destroy(items[j].gameObject);
+                        EndShopping();
+                    }
                 }
                 else
                 {
-                    print("코코다요");
-                    print((int)slider.value);
-                    goodsToBuy.itemAmount -= (int)slider.value;
+                    goodsToBuy.itemAmount--;
                     ShopManager.instance.SaveShop();
                     ShopManager.instance.LoadShop();
                     EndShopping();
@@ -123,6 +138,7 @@ public class ItemBuyHelper : MonoBehaviour
         inputField.text = "1";
         valueTxt.SetText((goodsToBuy.Value * amount).ToString());
         maxAmountTxt.SetText($"/<size=35><sub>{amount}</sub></size>");
+        print(shopGoods.Value);
         valueTxt.SetText(shopGoods.Value.ToString());
 
         inputField.onValueChanged.RemoveAllListeners();

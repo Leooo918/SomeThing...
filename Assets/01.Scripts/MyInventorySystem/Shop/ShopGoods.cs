@@ -53,6 +53,7 @@ public class ShopGoods : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 
     public void SoldOut()
     {
+        transform.Find("Sprite").GetComponent<Image>().raycastTarget = false;
         checkSoldOut = true;
         soldOutImage.SetActive(checkSoldOut);
     }
@@ -70,7 +71,7 @@ public class ShopGoods : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         }
 
         this.errorScreen = errorScreen;
-        checkSoldOut = false;
+
         soldOutImage.SetActive(checkSoldOut);
     }
 

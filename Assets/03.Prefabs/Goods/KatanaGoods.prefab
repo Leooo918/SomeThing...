@@ -436,6 +436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goodsName: Katana
+  itemAmount: 0
 --- !u!1 &3034554071500904884
 GameObject:
   m_ObjectHideFlags: 0

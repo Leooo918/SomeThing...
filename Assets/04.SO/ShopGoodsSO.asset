@@ -17,7 +17,11 @@ MonoBehaviour:
     pfItem: {fileID: 2999265541510268186, guid: 42883ed0d2f6cec4cb30259547cccc2f, type: 3}
     value: 10
     size: {x: 2, y: 2}
-  - goodsName: MedKit
+  - goodsName: Medkit
     pfItem: {fileID: 2999265541510268186, guid: 45dc682a09f520843ad49d5c05316f44, type: 3}
     value: 5
     size: {x: 2, y: 2}
+  - goodsName: Katana
+    pfItem: {fileID: 2999265541510268186, guid: dc5f11b89b079bd48abd7f0eb7d19d1f, type: 3}
+    value: 15
+    size: {x: 1, y: 4}

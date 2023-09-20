@@ -16,7 +16,7 @@ MonoBehaviour:
   - itemName: Pistol
     size: {x: 2, y: 2}
     pfItem: {fileID: 5446612954618887651, guid: 792f6f0ee70472740a11998dc6f8ad53, type: 3}
-    itemValue: 0
+    itemValue: 10
   - itemName: Katana
     size: {x: 1, y: 4}
     pfItem: {fileID: 5446612954618887651, guid: b13201cd0c4681c4f91032831fe51a66, type: 3}
@@ -24,9 +24,14 @@ MonoBehaviour:
   - itemName: Medkit
     size: {x: 2, y: 2}
     pfItem: {fileID: 5446612954618887651, guid: 6fb065b1ad11b1a4aa1e274abe2e583f, type: 3}
-    itemValue: 0
+    itemValue: 5
   expendableItems:
   - itemName: Ammo
+    size: {x: 1, y: 1}
+    pfItem: {fileID: 3366919235249711578, guid: 09456d088eaf523478f2176f3d93ea88, type: 3}
+    maxItemNum: 10
+    itemValue: 0
+  - itemName: Money
     size: {x: 1, y: 1}
     pfItem: {fileID: 3366919235249711578, guid: 09456d088eaf523478f2176f3d93ea88, type: 3}
     maxItemNum: 59
