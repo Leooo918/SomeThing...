@@ -4,10 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler
+public enum ItemType
+{
+    weapons = 0,
+    accessories = 1,
+    ingrediants = 2,
+    expendables = 3,
+    ammo = 4,
+    money = 5
+}
+
+public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerClickHandler
 {
     public string itemName = "";                            //아이템 이름
 
+    protected ItemType itemType = new ItemType();
     private Vector2 clickPoint = Vector2.zero;              //클릭한 위치
     private Vector2Int clickPointInt = Vector2Int.zero;     //클릭한 위치와 아이템의 위치 오차
 
@@ -31,6 +42,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
 
     public List<Slot> assignedSlot = new List<Slot>();      //현재 아이템이 포함되있는 모든 슬롯
+    private PlayerWeaponSlot[] weaponSlots = null;
 
     #region 프로퍼티
     public Vector2Int ClickPointInt => clickPointInt;
@@ -38,6 +50,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public int SizeX => sizeX;
     public int SizeY => sizeY;
     public Normal NormalItemStruct => normalItemStruct;
+    public ItemType ItemType => itemType;
     #endregion
 
 
@@ -49,7 +62,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
         image = transform.Find("Sprite").GetComponent<Image>();
         backgroundImage = background.GetComponentsInChildren<Image>();
 
-        //아이템의 사이즈 지정
+        weaponSlots = FindObjectsByType<PlayerWeaponSlot>(FindObjectsSortMode.None);
     }
 
     protected virtual void Update()
@@ -60,7 +73,8 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     public virtual void OnPointerDown(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true) return;
+        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
+        transform.Find("Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
         UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);         //소리함 기깔나게 나야지
 
@@ -90,17 +104,16 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     public virtual void OnDrag(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true) return;
-
+        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
         //드래그 할 떄 마우스 따라 움직이게
         rectTransform.anchoredPosition = eventData.position + new Vector2(mainCamera.orthographicSize * mainCamera.aspect, mainCamera.orthographicSize) - clickPoint;
     }
 
 
-
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true) return;
+
+        if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
 
         UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
 
@@ -136,9 +149,19 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
             }
         }
 
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            if (weaponSlots[i].SetWeapon(this))
+            {
+                Destroy(gameObject);
+                canSetPosition = true;
+            }
+
+        }
+
         if (canSetPosition == false)                //포지션을 설정할 수 없는 상황이라면
         {
-            SetLastPosition();                      //지난번 위치로 가라
+            GoToLastPosition();                      //지난번 위치로 가라
         }
         else
         {
@@ -152,8 +175,18 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     }
 
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Right || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
 
-    private void SetLastPosition()
+
+
+    }
+
+
+
+
+    private void GoToLastPosition()
     {
         for (int i = 0; i < lastSlot.Count; i++) //모든 지난 슬롯의 지정된 아이템은 이것이다
         {
@@ -161,7 +194,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
             assignedSlot.Add(lastSlot[i]);
         }
 
-        int r = (int)Mathf.Abs(rectTransform.eulerAngles.z - lastRotation)/ 10;
+        int r = (int)Mathf.Abs(rectTransform.eulerAngles.z - lastRotation) / 10;
 
         if (r * 10 % 180 != 0)
         {
@@ -315,6 +348,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public void Init(Normal normalItem, float rotation)
     {
         normalItemStruct = normalItem;
+        itemType = normalItem.itemType;
         Vector3 rot = new Vector3(0, 0, rotation);
 
         rectTransform.eulerAngles = rot;

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e04b5ea273e1904aad708ae65dc0af8, type: 3}
+  m_Name: EffectSO
+  m_EditorClassIdentifier: 
+  effects:
+  - effectName: SlowDownEffect
+    effectImage: {fileID: 7493328258042271288, guid: d6fca4b52f64c024a934b3331b925179, type: 3}
+    effectDuration: 60
+    value: -1

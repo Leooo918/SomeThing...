@@ -7,6 +7,7 @@ public struct Normal
     public string itemName;
     public Vector2Int size;
     public GameObject pfItem;
+    public ItemType itemType;
     public int itemValue;
 }
 
@@ -16,6 +17,7 @@ public struct Expendable
     public string itemName;
     public Vector2Int size;
     public GameObject pfItem;
+    public ItemType itemType;
     public int maxItemNum;
     public int itemValue;
 }

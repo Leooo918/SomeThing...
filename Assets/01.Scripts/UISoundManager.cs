@@ -7,7 +7,7 @@ public enum Sound
     CursurMoveSound = 2
 }
 
-
+[RequireComponent(typeof(AudioSource))]
 public class UISoundManager : MonoBehaviour
 {
     private AudioSource audioSource = null;
@@ -74,4 +74,8 @@ public class UISoundManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void Init(AudioClip[] uiSounds)
+    {
+        this.uiSounds = uiSounds;
+    }
 }

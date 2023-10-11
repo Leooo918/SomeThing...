@@ -286,7 +286,7 @@ public abstract class ExpendableItem : Item, IPointerEnterHandler, IPointerExitH
     public void Init(Expendable expendableItemStruct, int currentItemNum, float rotation)
     {
         this.expendableItemStruct = expendableItemStruct;
-
+        itemType = expendableItemStruct.itemType;
         Vector3 rot = new Vector3(0, 0, rotation);
 
         rectTransform.eulerAngles = rot;

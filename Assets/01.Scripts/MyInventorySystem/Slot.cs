@@ -185,7 +185,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public bool CheckSlot(Item item)    //아이템 사이즈에 맞춰 그 칸에 들어갈 수 있나 확인
+    public bool CheckSlot(Item item)    //아이템 사이즈에 맞춰 그 칸에 들어갈 수 있나 확인   
     {
         if (item.ClickPointInt.x > 0)
             originPos.x = posX - (item.SizeX - item.ClickPointInt.x);
@@ -276,7 +276,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 if (posX + i >= inventory.Width || posY + j >= inventory.Height)
                 {
-                    print("으악");
                     Destroy(item.gameObject);
                     return;
                 }

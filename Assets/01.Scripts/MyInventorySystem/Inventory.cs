@@ -56,17 +56,17 @@ public class Inventory : MonoBehaviour
         List<Item> itemList = new List<Item>();
         List<ExpendableItem> expendableItemList = new List<ExpendableItem>();
 
-        for (int j = 0; j < slots.GetLength(1); j++)
+        for (int j = 0; j < slots.GetLength(0); j++)
         {
-            for (int k = 0; k < slots.GetLength(0); k++)
+            for (int k = 0; k < slots.GetLength(1); k++)
             {
-                if (slots[k, j].IsAssignedItemsOriginPos == true)      //저장해야될 모든 인벤토리의 슬롯을 돌면서 아이템의 왼쪽아래쪽이 할당된 슬롯을 찾아
+                if (slots[j, k].IsAssignedItemsOriginPos == true)      //저장해야될 모든 인벤토리의 슬롯을 돌면서 아이템의 왼쪽아래쪽이 할당된 슬롯을 찾아
                 {
-                    Item item = slots[k, j].assignedItem;
+                    Item item = slots[j, k].assignedItem;
 
                     if (item == null)
                     {
-                        return;
+                        continue;
                     }
 
                     if (item.TryGetComponent<ExpendableItem>(out ExpendableItem expendableItem))
@@ -88,51 +88,36 @@ public class Inventory : MonoBehaviour
         }
 
 
-        bool isItemSet = false;
-
-        for (int k = 0; k < itemList.Count; k++)
+        for (int i = 0; i < itemList.Count; i++)
         {
-            isItemSet = false;
-            for (int i = slots.GetLength(1) - 1; i >= 0; i--)
+            for (int k = slots.GetLength(1) - 1; k >= 0; k--)
             {
                 for (int j = 0; j < slots.GetLength(0); j++)
-                {
-                    if (slots[j, i].CheckCanSetPosition(itemList[k]) == true)
+                { 
+                    if (slots[j, k].CheckCanSetPosition(itemList[i]) == true)
                     {
-                        slots[j, i].SetItem(itemList[k]);
-                        //slots[j, i].SetIsOriginPos();
-                        isItemSet = true;
-                        break;
+                        slots[j, k].SetItem(itemList[i]);
+                        goto a;
                     }
                 }
-                if (isItemSet == true)
-                {
-                    break;
-                }
             }
+        a:;
         }
 
-        for (int k = 0; k < expendableItemList.Count; k++)
+        for (int i = 0; i < expendableItemList.Count; i++)
         {
-            isItemSet = false;
-            for (int i = slots.GetLength(1) - 1; i >= 0; i--)
+            for (int k = slots.GetLength(1) - 1; k >= 0; k--)
             {
                 for (int j = 0; j < slots.GetLength(0); j++)
                 {
-                    if (slots[j, i].CheckCanSetPosition(expendableItemList[k]) == true)
+                    if (slots[j, k].CheckCanSetPosition(expendableItemList[i]) == true)
                     {
-                        print(j + " " + i);
-                        slots[j, i].SetItem(expendableItemList[k]);
-                        //slots[j, i].SetIsOriginPos();
-                        isItemSet = true;
-                        break;
+                        slots[j, k].SetItem(expendableItemList[i]);
+                        goto b;
                     }
                 }
-                if (isItemSet == true)
-                {
-                    break;
-                }
             }
+        b:;
         }
     }
 

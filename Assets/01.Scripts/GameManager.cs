@@ -10,17 +10,26 @@ public class GameManager : MonoBehaviour
     public ShopSO shopSO = null;
     public InventorySO inventorySO = null;
     public ShopGoodsSO shopGoodsSO = null;
+    public WeaponSO weaponSO = null;
+    public Transform player = null;
+
+    public List<AudioClip> audioClips = null;
 
     private void Awake()
     {
-        if(instance != null)
+        if (instance != null)
         {
-            Destroy(instance);
+            Destroy(this);
+            return;
         }
+
         instance = this;
 
         CreateShopManager();
         CreateInventoryManager();
+        CreateSoundManager();
+
+        player = GameObject.Find("Player").transform;
     }
 
     private void CreateShopManager()
@@ -36,14 +45,14 @@ public class GameManager : MonoBehaviour
         if (InventoryManager.instance != null) Destroy(InventoryManager.instance);
         InventoryManager.instance = gameObject.AddComponent<InventoryManager>();
 
-        InventoryManager.instance.Init(inventorySO, itemSO, FindAnyObjectByType<ItemDevider>());
+        InventoryManager.instance.Init(inventorySO, itemSO, FindAnyObjectByType<ItemDevider>());   
     }
 
     private void CreateSoundManager()
     {
-        if (ShopManager.instance != null) Destroy(ShopManager.instance);
-        ShopManager.instance = gameObject.AddComponent<ShopManager>();
+        if (UISoundManager.instance != null) Destroy(UISoundManager.instance);
+        UISoundManager.instance = gameObject.AddComponent<UISoundManager>();
 
-        
+        UISoundManager.instance.Init(audioClips.ToArray());
     }
 }

@@ -23,5 +23,7 @@ public class Shop : MonoBehaviour
         {
             shopGoods.Init(shopGoodsSO, itemBuyHelper, errorScreen);
         }
+
+        FindAnyObjectByType<OpenShop>().Init(this);
     }
 }

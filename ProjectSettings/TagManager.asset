@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - TopUI
-  - 
-  - 
-  - 
+  - Player
+  - Weapon
+  - Enemy
+  - Wall
   - 
   - 
   - 
@@ -38,6 +38,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UnderObject
+    uniqueID: 1330340259
+    locked: 0
+  - name: Agent
+    uniqueID: 1677163459
+    locked: 0
+  - name: Weapon
+    uniqueID: 1380048093
+    locked: 0
+  - name: AboveObject
+    uniqueID: 4118938173
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
