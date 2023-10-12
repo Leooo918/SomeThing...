@@ -22,4 +22,9 @@ public class EnemyBrain : MonoBehaviour
     {
         onMove?.Invoke(moveDir);
     }
+
+    public void Die()
+    {
+        onDie?.Invoke();
+    }
 }

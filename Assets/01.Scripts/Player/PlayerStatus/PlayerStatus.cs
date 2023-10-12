@@ -9,9 +9,13 @@ public interface IDamageable
     void ReduceMaxHp(float value);
 }
 
-public class WeaponSave
+public class StatusSave
 {
     public string[] itemName = new string[3];
+    public float playerMaxHp;
+    public float playerAttact;
+    public float playerSpeed;
+    public int curProgress;     //임시
 }
 
 
@@ -19,12 +23,15 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 {
     private string path = "";
 
-    private float playerMaxHp = 10f;
-    private float reducedMaxHp = 0f;
+    private float playerMaxHp = 10f;        //최대HP
+    private float reducedMaxHp = 0f;        //감소된 최대HP
+    private float playerCurHp = 0f;         //현재 HP
+    
+    private float playerAttact = 0f;        //공격력
+    private float reducedAttack = 0f;       //감소된 공격력
 
-    private float playerCurHp = 0f;
-    private float playerAttact = 0f;
-    private float playerSpeed = 0f;
+    private float playerSpeed = 0f;         //이동속도
+    private float playerReducedSpeed = 0f;  //감소된 이동속도
 
     public float PlayerCurHp => playerCurHp;
     public float PlayerAttact => playerAttact;
@@ -36,7 +43,6 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private List<Effect> effects = new List<Effect>();
     private ItemSO itemSO = null;
     private WeaponSO weaponSO = null;
-    private OpenInventory inventory = null;
     private Inventory myBackpack = null;
 
     private GameObject playerStatusUI = null;
@@ -54,11 +60,10 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 
         playerBrain = GetComponent<PlayerInput>();
         playerStatusUI = GameObject.Find("PlayerStatusbackground");
-        playerInventory = GameObject.Find("MyBackpack").GetComponent<OpenInventory>();
+        playerInventory = GetComponent<OpenInventory>();
         weaponSelector = transform.Find("WeaponSelect").GetComponent<WeaponSelector>();
 
-        inventory = GameObject.Find("MyBackpack").GetComponent<OpenInventory>();
-        myBackpack = inventory.myInventory;
+        myBackpack = playerInventory.myInventory;
 
         weaponSlots = FindObjectsByType<PlayerWeaponSlot>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
@@ -74,8 +79,16 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         {
             weaponSlots[i].Init(weaponSO, itemSO, transform.Find("PlayerWeapon"), this);
         }
-        LoadWeapon();
+        JsonLoad();
         playerStatusUI.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            JsonSave();
+        }
     }
 
     public void OnChangeWeapon(int num)
@@ -110,7 +123,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private void OpenPlayerStatus()
     {
         playerStatusUI.SetActive(true);
-        playerInventory.myInventory.transform.SetParent(playerStatusUI.transform);
+        playerStatusUI.transform.SetAsFirstSibling();
         playerInventory.InventoryOpen();
     }
 
@@ -140,9 +153,9 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         reducedMaxHp = value;
     }
 
-    public void SaveWeapon()
+    public void JsonSave()
     {
-        WeaponSave saves = new WeaponSave();
+        StatusSave saves = new StatusSave();
 
         for (int i = 0; i < 3; i++)
         {
@@ -164,22 +177,26 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             }
         }
 
+        saves.playerMaxHp = playerMaxHp;
+        saves.playerAttact = playerAttact;
+        saves.playerSpeed = playerSpeed;
+
         string json = JsonUtility.ToJson(saves, true);
         File.WriteAllText(path, json);
     }
 
-    public void LoadWeapon()
+    public void JsonLoad()
     {
-        WeaponSave saves = new WeaponSave();
+        StatusSave saves = new StatusSave();
 
         if (!File.Exists(path))
         {
-            SaveWeapon();
+            JsonSave();
         }
         else
         {
             string loadJson = File.ReadAllText(path);
-            saves = JsonUtility.FromJson<WeaponSave>(loadJson);
+            saves = JsonUtility.FromJson<StatusSave>(loadJson);
 
             for (int i = 0; i < 3; i++)
             {
@@ -194,6 +211,10 @@ public class PlayerStatus : MonoBehaviour, IDamageable
                     }
                 }
             }
+
+            playerMaxHp = saves.playerMaxHp;
+            playerAttact = saves.playerAttact;
+            playerSpeed = saves.playerSpeed;
         }
     }
 }

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public ShopGoodsSO shopGoodsSO = null;
     public WeaponSO weaponSO = null;
     public Transform player = null;
+    public Transform canvas = null;
 
     public List<AudioClip> audioClips = null;
 
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour
         CreateInventoryManager();
         CreateSoundManager();
 
+        canvas = GameObject.Find("Canvas").transform;
         player = GameObject.Find("Player").transform;
     }
 

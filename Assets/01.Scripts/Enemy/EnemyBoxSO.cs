@@ -3,15 +3,20 @@ using UnityEngine;
 [System.Serializable]
 public struct BoxContents
 {
-    string itemName;
-    int positionX;
-    int positionY;
-    float rotation;
-    int maxItemAmount;
+    public string itemName;
+    public int maxItemAmount;
+    public float exisistPercentage;
+}
+
+[System.Serializable]
+public struct EnemyBox
+{
+    public string enemyName;
+    public BoxContents[] items;
 }
 
 [CreateAssetMenu(menuName = "SO/EnemyBox")]
 public class EnemyBoxSO : ScriptableObject
 {
-    public BoxContents[] items;
+    public EnemyBox[] enemyBoxes;
 }

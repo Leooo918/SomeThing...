@@ -1,5 +1,5 @@
 {
-    "inventoryName": "MyInventory",
+    "inventoryName": "EnemyBox",
     "itemName": [
         "Medkit",
         "Ammo",
@@ -14,15 +14,15 @@
     ],
     "positionX": [
         0,
+        0,
         2,
-        3,
-        2
+        4
     ],
     "positionY": [
-        7,
-        7,
-        7,
-        8
+        1,
+        3,
+        3,
+        3
     ],
     "rotation": [
         0.0,

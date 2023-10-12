@@ -6,11 +6,6 @@ public class OpenInventory : MonoBehaviour
 
     public string inventoryName = "MyInventory";  //이 인벤토리가 열 인벤토리의 이름
 
-    private void Awake()
-    {
-        //myInventory = GameObject.Find("Canvas").transform.Find(inventoryName).GetComponent<Inventory>();    //인벤토리를 String값으로 찾아옴
-    }
-
     private void Update()
     {
         #region 디버그용

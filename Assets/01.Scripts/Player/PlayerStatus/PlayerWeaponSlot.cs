@@ -70,7 +70,6 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
                             this.item.gameObject.SetActive(false);
                         }
                     }
-                    GameManager.instance.player.GetComponent<PlayerStatus>().SaveWeapon();
                     return true;
                 }
             }
