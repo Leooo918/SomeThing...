@@ -19,3 +19,9 @@ MonoBehaviour:
     slotSize: 100
     pfInvnetory: {fileID: 611539462182061560, guid: 4de1b2b2d46e0c14d82af0954066cabe, type: 3}
     pfSlot: {fileID: 8078821638899943036, guid: 3d5b23375921bca45a19df1b7f82e444, type: 3}
+  - inventoryName: DogBox01
+    width: 7
+    height: 5
+    slotSize: 100
+    pfInvnetory: {fileID: 611539462182061560, guid: 360b0e58adf14b24292646e3e6eee01f, type: 3}
+    pfSlot: {fileID: 8078821638899943036, guid: 3d5b23375921bca45a19df1b7f82e444, type: 3}

@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class EnemyStatus : MonoBehaviour, IDamageable
 {
+    [SerializeField] private EnemyBoxSO boxSO = null;
+
     public void Damaged(float value)
     {
-        throw new System.NotImplementedException();
+
     }
 
     public void ReduceMaxHp(float value)
     {
-        throw new System.NotImplementedException();
+        
     }
 }
