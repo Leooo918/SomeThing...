@@ -6,6 +6,18 @@ public class OpenInventory : MonoBehaviour
 
     public string inventoryName = "MyInventory";  //이 인벤토리가 열 인벤토리의 이름
 
+    private void Start()
+    {
+        for(int i = 0;i <  InventoryManager.instance.allInventoried.Count; i++)
+        {
+            if(inventoryName == InventoryManager.instance.allInventoried[i].inventoryName)
+            {
+                myInventory = InventoryManager.instance.allInventoried[i];
+                InventoryClose();
+            }
+        }
+    }
+
     private void Update()
     {
         #region 디버그용

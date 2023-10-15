@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public WeaponSO weaponSO = null;
     public Transform player = null;
     public Transform canvas = null;
+    public GameObject boxPf = null;
 
     public List<AudioClip> audioClips = null;
 
@@ -26,12 +27,13 @@ public class GameManager : MonoBehaviour
 
         instance = this;
 
+        canvas = GameObject.Find("Canvas").transform;
+        player = GameObject.Find("Player").transform;
+
         CreateShopManager();
         CreateInventoryManager();
         CreateSoundManager();
-
-        canvas = GameObject.Find("Canvas").transform;
-        player = GameObject.Find("Player").transform;
+        CreateUIManager();
     }
 
     private void CreateShopManager()
@@ -56,5 +58,14 @@ public class GameManager : MonoBehaviour
         UISoundManager.instance = gameObject.AddComponent<UISoundManager>();
 
         UISoundManager.instance.Init(audioClips.ToArray());
+    }
+
+    private void CreateUIManager()
+    {
+        if (UIManager.instance != null) Destroy(UIManager.instance);
+        UIManager.instance = gameObject.AddComponent<UIManager>();
+
+        UIManager.instance.Init(canvas, player.GetComponent<PlayerStatus>(), itemSO, weaponSO);
+
     }
 }

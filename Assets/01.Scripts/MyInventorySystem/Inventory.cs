@@ -191,6 +191,14 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    public void ResetInventory()
+    {
+        ItemSave saves = new ItemSave();
+
+        string json = JsonUtility.ToJson(saves, true);                                                                  //걍 다 json파일로 바꿔 저장해
+        File.WriteAllText(path, json);
+    }
+
     private void SetItemWithSPosition(Vector2Int originPos, int arrayNum, float rotation, bool isExpendableItem = false, int itemAmount = 0)
     {
         Item item = null;
@@ -297,16 +305,18 @@ public class Inventory : MonoBehaviour
 
 
         JsonLoad();                                                         //슬롯까지 다 깔고 로드 한번 해줌
-        OpenInventory[] openInventory = FindObjectsByType<OpenInventory>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
-        foreach (OpenInventory inventory in openInventory)
+        for (int i = 0; i < slots.GetLength(0); i++)
         {
-            if (inventory.inventoryName == inventoryName)
+            for (int j = 0; j < slots.GetLength(1); j++)
             {
-                inventory.myInventory = this;
-                inventory.InventoryClose();
-                return;
+                if (slots[i, j].assignedItem != null)
+                {
+                    Destroy(slots[i, j].assignedItem.gameObject);
+                }
             }
         }
+       gameObject.SetActive(false);    //인벤토리를 비활성화 시키고
+
     }
 }

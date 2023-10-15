@@ -26,7 +26,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private float playerMaxHp = 10f;        //최대HP
     private float reducedMaxHp = 0f;        //감소된 최대HP
     private float playerCurHp = 0f;         //현재 HP
-    
+
     private float playerAttact = 0f;        //공격력
     private float reducedAttack = 0f;       //감소된 공격력
 
@@ -58,30 +58,14 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     {
         path = Path.Combine(Application.dataPath, "WeaponSave" + "database.json");
 
-        playerBrain = GetComponent<PlayerInput>();
-        playerStatusUI = GameObject.Find("PlayerStatusbackground");
-        playerInventory = GetComponent<OpenInventory>();
         weaponSelector = transform.Find("WeaponSelect").GetComponent<WeaponSelector>();
-
+        playerBrain = GetComponent<PlayerInput>();
+        playerInventory = GetComponent<OpenInventory>();
         myBackpack = playerInventory.myInventory;
-
-        weaponSlots = FindObjectsByType<PlayerWeaponSlot>(FindObjectsInactive.Include, FindObjectsSortMode.None);
 
         playerBrain.onOpenInventory += OnPressTab;
     }
 
-    private void Start()
-    {
-        itemSO = GameManager.instance.itemSO;
-        weaponSO = GameManager.instance.weaponSO;
-
-        for (int i = 0; i < weaponSlots.Length; i++)
-        {
-            weaponSlots[i].Init(weaponSO, itemSO, transform.Find("PlayerWeapon"), this);
-        }
-        JsonLoad();
-        playerStatusUI.SetActive(false);
-    }
 
     private void Update()
     {
@@ -137,7 +121,6 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     {
         playerSpeed = value;
     }
-
     public void ChangeAttack(float value)
     {
         playerAttact = value;
@@ -146,11 +129,33 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     public void Damaged(float value)
     {
         playerCurHp -= value;
+
+        playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
+        UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
+
+        if(playerCurHp <= 0)
+        {
+            Die();
+        }
     }
 
     public void ReduceMaxHp(float value)
     {
         reducedMaxHp = value;
+
+        playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
+        UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
+
+
+        if (playerCurHp <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+
     }
 
     public void JsonSave()
@@ -216,5 +221,22 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             playerAttact = saves.playerAttact;
             playerSpeed = saves.playerSpeed;
         }
+    }
+
+    public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI , PlayerWeaponSlot[] weaponSlots)
+    {
+        this.itemSO = itemSO;
+        this.weaponSO = weaponSO;
+
+        this.playerStatusUI = playerStatusUI;
+        playerStatusUI.SetActive(false);
+
+        this.weaponSlots = weaponSlots;
+        for (int i = 0; i < weaponSlots.Length; i++)
+        {
+            weaponSlots[i].Init(weaponSO, itemSO, transform.Find("PlayerWeapon"), this);
+        }
+
+        JsonLoad();
     }
 }

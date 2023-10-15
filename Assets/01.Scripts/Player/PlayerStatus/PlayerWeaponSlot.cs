@@ -14,7 +14,6 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
     private PlayerStatus status = null;
     private Inventory myInventory = null;
     private bool isSelected = false;
-    private RectTransform unequip = null;
 
     [SerializeField] private float doubleClickTime = 0.2f;
     private float doubleClickTimeDown = 0f;
@@ -79,8 +78,9 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public void DeleteWeapon()
     {
+        UIManager.instance.UnEquipUI.gameObject.SetActive(false);
         if (item == null) return;
-        unequip.gameObject.SetActive(false);
+
         for (int i = 0; i < InventoryManager.instance.openInventoryList.Count; i++)
         {
             if (InventoryManager.instance.openInventoryList[i].SetItem(item) == true)
@@ -110,11 +110,7 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
         else if (eventData.button == PointerEventData.InputButton.Right && item != null)
         {
-            unequip.gameObject.SetActive(true);
-            unequip.anchoredPosition = eventData.position;
-            Button b = unequip.transform.Find("Button").GetComponent<Button>();
-            b.onClick.RemoveAllListeners();
-            b.onClick.AddListener(DeleteWeapon);
+            UIManager.instance.UnEquip(eventData.position, DeleteWeapon);
         }
     }
 
@@ -124,8 +120,5 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         this.itemSO = itemSO;
         this.weaponParent = weaponParent;
         this.status = status;
-
-        unequip = transform.root.Find("Unequip").GetComponent<RectTransform>();
-        unequip.gameObject.SetActive(false);
     }
 }

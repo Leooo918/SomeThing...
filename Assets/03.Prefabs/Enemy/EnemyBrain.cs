@@ -10,6 +10,18 @@ public class EnemyBrain : MonoBehaviour
     public Action onAttack = null;
     public Action onDie = null;
 
+    private void Awake()
+    {
+        onDie += () =>
+        {
+            GameObject box = Instantiate(GameManager.instance.boxPf);
+
+            box.transform.localScale = new Vector3(1, 1, 1);
+            box.transform.eulerAngles = transform.eulerAngles;
+            box.transform.position = transform.position;
+        };
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))

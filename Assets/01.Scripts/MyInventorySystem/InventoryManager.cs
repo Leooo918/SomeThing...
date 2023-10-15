@@ -9,7 +9,8 @@ public class InventoryManager : MonoBehaviour
     public InventorySO inventorySO = null;  
     public ItemSO itemSO = null;    
 
-    public List<Inventory> openInventoryList = new List<Inventory>();   //현재 열려있는 인벤토리들
+    public List<Inventory> openInventoryList = new ();   //현재 열려있는 인벤토리들
+    public List<Inventory> allInventoried = new ();
     public Item currentItem = null;     //현재 플레이어가 드래그하고 있는 아이템
     public bool isDeviding = false;     //아이템을 나누는 중인지 확인
 
@@ -37,6 +38,7 @@ public class InventoryManager : MonoBehaviour
 
             inventory.transform.SetSiblingIndex(1);
             inventory.Init(itemSO,inventorySO, inventorySO.inventoryStructs[i]);
+            allInventoried.Add(inventory);
         }
     }
 }
