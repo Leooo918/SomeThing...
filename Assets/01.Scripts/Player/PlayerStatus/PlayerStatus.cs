@@ -133,7 +133,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
         UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
 
-        if(playerCurHp <= 0)
+        if (playerCurHp <= 0)
         {
             Die();
         }
@@ -211,6 +211,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
                     {
                         Item item = Instantiate(itemSO.items[j].pfItem.GetComponent<Item>());
                         item.Init(itemSO.items[j], 0);
+
                         weaponSlots[i].SetWeapon(item, true);
                         Destroy(item.gameObject);
                     }
@@ -223,7 +224,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         }
     }
 
-    public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI , PlayerWeaponSlot[] weaponSlots)
+    public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI, PlayerWeaponSlot[] weaponSlots)
     {
         this.itemSO = itemSO;
         this.weaponSO = weaponSO;

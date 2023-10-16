@@ -112,7 +112,6 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     public virtual void OnPointerUp(PointerEventData eventData)
     {
-
         if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
 
         UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);

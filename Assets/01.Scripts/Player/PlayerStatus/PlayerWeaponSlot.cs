@@ -65,7 +65,7 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
                             RectTransform r = item.GetComponent<RectTransform>();
                             r.localPosition = new Vector3(1, 1, 1);
                             r.anchoredPosition3D = new Vector3(0, 0, 0);
-                            this.item.Init(itemSO.items[j], 0); ;
+                            this.item.Init(itemSO.items[j], 0);
                             this.item.gameObject.SetActive(false);
                         }
                     }

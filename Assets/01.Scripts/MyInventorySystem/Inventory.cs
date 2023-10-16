@@ -176,7 +176,7 @@ public class Inventory : MonoBehaviour
                     if (itemSO.items[j].itemName == saves.itemName[i])                                  //아이템SO에서 저장된 이름의 아이템과 같은 이름의 아이템을 찾아
                     {
                         Vector2Int v = new Vector2Int(saves.positionX[i], saves.positionY[i]);          //아이템의 위치를 지정하고
-                        SetItemWithSPosition(v, j, saves.rotation[i]);                                              //아이템을 지정한다(그냥 아이템은 위치 지정)
+                        SetItemWithPosition(v, j, saves.rotation[i]);                                              //아이템을 지정한다(그냥 아이템은 위치 지정)
                     }
                 }
                 for (int j = 0; j < itemSO.expendableItems.Count; j++)
@@ -184,7 +184,7 @@ public class Inventory : MonoBehaviour
                     if (itemSO.expendableItems[j].itemName == saves.itemName[i])
                     {
                         Vector2Int v = new Vector2Int(saves.positionX[i], saves.positionY[i]);          //아이템의 위치를 지정하고
-                        SetItemWithSPosition(v, j, saves.rotation[i], true, saves.itemAmount[i]);                   //아이템을 지정한다(나눌 수 있는 아이템은 위치 지정, 개수 지정)
+                        SetItemWithPosition(v, j, saves.rotation[i], true, saves.itemAmount[i]);                   //아이템을 지정한다(나눌 수 있는 아이템은 위치 지정, 개수 지정)
                     }
                 }
             }
@@ -198,8 +198,7 @@ public class Inventory : MonoBehaviour
         string json = JsonUtility.ToJson(saves, true);                                                                  //걍 다 json파일로 바꿔 저장해
         File.WriteAllText(path, json);
     }
-
-    private void SetItemWithSPosition(Vector2Int originPos, int arrayNum, float rotation, bool isExpendableItem = false, int itemAmount = 0)
+    private void SetItemWithPosition(Vector2Int originPos, int arrayNum, float rotation, bool isExpendableItem = false, int itemAmount = 0)
     {
         Item item = null;
         ExpendableItem expendableItem = null;
@@ -214,7 +213,7 @@ public class Inventory : MonoBehaviour
             item = expendableItem.GetComponent<Item>();
         }
 
-        RectTransform rect = item.GetComponent<RectTransform>();                    //부모 지정해주고 크기 1,1,1로 바꾸고 
+        RectTransform rect = item.GetComponent<RectTransform>();                        //부모 지정해주고 크기 1,1,1로 바꾸고
         rect.transform.SetParent(transform.root);
         item.transform.localScale = new Vector3(1, 1, 1);
 
@@ -222,21 +221,19 @@ public class Inventory : MonoBehaviour
 
         if (isExpendableItem == false)                                                  //나눌 수 없는 아이템이면
         {
-            Normal normalItem = new Normal();
-            normalItem = itemSO.items[arrayNum];                                        //일반 아이템의 구조체 들고와
+            Normal normalItem = itemSO.items[arrayNum];                                        //일반 아이템의 구조체 들고와
 
-            item.Init(normalItem, rotation);                                                      //아이템 Init해주고
+            item.Init(normalItem, rotation);                                            //아이템 Init해주고
         }
         else
         {
-            Expendable expendable = new Expendable();
-            expendable = itemSO.expendableItems[arrayNum];
+            Expendable expendable = itemSO.expendableItems[arrayNum];
 
             expendableItem.Init(expendable, itemAmount, rotation);
         }
 
         slots[originPos.x, originPos.y].SetItem(item);                             //슬롯에서 아이템을 셋팅 해줘
-        //slots[originPos.x, originPos.y].SetIsOriginPos();
+
         rect.anchoredPosition3D = new Vector3(rect.anchoredPosition3D.x, rect.anchoredPosition3D.y, 0);//z값 0으로
 
         for (int i = 0; i < item.assignedSlot.Count; i++)
@@ -244,6 +241,7 @@ public class Inventory : MonoBehaviour
             item.lastSlot.Add(item.assignedSlot[i]);
         }
     }
+
 
     public bool SetItem(Item item, int amount = 1)
     {
@@ -253,7 +251,6 @@ public class Inventory : MonoBehaviour
             {
                 if (slots[j, i].CheckCanSetPosition(item) == true)  //그 슬롯으로부터 지정된 아이템의 사이즈만큼 
                 {
-                    print(j + " " + i);
                     if (item.TryGetComponent<ExpendableItem>(out ExpendableItem expendableItem))
                     {
                         slots[j, i].SetItem(expendableItem);
