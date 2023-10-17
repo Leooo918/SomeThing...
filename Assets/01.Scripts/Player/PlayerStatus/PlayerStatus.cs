@@ -56,7 +56,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        path = Path.Combine(Application.dataPath, "WeaponSave" + "database.json");
+        path = Path.Combine(Application.dataPath, "PlayerStatus.json");
 
         weaponSelector = transform.Find("WeaponSelect").GetComponent<WeaponSelector>();
         playerBrain = GetComponent<PlayerInput>();
@@ -213,7 +213,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
                         item.Init(itemSO.items[j], 0);
 
                         weaponSlots[i].SetWeapon(item, true);
-                        Destroy(item.gameObject);
+                        //Destroy(item.gameObject);
                     }
                 }
             }

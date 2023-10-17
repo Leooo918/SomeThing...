@@ -61,8 +61,11 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
         background = transform.Find("Background");
         image = transform.Find("Sprite").GetComponent<Image>();
         backgroundImage = background.GetComponentsInChildren<Image>();
+    }
 
-        weaponSlots = FindObjectsByType<PlayerWeaponSlot>(FindObjectsSortMode.None);
+    private void Start()
+    {
+        weaponSlots = UIManager.instance.weaponSlots;
     }
 
     protected virtual void Update()
@@ -177,9 +180,6 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Right || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
-
-
-
     }
 
 

@@ -28,9 +28,7 @@ public class BoxScripts : MonoBehaviour
         btn = obstacles.Find("NotFound").GetComponent<Button>();
         obstacles.gameObject.SetActive(false);
 
-        Init("Dog");
-
-        openInventory.InventoryClose();
+        Init("Dog");                            //일단 디버그용 나중에 애너미 죽을때 애너미 이름으로 Init해주게 봐꺼야 함
     }
 
 
@@ -105,6 +103,8 @@ public class BoxScripts : MonoBehaviour
 
     public void Init(string monsterName)
     {
+        openInventory.Init();
+
         EnemyBox e = new EnemyBox();
         itemParent = GameManager.instance.canvas;
 
@@ -113,15 +113,14 @@ public class BoxScripts : MonoBehaviour
             if (boxSO.enemyBoxes[i].enemyName == monsterName)
             {
                 e = boxSO.enemyBoxes[i];
-                openInventory.InventoryOpen();
-                openInventory.myInventory.ResetInventory();
 
                 for (int j = 0; j < e.items.Length; j++)     //이 적에게서 나올수 있는 아이템들을 모두 돌며
                 {
                     if (Random.Range(0, 100) < e.items[j].exisistPercentage)  //그 아이템이 나올 확률을 계산해
                     {
-                        int itemNum = Random.Range(0, e.items[j].maxItemAmount);
+                        int itemNum = Random.Range(1, e.items[j].maxItemAmount);
 
+                        print(itemNum);
                         Item it;
                         ExpendableItem ex;
 
@@ -129,16 +128,18 @@ public class BoxScripts : MonoBehaviour
                         {
                             if (itemSO.items[k].itemName == e.items[j].itemName)
                             {
-                                GameObject g = Instantiate(itemSO.items[k].pfItem, itemParent);
-                                g.transform.SetAsLastSibling();
-                                g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
-
-                                it = g.GetComponent<Item>();
                                 for (int l = 0; l < itemNum; l++)
                                 {
+                                    GameObject g = Instantiate(itemSO.items[k].pfItem, itemParent);
+                                    g.transform.SetAsLastSibling();
+                                    g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+
+                                    it = g.GetComponent<Item>();
+
+                                    print(it);
                                     it.Init(itemSO.items[k], 0);
+                                    openInventory.myInventory.SetItem(it);
                                 }
-                                openInventory.myInventory.SetItem(it);
                                 break;
                             }
                         }
@@ -146,13 +147,20 @@ public class BoxScripts : MonoBehaviour
                         {
                             if (itemSO.expendableItems[k].itemName == e.items[j].itemName)
                             {
-                                GameObject g = Instantiate(itemSO.expendableItems[k].pfItem, itemParent);
-                                g.transform.SetAsLastSibling();
-                                g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+                                while (itemNum > 0)
+                                {
+                                    GameObject g = Instantiate(itemSO.expendableItems[k].pfItem, itemParent);
+                                    g.transform.SetAsLastSibling();
+                                    g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
 
-                                ex = g.GetComponent<ExpendableItem>();
-                                ex.Init(itemSO.expendableItems[k], itemNum, 0);
-                                openInventory.myInventory.SetItem(ex);
+                                    ex = g.GetComponent<ExpendableItem>();
+
+                                    int num = Mathf.Clamp(itemNum, 1, ex.MaxitemNum);
+
+                                    ex.Init(itemSO.expendableItems[k], num, 0);
+                                    openInventory.myInventory.SetItem(ex);
+                                    itemNum -= num;
+                                }
                                 break;
                             }
                         }

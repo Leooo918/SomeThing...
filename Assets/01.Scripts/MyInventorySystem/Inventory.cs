@@ -93,7 +93,7 @@ public class Inventory : MonoBehaviour
             for (int k = slots.GetLength(1) - 1; k >= 0; k--)
             {
                 for (int j = 0; j < slots.GetLength(0); j++)
-                { 
+                {
                     if (slots[j, k].CheckCanSetPosition(itemList[i]) == true)
                     {
                         slots[j, k].SetItem(itemList[i]);
@@ -123,22 +123,33 @@ public class Inventory : MonoBehaviour
 
     public void JsonSave()
     {
-        ItemSave saves = new ItemSave();                                                                                //저장할 클래스
+        ItemSave saves = new ItemSave();                                //저장할 클래스
 
-        saves.inventoryName = inventoryName;                                                                            //이름 지정 해주고
+        saves.inventoryName = inventoryName;                            //이름 지정 해주고
 
         for (int j = 0; j < slots.GetLength(1); j++)
         {
             for (int k = 0; k < slots.GetLength(0); k++)
             {
-                if (slots[k, j].IsAssignedItemsOriginPos == true)      //저장해야될 모든 인벤토리의 슬롯을 돌면서 아이템의 왼쪽아래쪽이 할당된 슬롯을 찾아
+                if (slots[k, j].IsAssignedItemsOriginPos == true)       //저장해야될 모든 인벤토리의 슬롯을 돌면서 아이템의 왼쪽아래쪽이 할당된 슬롯을 찾아
                 {
                     Item item = slots[k, j].assignedItem;
 
-                    saves.itemName.Add(item.ItemName);                                                              //저장해(아이템 이름, 위치, 개수)
+                    if (item == null) continue;
+
+                    saves.itemName.Add(item.ItemName);                  //저장해(아이템 이름, 위치, 개수)
                     saves.positionX.Add(k);
                     saves.positionY.Add(j);
-                    saves.rotation.Add(item.GetComponent<RectTransform>().eulerAngles.z);
+
+
+                    if (item.enabled == true)
+                    {
+                        saves.rotation.Add(item.GetComponent<RectTransform>().eulerAngles.z);
+                    }
+                    else
+                    {
+                        saves.rotation.Add(0);
+                    }
 
                     if (item.GetComponent<ExpendableItem>() != null)
                     {
@@ -198,6 +209,7 @@ public class Inventory : MonoBehaviour
         string json = JsonUtility.ToJson(saves, true);                                                                  //걍 다 json파일로 바꿔 저장해
         File.WriteAllText(path, json);
     }
+
     private void SetItemWithPosition(Vector2Int originPos, int arrayNum, float rotation, bool isExpendableItem = false, int itemAmount = 0)
     {
         Item item = null;
@@ -242,7 +254,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-
     public bool SetItem(Item item, int amount = 1)
     {
         for (int i = slots.GetLength(1) - 1; i >= 0; i--)
@@ -253,13 +264,15 @@ public class Inventory : MonoBehaviour
                 {
                     if (item.TryGetComponent<ExpendableItem>(out ExpendableItem expendableItem))
                     {
+                        print(expendableItem);
                         slots[j, i].SetItem(expendableItem);
                     }
                     else
                     {
+                        print(item);
                         slots[j, i].SetItem(item);
                     }
-
+                    print("얏후");
                     JsonSave();
                     return true;
                 }
@@ -313,7 +326,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
-       gameObject.SetActive(false);    //인벤토리를 비활성화 시키고
+        gameObject.SetActive(false);    //인벤토리를 비활성화 시키고
 
     }
 }

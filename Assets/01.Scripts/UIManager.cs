@@ -18,9 +18,9 @@ public class UIManager : MonoBehaviour
     private RectTransform obstacles = null;
     private List<OpenInventory> inventories = new List<OpenInventory>();
     private Inventory enemyBoxInventory = null;
+ 
 
-
-
+    public PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[3];
     public RectTransform UnEquipUI => unEquipUI;
     public Inventory EnemyBoxInventory => enemyBoxInventory;
 
@@ -28,12 +28,11 @@ public class UIManager : MonoBehaviour
     {
         if (isInteract == true)  //상호작용 
         {
-            interactUI.Find("Text").GetComponent<TextMeshProUGUI>().DOFade(1, 0.3f).SetEase(Ease.Linear);
+            interactUI.Find("Text").GetComponent<TextMeshProUGUI>().DOFade(1, 0.3f).SetEase(Ease.Linear).SetAutoKill(true);
         }
         else                    //상호작용 해제한 거냐
         {
-
-            interactUI.Find("Text").GetComponent<TextMeshProUGUI>().DOFade(0, 0.3f).SetEase(Ease.Linear);
+            interactUI.Find("Text").GetComponent<TextMeshProUGUI>().DOFade(0, 0.3f).SetEase(Ease.Linear).SetAutoKill(true);
         }
     }
 
@@ -66,7 +65,6 @@ public class UIManager : MonoBehaviour
 
         inventories = FindObjectsByType<OpenInventory>(FindObjectsSortMode.InstanceID).ToList();
 
-        PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[3];
         for (int i = 0; i < 3; i++)
         {
             weaponSlots[i] = playerStatusUI.Find("PlayerStatue/MountingWeapons").GetChild(i).GetComponent<PlayerWeaponSlot>();

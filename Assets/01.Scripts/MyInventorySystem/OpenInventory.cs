@@ -8,9 +8,9 @@ public class OpenInventory : MonoBehaviour
 
     private void Start()
     {
-        for(int i = 0;i <  InventoryManager.instance.allInventoried.Count; i++)
+        for (int i = 0; i < InventoryManager.instance.allInventoried.Count; i++)
         {
-            if(inventoryName == InventoryManager.instance.allInventoried[i].inventoryName)
+            if (inventoryName == InventoryManager.instance.allInventoried[i].inventoryName)
             {
                 myInventory = InventoryManager.instance.allInventoried[i];
                 InventoryClose();
@@ -66,5 +66,16 @@ public class OpenInventory : MonoBehaviour
             }
         }
         myInventory.gameObject.SetActive(false);    //인벤토리를 비활성화 시키고
+    }
+
+    public void Init()
+    {
+        for (int i = 0; i < InventoryManager.instance.allInventoried.Count; i++)
+        {
+            if (inventoryName == InventoryManager.instance.allInventoried[i].inventoryName)
+            {
+                myInventory = InventoryManager.instance.allInventoried[i];
+            }
+        }
     }
 }
