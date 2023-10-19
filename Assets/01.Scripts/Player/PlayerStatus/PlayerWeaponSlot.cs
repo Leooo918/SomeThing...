@@ -4,53 +4,28 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class PlayerWeaponSlot : MountingItemSlot
 {
     private Weapon assignedWeapon = null;
     private WeaponSO weaponSO = null;
-    private ItemSO itemSO = null;
-    private Item item = null;
     private Transform weaponParent = null;
     private PlayerStatus status = null;
-    private Inventory myInventory = null;
-    private bool isSelected = false;
-
-    [SerializeField] private float doubleClickTime = 0.2f;
-    private float doubleClickTimeDown = 0f;
 
     [SerializeField] private int slotNum = 0;
 
-    private void Update()
-    {
-        if (doubleClickTimeDown >= 0)
-        {
-            doubleClickTimeDown -= Time.deltaTime;
-        }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        isSelected = true;
-        transform.localScale = new Vector3(1.1f, 1.1f, 1.1f);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        isSelected = false;
-        transform.localScale = new Vector3(1f, 1f, 1f);
-    }
-
-    public bool SetWeapon(Item item, bool isLoading = false)
+    public override bool SetItem(Item item, float durability, float proficiency, bool isLoading = false)
     {
         if (isSelected == false && isLoading == false) return false;
 
-        if (item.ItemType == ItemType.weapons)
+        if (item.TryGetComponent<ItemWeapon>(out ItemWeapon itemWepon))
         {
             for (int i = 0; i < weaponSO.weapons.Length; i++)
             {
                 if (weaponSO.weapons[i].name == item.itemName)
                 {
                     assignedWeapon = Instantiate(weaponSO.weapons[i].weapon, weaponParent).GetComponent<Weapon>();
+                    assignedWeapon.Init(durability, proficiency);
+
                     status.mountingWeapon[slotNum] = assignedWeapon;
                     transform.Find("Frame/Sprite").GetComponent<Image>().sprite = weaponSO.weapons[i].weaponImage;
                     transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 1);
@@ -76,42 +51,12 @@ public class PlayerWeaponSlot : MonoBehaviour, IPointerEnterHandler, IPointerExi
         return false;
     }
 
-    public void DeleteWeapon()
+    public override void UnEquip()
     {
-        UIManager.instance.UnEquipUI.gameObject.SetActive(false);
-        if (item == null) return;
-
-        for (int i = 0; i < InventoryManager.instance.openInventoryList.Count; i++)
-        {
-            if (InventoryManager.instance.openInventoryList[i].SetItem(item) == true)
-            {
-                item.gameObject.SetActive(true);
-                break;
-            }
-        }
-
+        base.UnEquip();
         Destroy(assignedWeapon.gameObject);
         assignedWeapon = null;
         transform.Find("Frame/Sprite").GetComponent<Image>().sprite = null;
-        transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 0);
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button == PointerEventData.InputButton.Left)
-        {
-            if (doubleClickTimeDown <= 0)
-            {
-                doubleClickTimeDown = doubleClickTime;
-                return;
-            }
-
-            DeleteWeapon();
-        }
-        else if (eventData.button == PointerEventData.InputButton.Right && item != null)
-        {
-            UIManager.instance.UnEquip(eventData.position, DeleteWeapon);
-        }
     }
 
     public void Init(WeaponSO weaponSO, ItemSO itemSO, Transform weaponParent, PlayerStatus status)

@@ -1,7 +1,6 @@
 {
-    "itemName": [
-        "",
-        "",
-        ""
-    ]
+    "playerMaxHp": 0.0,
+    "playerAttact": 0.0,
+    "playerSpeed": 0.0,
+    "curProgress": 0
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Katana : Item
+public class Katana : ItemWeapon
 {
     protected override void Awake()
     {
@@ -13,5 +13,4 @@ public class Katana : Item
     {
         base.Update();   
     }
-
 }

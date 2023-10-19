@@ -2,31 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering;
 using DG.Tweening;
 using TMPro;
 
 [RequireComponent(typeof(OpenInventory))]
 public class BoxScripts : MonoBehaviour
 {
-    public EnemyBoxSO boxSO = null;
-    public ItemSO itemSO = null;
+    private string boxMonsterName = "";
+
+    private EnemyBoxSO boxSO = null;
+    private ItemSO itemSO = null;
+    private Renderer render = null;
     private OpenInventory openInventory = null;
     private OpenInventory playerBackPack = null;
     private Transform itemParent = null;
     private RectTransform obstacles = null;
     private Button btn = null;
     private PlayerInput input = null;
+    private Button closeBtn = null;
+    private Transform warning = null;
+    private Button cancel = null;
+    private Button accept = null;
+    private Toggle checkWarning = null;
 
     private float routingTime = 2.5f;
 
-    private void Start()
+
+    private void Awake()
     {
+        render = GetComponent<Renderer>();
         playerBackPack = GameManager.instance.player.GetComponent<OpenInventory>();
         openInventory = GetComponent<OpenInventory>();
         itemParent = GameManager.instance.canvas;
         obstacles = itemParent.Find("Obstacle").GetComponent<RectTransform>();
         btn = obstacles.Find("NotFound").GetComponent<Button>();
         obstacles.gameObject.SetActive(false);
+
+        openInventory.onOpenInventory += OnOpenInventory;
 
         Init("Dog");                            //일단 디버그용 나중에 애너미 죽을때 애너미 이름으로 Init해주게 봐꺼야 함
     }
@@ -59,7 +72,7 @@ public class BoxScripts : MonoBehaviour
         obstacles.gameObject.SetActive(true);
         obstacles.SetAsLastSibling();
 
-        RectTransform r = openInventory.myInventory.transform.Find("InventoryBackground").GetComponent<RectTransform>();
+        RectTransform r = openInventory.MyInventory.transform.Find("InventoryBackground").GetComponent<RectTransform>();
         obstacles.anchoredPosition = r.anchoredPosition;
         obstacles.sizeDelta = r.sizeDelta;
 
@@ -73,8 +86,29 @@ public class BoxScripts : MonoBehaviour
 
     private void OnExit()
     {
-        openInventory.InventoryClose();
-        playerBackPack.InventoryClose();
+        if (openInventory.MyInventory.gameObject.activeSelf == true)
+        {
+            openInventory.InventoryClose();
+            playerBackPack.InventoryClose();
+            warning.gameObject.SetActive(false);
+            StopCoroutine("LoadingCircle");
+            obstacles.gameObject.SetActive(false);
+            GetComponent<Collider2D>().enabled = false;
+
+            StartCoroutine("DisolveRoutine");
+        }
+    }
+
+    IEnumerator DisolveRoutine()
+    {
+        float a = 0;
+        while (render.material.GetFloat("_DisolveValue") > 0)
+        {
+            a += Time.deltaTime / 1.2f;
+            render.material.SetFloat("_DisolveValue", Mathf.Lerp(1, 0, a));
+            yield return null;
+        }
+        Destroy(gameObject);
     }
 
     IEnumerator ItemSerchRoutine()
@@ -101,16 +135,55 @@ public class BoxScripts : MonoBehaviour
         }
     }
 
-    public void Init(string monsterName)
+    private void SetWarning()
+    {
+        closeBtn = openInventory.MyInventory.transform.Find("CloseBtn").GetComponent<Button>();
+        warning = UIManager.instance.WarningBoxExit;
+        cancel = warning.Find("Warning/NoBtn").GetComponent<Button>();
+        accept = warning.Find("Warning/OkBtn").GetComponent<Button>();
+        checkWarning = warning.transform.Find("CheckWarning").GetComponent<Toggle>();
+
+        warning.gameObject.SetActive(false);
+
+        checkWarning.onValueChanged.RemoveAllListeners();
+        checkWarning.onValueChanged.AddListener(e =>
+        {
+            SettingManager.instance.SaveCheckWarning(e);
+        });
+
+        closeBtn.onClick.RemoveAllListeners();
+        closeBtn.onClick.AddListener(() =>
+        {
+            if (SettingManager.instance.LoadCheckWarning() == true)
+            {
+                OnExit();
+            }
+            else
+            {
+                warning.gameObject.SetActive(true);
+                warning.SetAsLastSibling();
+            }
+        });
+
+        accept.onClick.RemoveAllListeners();
+        accept.onClick.AddListener(OnExit);
+        cancel.onClick.AddListener(() =>
+        {
+            warning.gameObject.SetActive(false);
+        });
+    }
+
+    private void OnOpenInventory()
     {
         openInventory.Init();
+        SetWarning();
 
         EnemyBox e = new EnemyBox();
         itemParent = GameManager.instance.canvas;
 
         for (int i = 0; i < boxSO.enemyBoxes.Length; i++)
         {
-            if (boxSO.enemyBoxes[i].enemyName == monsterName)
+            if (boxSO.enemyBoxes[i].enemyName == boxMonsterName)
             {
                 e = boxSO.enemyBoxes[i];
 
@@ -120,7 +193,6 @@ public class BoxScripts : MonoBehaviour
                     {
                         int itemNum = Random.Range(1, e.items[j].maxItemAmount);
 
-                        print(itemNum);
                         Item it;
                         ExpendableItem ex;
 
@@ -135,10 +207,11 @@ public class BoxScripts : MonoBehaviour
                                     g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
 
                                     it = g.GetComponent<Item>();
+                                    g.transform.localScale = new Vector3(2, 2, 2);
 
-                                    print(it);
                                     it.Init(itemSO.items[k], 0);
-                                    openInventory.myInventory.SetItem(it);
+                                    openInventory.MyInventory.SetItem(it);
+                                    it.gameObject.SetActive(false);
                                 }
                                 break;
                             }
@@ -147,28 +220,37 @@ public class BoxScripts : MonoBehaviour
                         {
                             if (itemSO.expendableItems[k].itemName == e.items[j].itemName)
                             {
+                                GameObject g = Instantiate(itemSO.expendableItems[k].pfItem, itemParent);
+                                g.transform.SetAsLastSibling();
+                                g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
+                                g.transform.localScale = new Vector3(2, 2, 2);
+                                ex = g.GetComponent<ExpendableItem>();
                                 while (itemNum > 0)
                                 {
-                                    GameObject g = Instantiate(itemSO.expendableItems[k].pfItem, itemParent);
-                                    g.transform.SetAsLastSibling();
-                                    g.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, 0, 0);
-
-                                    ex = g.GetComponent<ExpendableItem>();
-
-                                    int num = Mathf.Clamp(itemNum, 1, ex.MaxitemNum);
+                                    int num = Mathf.Clamp(itemNum, 1, itemSO.expendableItems[k].maxItemNum);
 
                                     ex.Init(itemSO.expendableItems[k], num, 0);
-                                    openInventory.myInventory.SetItem(ex);
+                                    openInventory.MyInventory.SetItem(ex);
                                     itemNum -= num;
+                                    ex.gameObject.SetActive(false);
                                 }
                                 break;
                             }
                         }
-
                     }
                 }
-
             }
         }
+
+
+        openInventory.InventoryClose();
+    }
+
+    public void Init(string monsterName)
+    {
+        boxMonsterName = monsterName;
+
+        boxSO = GameManager.instance.boxSO;
+        itemSO = GameManager.instance.itemSO;
     }
 }

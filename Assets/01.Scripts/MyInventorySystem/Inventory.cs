@@ -260,7 +260,7 @@ public class Inventory : MonoBehaviour
         {
             for (int j = 0; j < slots.GetLength(0); j++)
             {
-                if (slots[j, i].CheckCanSetPosition(item) == true)  //그 슬롯으로부터 지정된 아이템의 사이즈만큼 
+                if (slots[j, i].CheckCanSetPosition(item) == true)  //그 슬롯으로부터 지정된 아이템의 사이즈만큼
                 {
                     if (item.TryGetComponent<ExpendableItem>(out ExpendableItem expendableItem))
                     {
@@ -269,10 +269,9 @@ public class Inventory : MonoBehaviour
                     }
                     else
                     {
-                        print(item);
                         slots[j, i].SetItem(item);
                     }
-                    print("얏후");
+
                     JsonSave();
                     return true;
                 }

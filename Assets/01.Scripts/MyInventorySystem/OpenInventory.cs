@@ -1,11 +1,14 @@
 using UnityEngine;
+using System;
 
 public class OpenInventory : MonoBehaviour
 {
-    public Inventory myInventory = null;   //이 스크립트가 열 인벤토리
+    private Inventory myInventory = null;   //이 스크립트가 열 인벤토리
 
     public string inventoryName = "MyInventory";  //이 인벤토리가 열 인벤토리의 이름
+    public Action onOpenInventory = null;
 
+    public Inventory MyInventory => myInventory;
     private void Start()
     {
         for (int i = 0; i < InventoryManager.instance.allInventoried.Count; i++)
@@ -34,6 +37,8 @@ public class OpenInventory : MonoBehaviour
 
     public void InventoryOpen()
     {
+        onOpenInventory?.Invoke();
+
         if (myInventory.gameObject.activeSelf == true) return;
 
         InventoryManager.instance.openInventoryList.Add(myInventory);   //인벤토리 메니저에 openInventory에 이 인벤토리를 추가

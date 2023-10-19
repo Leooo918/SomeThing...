@@ -11,7 +11,8 @@ public enum ItemType
     ingrediants = 2,
     expendables = 3,
     ammo = 4,
-    money = 5
+    money = 5,
+    lantern = 6
 }
 
 public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler, IPointerEnterHandler, IPointerClickHandler
@@ -43,6 +44,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
 
     public List<Slot> assignedSlot = new List<Slot>();      //현재 아이템이 포함되있는 모든 슬롯
     private PlayerWeaponSlot[] weaponSlots = null;
+    private PlayerLanternSlot lanternSlot = null;
 
     #region 프로퍼티
     public Vector2Int ClickPointInt => clickPointInt;
@@ -66,6 +68,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     private void Start()
     {
         weaponSlots = UIManager.instance.weaponSlots;
+        lanternSlot = UIManager.instance.LanternSlot;
     }
 
     protected virtual void Update()
@@ -151,15 +154,24 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
             }
         }
 
-        for (int i = 0; i < weaponSlots.Length; i++)
+        if (TryGetComponent<ItemWeapon>(out ItemWeapon itemWeapon))
         {
-            if (weaponSlots[i].SetWeapon(this))
+            for (int i = 0; i < weaponSlots.Length; i++)
+            {
+                if (weaponSlots[i].SetItem(this, itemWeapon.Durability, itemWeapon.Proficiency))
+                {
+                    Destroy(gameObject);
+                    canSetPosition = true;
+                }
+            }
+            if (lanternSlot.SetItem(this,itemWeapon.Durability, itemWeapon.Proficiency))
             {
                 Destroy(gameObject);
                 canSetPosition = true;
             }
-
         }
+
+
 
         if (canSetPosition == false)                //포지션을 설정할 수 없는 상황이라면
         {
@@ -180,6 +192,8 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button != PointerEventData.InputButton.Right || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
+
+        UIManager.instance.SetProfile(eventData.position,itemName,);
     }
 
 

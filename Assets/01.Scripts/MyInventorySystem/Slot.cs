@@ -261,6 +261,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void SetItem(Item item)
     {
+        isAssignedItemsOriginPos = true;
         SetPosition(item, false, true);                                     //위치를 지정해줘
 
         for (int i = 0; i < item.assignedSlot.Count; i++)
@@ -280,7 +281,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     return;
                 }
                 item.assignedSlot.Add(inventory.slots[posX + i, posY + j]); //슬롯이랑 아이템에 그 아이템과 슬롯 지정
-                inventory.slots[posX + i, posY + j].assignedItem = item;    //
+                inventory.slots[posX + i, posY + j].assignedItem = item;
             }
         }
     }

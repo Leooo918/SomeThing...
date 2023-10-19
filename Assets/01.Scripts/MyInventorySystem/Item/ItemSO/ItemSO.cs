@@ -5,6 +5,7 @@ using UnityEngine;
 public struct Normal
 {
     public string itemName;
+    public string itemExplain;
     public Vector2Int size;
     public GameObject pfItem;
     public ItemType itemType;
@@ -15,6 +16,7 @@ public struct Normal
 public struct Expendable
 {
     public string itemName;
+    public string itemExplain;
     public Vector2Int size;
     public GameObject pfItem;
     public ItemType itemType;

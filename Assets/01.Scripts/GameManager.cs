@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance = null;
 
     public ItemSO itemSO = null;
+    public EnemyBoxSO boxSO = null;
     public ShopSO shopSO = null;
     public InventorySO inventorySO = null;
     public ShopGoodsSO shopGoodsSO = null;
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
         CreateInventoryManager();
         CreateSoundManager();
         CreateUIManager();
+        CreateSettingManager();
     }
 
     private void CreateShopManager()
@@ -67,5 +69,11 @@ public class GameManager : MonoBehaviour
 
         UIManager.instance.Init(canvas, player.GetComponent<PlayerStatus>(), itemSO, weaponSO);
 
+    }
+
+    private void CreateSettingManager()
+    {
+        if (SettingManager.instance != null) Destroy(SettingManager.instance);
+        SettingManager.instance = gameObject.AddComponent<SettingManager>();
     }
 }

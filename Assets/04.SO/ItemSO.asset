@@ -17,16 +17,21 @@ MonoBehaviour:
     size: {x: 2, y: 2}
     pfItem: {fileID: 5446612954618887651, guid: 792f6f0ee70472740a11998dc6f8ad53, type: 3}
     itemType: 0
-    itemValue: 10
+    itemValue: 100
   - itemName: Katana
     size: {x: 1, y: 4}
     pfItem: {fileID: 5446612954618887651, guid: b13201cd0c4681c4f91032831fe51a66, type: 3}
     itemType: 0
-    itemValue: 0
+    itemValue: 50
   - itemName: Medkit
     size: {x: 2, y: 2}
     pfItem: {fileID: 5446612954618887651, guid: 6fb065b1ad11b1a4aa1e274abe2e583f, type: 3}
     itemType: 3
+    itemValue: 10
+  - itemName: Lantern
+    size: {x: 1, y: 1}
+    pfItem: {fileID: 3366919235249711578, guid: 4eba17d751c766140a9f0c24fc1c2d89, type: 3}
+    itemType: 6
     itemValue: 5
   expendableItems:
   - itemName: Ammo

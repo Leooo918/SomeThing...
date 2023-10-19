@@ -3,6 +3,14 @@ using UnityEngine;
 using System.Collections;
 using System.IO;
 
+public struct WeaponSave
+{
+    public string weaponName;
+    public float durability;
+    public float proficiency;
+}
+
+
 public interface IDamageable
 {
     void Damaged(float value);
@@ -11,11 +19,11 @@ public interface IDamageable
 
 public class StatusSave
 {
-    public string[] itemName = new string[3];
+    public WeaponSave[] weapon = new WeaponSave[3];
     public float playerMaxHp;
     public float playerAttact;
     public float playerSpeed;
-    public int curProgress;     //임시
+    public int curProgress;     //임시이긴 한데 아마 현재 던전층수 나타낼 듯
 }
 
 
@@ -61,7 +69,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         weaponSelector = transform.Find("WeaponSelect").GetComponent<WeaponSelector>();
         playerBrain = GetComponent<PlayerInput>();
         playerInventory = GetComponent<OpenInventory>();
-        myBackpack = playerInventory.myInventory;
+        myBackpack = playerInventory.MyInventory;
 
         playerBrain.onOpenInventory += OnPressTab;
     }
@@ -121,6 +129,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     {
         playerSpeed = value;
     }
+
     public void ChangeAttack(float value)
     {
         playerAttact = value;
@@ -164,22 +173,23 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 
         for (int i = 0; i < 3; i++)
         {
-            if (mountingWeapon[i] != null)
+            if (mountingWeapon[i] != null)  //i번째 슬롯에 장착된 아이템이 있다면
             {
-                saves.itemName[i] = mountingWeapon[i].ItemName;
+                print(mountingWeapon[i].WeaponData.weaponName);
+                saves.weapon[i] = mountingWeapon[i].WeaponData; //장착된 무기의 WeaponData를 저★장 해줘
             }
 
-            for (int j = 0; j < weaponSO.weapons.Length; j++)
-            {
-                if (mountingWeapon[i] != null)
-                {
-                    if (weaponSO.weapons[j].name == mountingWeapon[i].ItemName)
-                    {
-                        GameObject g = Instantiate(weaponSO.weapons[j].weaponImageObj, weaponSelector.transform.GetChild(1 + j));
-                        g.transform.position = new Vector3(0, 0, 0);
-                    }
-                }
-            }
+            //for (int j = 0; j < weaponSO.weapons.Length; j++)
+            //{
+            //    if (mountingWeapon[i] != null)
+            //    {
+            //        if (weaponSO.weapons[j].name == mountingWeapon[i].ItemName)
+            //        {
+            //            GameObject g = Instantiate(weaponSO.weapons[j].weaponImageObj, weaponSelector.transform.GetChild(1 + j));
+            //            g.transform.position = new Vector3(0, 0, 0);
+            //        }
+            //    }
+            //}
         }
 
         saves.playerMaxHp = playerMaxHp;
@@ -205,15 +215,16 @@ public class PlayerStatus : MonoBehaviour, IDamageable
 
             for (int i = 0; i < 3; i++)
             {
+                WeaponSave weapon = saves.weapon[i];
+
                 for (int j = 0; j < itemSO.items.Count; j++)
                 {
-                    if (itemSO.items[j].itemName == saves.itemName[i])
+                    if (itemSO.items[j].itemName == weapon.weaponName)
                     {
                         Item item = Instantiate(itemSO.items[j].pfItem.GetComponent<Item>());
                         item.Init(itemSO.items[j], 0);
 
-                        weaponSlots[i].SetWeapon(item, true);
-                        //Destroy(item.gameObject);
+                        weaponSlots[i].SetItem(item, weapon.durability, weapon.proficiency, true);
                     }
                 }
             }
@@ -224,7 +235,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         }
     }
 
-    public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI, PlayerWeaponSlot[] weaponSlots)
+    public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI, PlayerWeaponSlot[] weaponSlots, PlayerLanternSlot lantern)
     {
         this.itemSO = itemSO;
         this.weaponSO = weaponSO;
@@ -237,6 +248,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         {
             weaponSlots[i].Init(weaponSO, itemSO, transform.Find("PlayerWeapon"), this);
         }
+        lantern.Init(itemSO);
 
         JsonLoad();
     }

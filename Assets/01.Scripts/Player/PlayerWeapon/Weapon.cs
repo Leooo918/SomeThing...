@@ -2,6 +2,7 @@ using UnityEngine;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] protected string itemName = "";
+    protected WeaponSave weaponData = new WeaponSave();
     protected PlayerInput playerAction = null;
     protected PlayerStatus playerStatus = null;
     protected WeaponSO weaponSO = null;
@@ -10,6 +11,7 @@ public abstract class Weapon : MonoBehaviour
     protected float durability = 100f;      //³»±¸µµ
 
     public string ItemName => itemName;
+    public WeaponSave WeaponData => weaponData;
 
     protected virtual void Awake()
     {
@@ -30,9 +32,9 @@ public abstract class Weapon : MonoBehaviour
     {
         weaponSO = GameManager.instance.weaponSO;
 
-        for(int i = 0; i < weaponSO.weapons.Length; i++)
+        for (int i = 0; i < weaponSO.weapons.Length; i++)
         {
-            if(weaponSO.weapons[i].name == itemName)
+            if (weaponSO.weapons[i].name == itemName)
             {
                 damageMultiple = weaponSO.weapons[i].damageMultiple;
             }
@@ -71,5 +73,12 @@ public abstract class Weapon : MonoBehaviour
             durability -= value;
             PlayerPrefs.SetFloat(itemName + "Durability", durability);
         }
+    }
+
+    public void Init(float durability, float proficiency)
+    {
+        weaponData.weaponName = itemName;
+        weaponData.durability = durability;
+        weaponData.proficiency = proficiency;
     }
 }

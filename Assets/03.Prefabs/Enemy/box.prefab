@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: c54a9efdfbc92e04f9a31b7147d130e7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,8 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193f94808a6e9af45adad4194d921e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxSO: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}
-  itemSO: {fileID: 11400000, guid: c3e3c4b69025f6b4a9d520cc7ef32758, type: 2}
 --- !u!114 &7456715578960924213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,5 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaf287f02c86e03409e1bffd209559b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myInventory: {fileID: 0}
   inventoryName: EnemyBox
