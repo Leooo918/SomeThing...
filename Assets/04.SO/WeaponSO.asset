@@ -14,12 +14,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - name: Katana
-    damageMultiple: 2
     weaponImage: {fileID: 21300000, guid: e677268edf95f664db13a20eb7dec8af, type: 3}
     weaponImageObj: {fileID: 1264656085211826118, guid: eec5857be24876346b46e6ae0759263a, type: 3}
-    weapon: {fileID: 8933161046966412298, guid: 2b1562f5329cf034a89aa8eb5ba9d232, type: 3}
+    weapon: {fileID: 2549679472647928462, guid: 0abe912da52aafd4386a3340198090b8, type: 3}
+    weaponStatus:
+      normalAttackCool: 0.2
+      damage:
+      - 75
+      - 100
+      - 150
+      - 200
+      - 350
+      skillCool:
+      - 25
+      - 23
+      - 20
+      - 17
+      - 15
+      weaponExplain: "\uC8FC\uC778\uACF5\uC758 \uC560\uC7A5\uD488 \uCE74-\uD0C0-\uB098.
+        \uAF64\uB098 \uD488\uC9C8 \uC88B\uC740 \uAC83\uC744 \uAD6C\uD55C\uB2E4\uACE0
+        \uACE0\uC0DD\uD588\uB2E4\uACE0 \uD55C\uB2E4. \uAC00\uACA9\uC740 \uB300\uB7B5
+        1,500$\uCBE4 \uD55C\uB2E4\uACE0 \uD55C\uB2E4."
   - name: Pistol
-    damageMultiple: 1
     weaponImage: {fileID: 21300000, guid: 333fa779f749fe34bb9b6aa1cba8c78d, type: 3}
     weaponImageObj: {fileID: 2389004774336344189, guid: c4a8351c03503ef4dae07960d4957f22, type: 3}
     weapon: {fileID: 8933161046966412298, guid: 76b27b6b2f311dc449d55fa7a0667f02, type: 3}
+    weaponStatus:
+      normalAttackCool: 0.5
+      damage:
+      - 500
+      - 1000
+      - 2000
+      - 3000
+      - 4000
+      skillCool:
+      - 30
+      - 27
+      - 25
+      - 23
+      - 20
+      weaponExplain: "\uD14C\uC2A4\uD2B8\uC6A9 \uCD1D\uAE30 \uC874\uB098 \uC384\uB2E4"
+  - name: Lantern
+    weaponImage: {fileID: 21300000, guid: 45e31514581551c4b8dfd596df355a99, type: 3}
+    weaponImageObj: {fileID: 1264656085211826118, guid: 41dd7107e45249d4b9a4f6553d785d86, type: 3}
+    weapon: {fileID: 3366919235249711578, guid: 4eba17d751c766140a9f0c24fc1c2d89, type: 3}
+    weaponStatus:
+      normalAttackCool: 0
+      damage: []
+      skillCool: []
+      weaponExplain: 

@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 855de12d9cc3c3c4581ce62ba2dee210, type: 3}
+  m_Name: EnemyStatus
+  m_EditorClassIdentifier: 
+  enemyContents:
+  - name: Leo
+    maxHp: 2000
+    maxAttack: 10
+    maxSpeed: 10
+    box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}

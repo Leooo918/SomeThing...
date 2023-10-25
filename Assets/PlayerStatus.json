@@ -1,5 +1,17 @@
 {
-    "playerMaxHp": 0.0,
+    "weaponName": [
+        "Katana",
+        "Null",
+        ""
+    ],
+    "durability": [
+        62.900001525878909,
+        100.0,
+        0.0
+    ],
+    "lantern": false,
+    "lanternDurability": 100.0,
+    "playerMaxHp": 10.0,
     "playerAttact": 0.0,
     "playerSpeed": 0.0,
     "curProgress": 0
