@@ -29,7 +29,7 @@ public class PlayerWeaponSlot : MountingItemSlot
                     transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
                     assignedWeapon.gameObject.SetActive(false);
-                    status.OnChangeWeapon(status.CurWeaponNum);
+                    status.OnChangeWeapon();
 
                     for (int j = 0; j < itemSO.items.Count; j++)
                     {
@@ -61,6 +61,27 @@ public class PlayerWeaponSlot : MountingItemSlot
         base.UnEquip();
 
         Destroy(assignedWeapon.gameObject);
+
+        assignedWeapon = null;
+        transform.Find("Frame/Sprite").GetComponent<Image>().sprite = null;
+    }
+
+    public void UnEquipWithOutDestroyGameObject()
+    {
+        if (item == null) return;
+
+        for (int i = 0; i < InventoryManager.instance.openInventoryList.Count; i++)
+        {
+            if (InventoryManager.instance.openInventoryList[i].SetItem(item) == true)
+            {
+                item.gameObject.SetActive(true);
+                break;
+            }
+        }
+
+        transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        GameManager.instance.Save();
+        item = null;
 
         assignedWeapon = null;
         transform.Find("Frame/Sprite").GetComponent<Image>().sprite = null;

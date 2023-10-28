@@ -15,10 +15,13 @@ MonoBehaviour:
   weapons:
   - name: Katana
     weaponImage: {fileID: 21300000, guid: e677268edf95f664db13a20eb7dec8af, type: 3}
-    weaponImageObj: {fileID: 1264656085211826118, guid: eec5857be24876346b46e6ae0759263a, type: 3}
     weapon: {fileID: 2549679472647928462, guid: 0abe912da52aafd4386a3340198090b8, type: 3}
+    weaponImageObj: {fileID: 331416368723791241, guid: da71cf0b1f2f87143b5f60e7db5a96cc, type: 3}
+    weaponSkillIcon: {fileID: 8502651030774709225, guid: ddb506df8efd01d42822f9602c69e6d1, type: 3}
+    weaponSubSkillIcon: {fileID: 631792989471129562, guid: dff97375ad2e98d46a8fb0bd9a637ba3, type: 3}
     weaponStatus:
       normalAttackCool: 0.2
+      subSkillCool: 10
       damage:
       - 75
       - 100
@@ -37,10 +40,13 @@ MonoBehaviour:
         1,500$\uCBE4 \uD55C\uB2E4\uACE0 \uD55C\uB2E4."
   - name: Pistol
     weaponImage: {fileID: 21300000, guid: 333fa779f749fe34bb9b6aa1cba8c78d, type: 3}
-    weaponImageObj: {fileID: 2389004774336344189, guid: c4a8351c03503ef4dae07960d4957f22, type: 3}
     weapon: {fileID: 8933161046966412298, guid: 76b27b6b2f311dc449d55fa7a0667f02, type: 3}
+    weaponImageObj: {fileID: 2389004774336344189, guid: c4a8351c03503ef4dae07960d4957f22, type: 3}
+    weaponSkillIcon: {fileID: 0}
+    weaponSubSkillIcon: {fileID: 0}
     weaponStatus:
       normalAttackCool: 0.5
+      subSkillCool: 0
       damage:
       - 500
       - 1000
@@ -56,10 +62,37 @@ MonoBehaviour:
       weaponExplain: "\uD14C\uC2A4\uD2B8\uC6A9 \uCD1D\uAE30 \uC874\uB098 \uC384\uB2E4"
   - name: Lantern
     weaponImage: {fileID: 21300000, guid: 45e31514581551c4b8dfd596df355a99, type: 3}
-    weaponImageObj: {fileID: 1264656085211826118, guid: 41dd7107e45249d4b9a4f6553d785d86, type: 3}
     weapon: {fileID: 3366919235249711578, guid: 4eba17d751c766140a9f0c24fc1c2d89, type: 3}
+    weaponImageObj: {fileID: 1264656085211826118, guid: 41dd7107e45249d4b9a4f6553d785d86, type: 3}
+    weaponSkillIcon: {fileID: 0}
+    weaponSubSkillIcon: {fileID: 0}
     weaponStatus:
       normalAttackCool: 0
+      subSkillCool: 0
       damage: []
       skillCool: []
       weaponExplain: 
+  - name: Axe
+    weaponImage: {fileID: 21300000, guid: 6048e1e028e0b4d449083afd5c6512f1, type: 3}
+    weapon: {fileID: 4973228013041831600, guid: 12f7619e796b224449d70c9c3d78d391, type: 3}
+    weaponImageObj: {fileID: 331416368723791241, guid: ac088585414c3b946a1a9be3b0046c64, type: 3}
+    weaponSkillIcon: {fileID: 631792989471129562, guid: 0c6fe460cbd2b184b9f8f11ae97c0d84, type: 3}
+    weaponSubSkillIcon: {fileID: 631792989471129562, guid: 27b2b603d119a6d418568371d62fe832, type: 3}
+    weaponStatus:
+      normalAttackCool: 1
+      subSkillCool: 0
+      damage:
+      - 90
+      - 140
+      - 200
+      - 270
+      - 420
+      skillCool:
+      - 0
+      - 0
+      - 0
+      - 0
+      - 0
+      weaponExplain: "\uACFC\uAC70 \uBC14\uC774\uD0B9\uB4E4\uC774 \uC560\uC6A9\uD55C
+        \uBB34\uAE30\uC778 \uB9CC\uD07C \uBB34\uC2DD\uD558\uAE30 \uC9DD\uC774\uC5C6\uB294
+        \uBB34\uAE30\\n\uADF8\uB9CC\uD07C \uAC15\uB825\uD558\uACE0 \uC704\uD5D8\uD558\uB2E4!"

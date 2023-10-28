@@ -52,7 +52,7 @@ Material:
     - _desolveValue: 1
     m_Colors:
     - _DesolveColor: {r: 2.297397, g: 0, b: 0, a: 0}
-    - _DisolveColor: {r: 1.3041192, g: 0, b: 0, a: 1}
+    - _DisolveColor: {r: 0, g: 6.5543146, b: 32.000004, a: 1}
     - _desolveColor: {r: 0.2781058, g: 3.509434, b: 2.936108, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4508522004760160001

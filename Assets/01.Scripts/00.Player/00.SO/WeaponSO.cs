@@ -6,6 +6,7 @@ using UnityEngine;
 public struct WeaponStatus
 {
     public float normalAttackCool;
+    public float subSkillCool;
     public List<float> damage;
     public List<float> skillCool;
     public string weaponExplain;
@@ -16,8 +17,10 @@ public struct WeaponStruct
 {
     public string name;
     public Sprite weaponImage;
-    public GameObject weaponImageObj;
     public GameObject weapon;
+    public GameObject weaponImageObj;
+    public GameObject weaponSkillIcon;
+    public GameObject weaponSubSkillIcon;
     public WeaponStatus weaponStatus;
 }
 

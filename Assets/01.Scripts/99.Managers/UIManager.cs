@@ -22,6 +22,10 @@ public class UIManager : MonoBehaviour
     private List<OpenInventory> inventories = new List<OpenInventory>();
     private Inventory enemyBoxInventory = null;
     private Transform skillCheck = null;
+    private Transform playerSkills = null;
+    private Image mainSkillCool = null;
+    private Image subSkillCool = null;
+
 
 
     public PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[2];
@@ -30,7 +34,10 @@ public class UIManager : MonoBehaviour
     public RectTransform WarningBoxExit => warningBoxExit;
     public PlayerLanternSlot LanternSlot => lanternSlot;
     public Transform SkillCheck => skillCheck;
-    
+    public Image MainSkillCool => mainSkillCool;
+    public Image SubSkillCool => subSkillCool;
+    public Transform PlayerSkills => playerSkills;
+
     public void OnInteract(bool isInteract)
     {
         if (isInteract == true)  //상호작용 
@@ -65,7 +72,7 @@ public class UIManager : MonoBehaviour
 
         RectTransform r = checkProfileUI.GetComponent<RectTransform>();
 
-        position = new Vector3(Mathf.Clamp(position.x, 0, 1920 - r.rect.width), Mathf.Clamp(position.y, r.rect.height/2, 1080 - r.rect.height / 2), 0);
+        position = new Vector3(Mathf.Clamp(position.x, 0, 1920 - r.rect.width), Mathf.Clamp(position.y, r.rect.height / 2, 1080 - r.rect.height / 2), 0);
         checkProfileUI.GetComponent<RectTransform>().anchoredPosition = position;
         checkProfileUI.Find("Background/Btn").GetComponent<Button>().onClick.AddListener(() =>
         {
@@ -101,20 +108,64 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void SetPlayerSkill(float durability, GameObject weaponImage, GameObject mainSkill, GameObject subSkill)
+    {
+        print(weaponImage.name);
+        playerSkills.Find("Weapon/Frame/Durability").GetComponent<Image>().fillAmount = durability / 100f;
+
+        if (playerSkills.Find("Weapon/Frame").childCount > 1)
+        {
+            for (int i = 1; i < playerSkills.Find("Weapon/Frame").childCount; i++)
+            {
+                Destroy(playerSkills.Find("Weapon/Frame").GetChild(i).gameObject);
+            }
+        }
+        if (playerSkills.Find("MainSkillFrame").childCount > 0)
+        {
+            for (int i = 0; i < playerSkills.Find("MainSkillFrame").childCount; i++)
+            {
+                Destroy(playerSkills.Find("MainSkillFrame").GetChild(i).gameObject);
+            }
+        }
+        if (playerSkills.Find("SubSkillFrame").childCount > 0)
+        {
+            for (int i = 0; i < playerSkills.Find("SubSkillFrame").childCount; i++)
+            {
+                Destroy(playerSkills.Find("SubSkillFrame").GetChild(i).gameObject);
+            }
+        }
+
+        RectTransform weaponimage = Instantiate(weaponImage, playerSkills.Find("Weapon/Frame")).GetComponent<RectTransform>();
+        weaponimage.anchoredPosition3D = new Vector3(0, 0, 0);
+        weaponimage.localScale = new Vector3(1, 1, 1);
+
+        RectTransform mainSkillImag = Instantiate(mainSkill, playerSkills.Find("MainSkillFrame")).GetComponent<RectTransform>();
+        mainSkillImag.anchoredPosition3D = new Vector3(0, 0, 0);
+        mainSkillImag.localScale = new Vector3(1, 1, 1);
+
+        RectTransform subSkillImg = Instantiate(subSkill, playerSkills.Find("SubSkillFrame")).GetComponent<RectTransform>();
+        subSkillImg.anchoredPosition3D = new Vector3(0, 0, 0);
+        subSkillImg.localScale = new Vector3(1, 1, 1);
+
+        mainSkillCool = mainSkillImag.Find("SkillIcon/SkillCoolDown").GetComponent<Image>();
+        subSkillCool = subSkillImg.Find("SkillIcon/SkillCoolDown").GetComponent<Image>();
+    }
+
     public void Init(Transform canvas, PlayerStatus player, ItemSO itemSO, WeaponSO weaponSO)
     {
-        interactUI          = canvas.Find("InteractionUI").GetComponent<RectTransform>();
-        unEquipUI           = canvas.Find("Unequip").GetComponent<RectTransform>();
-        playerStatusUI      = canvas.Find("PlayerStatusBackground").GetComponent<RectTransform>();
-        itemBuyHelper       = canvas.Find("BuyHelper").GetComponent<RectTransform>();
-        itemBuyError        = canvas.Find("CannotBuyItem").GetComponent<RectTransform>();
-        itemDeviderHelper   = canvas.Find("ItemDeviderHelper").GetComponent<RectTransform>();
-        obstacles           = canvas.Find("Obstacle").GetComponent<RectTransform>();
-        warningBoxExit      = canvas.Find("Warning").GetComponent<RectTransform>();
-        checkProfileUI      = canvas.Find("CheckProfile");
-        lanternSlot         = playerStatusUI.Find("PlayerStatue/PlayerLanternSlot").GetComponent<PlayerLanternSlot>();
-        inventories         = FindObjectsByType<OpenInventory>(FindObjectsSortMode.InstanceID).ToList();
-        skillCheck          = canvas.Find("SkillCheck");
+        interactUI = canvas.Find("InteractionUI").GetComponent<RectTransform>();
+        unEquipUI = canvas.Find("Unequip").GetComponent<RectTransform>();
+        playerStatusUI = canvas.Find("PlayerStatusBackground").GetComponent<RectTransform>();
+        itemBuyHelper = canvas.Find("BuyHelper").GetComponent<RectTransform>();
+        itemBuyError = canvas.Find("CannotBuyItem").GetComponent<RectTransform>();
+        itemDeviderHelper = canvas.Find("ItemDeviderHelper").GetComponent<RectTransform>();
+        obstacles = canvas.Find("Obstacle").GetComponent<RectTransform>();
+        warningBoxExit = canvas.Find("Warning").GetComponent<RectTransform>();
+        checkProfileUI = canvas.Find("CheckProfile");
+        lanternSlot = playerStatusUI.Find("PlayerStatue/PlayerLanternSlot").GetComponent<PlayerLanternSlot>();
+        inventories = FindObjectsByType<OpenInventory>(FindObjectsSortMode.InstanceID).ToList();
+        skillCheck = canvas.Find("SkillCheck");
+        playerSkills = canvas.Find("PlayerSkill");
 
         for (int i = 0; i < weaponSlots.Length; i++)
         {

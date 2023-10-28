@@ -19,6 +19,11 @@ public class KatanaSwordHolder : MonoBehaviour
         UnMouseFollow();
     }
 
+    private void OnDestroy()
+    {
+        UnMouseFollow();
+    }
+
     private void Update()
     {
         if (isAnchored == true)
@@ -46,6 +51,8 @@ public class KatanaSwordHolder : MonoBehaviour
 
     private void PlayerDir(Vector2 dir)
     {
+        if (this == null) return;
+
         float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
         float rotation = Mathf.LerpAngle(transform.eulerAngles.z, rot, 1f);
         transform.eulerAngles = new Vector3(0,0,rotation);

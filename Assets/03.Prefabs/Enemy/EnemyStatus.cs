@@ -54,6 +54,11 @@ public class EnemyStatus : MonoBehaviour, IDamageable
 
     }
 
+    public void Stun(float time)
+    {
+
+    }
+
     public void Init(EnemySO enemySO)
     {
         for (int i = 0; i < enemySO.enemyContents.Length; i++)

@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerKatana : Weapon
 {
+    private PlayerMove playerMove = null;
     private DamageSource damageSource = null;
     private KatanaSwordHolder swordHolder = null;
     private SkillCheckFeedBack skillCheckFeedBack = null;
@@ -15,10 +16,13 @@ public class PlayerKatana : Weapon
     private bool readyGetSkillCheckResult = false;
     private bool readyUseSkill = false;
 
+    private float originSpeed = 0f;
+
     protected override void Awake()
     {
         base.Awake();
 
+        playerMove = GetComponentInParent<PlayerMove>();
         damageSource = GetComponentInChildren<DamageSource>();
         swordHolder = transform.Find("SwordParents").GetComponent<KatanaSwordHolder>();
         skillCheckFeedBack = GetComponent<SkillCheckFeedBack>();
@@ -30,11 +34,24 @@ public class PlayerKatana : Weapon
     protected override void OnEnable()
     {
         base.OnEnable();
+
+        playerAction.onAttackButtonPress += OnAttack;
+        playerAction.onUseSkill += OnUseSkill;
+        playerAction.onUseSubSkill += OnUseSubSkill;
     }
 
-    protected override void Start()
+    protected void OnDisable()
     {
-        base.Start();
+        if (playerAction != null)
+        {
+            playerAction.onAttackButtonPress -= OnAttack;
+            playerAction.onUseSkill -= OnUseSkill;
+            playerAction.onUseSubSkill -= OnUseSubSkill;
+        }
+    }
+
+    protected void Start()
+    {
         damageSource.damage = damage;
     }
 
@@ -65,15 +82,18 @@ public class PlayerKatana : Weapon
         {
             skillCheckFeedBack.EndSkillCheck();
             StartCoroutine(BooleanAnimation("CancelSkill"));
-            curSkillCoolDown = skillCoolTime / 2;
+            skillCoolTime /= 2;
+            SkillCoolDown();
+            skillCoolTime *= 2;
             isUsingSkill = false;
             readyUseSkill = false;
+            playerStatus.ChangeSpeed(originSpeed);
         }
 
         if (isAttackCool == true || isUsingSkill == true || isAttaking == true) 
         {
             return;
-        } 
+        }   
 
         base.OnAttack();
 
@@ -86,6 +106,10 @@ public class PlayerKatana : Weapon
         {
             return;
         }
+        else if(readyUseSkill == false && isUsingSkill == true)
+        {
+            return;
+        }
 
         base.OnUseSkill();
 
@@ -93,9 +117,11 @@ public class PlayerKatana : Weapon
 
         if (readyUseSkill == false)
         {
-            if (isUsingSkill == true) return;
+            mainSkillCool.fillAmount = 1f;
             isUsingSkill = true;
+            originSpeed = playerStatus.PlayerSpeed;
             StartCoroutine(BooleanAnimation("SkillStart"));
+            playerStatus.ChangeSpeed(playerStatus.PlayerSpeed - 3f);
         }
         else
         {
@@ -111,6 +137,10 @@ public class PlayerKatana : Weapon
 
     public void SkillCheck()
     {
+        if(isUsingSkill == false)
+        {
+            return;
+        }
         skillCheckFeedBack.StartSkillCheck();
         readyGetSkillCheckResult = true;
     }
@@ -129,8 +159,14 @@ public class PlayerKatana : Weapon
         swordHolder.MouseFollow();
         readyUseSkill = false;
         isUsingSkill = false;
-        SKillCoolDown();
+        SkillCoolDown();
         OnAttackEnd();
+    }
+
+    public void OnStartUseSkill()
+    {
+        playerStatus.ChangeSpeed(originSpeed);
+        playerMove.Dash(0.1f, 10);
     }
 
     public void OnAttackStart()
@@ -149,7 +185,6 @@ public class PlayerKatana : Weapon
 
     IEnumerator BooleanAnimation(string parmName)
     {
-        print(parmName);
         attackAnimator.SetBool(parmName, true);
         yield return null;
         yield return null;
@@ -157,4 +192,15 @@ public class PlayerKatana : Weapon
         attackAnimator.SetBool(parmName, false);
     }
 
+    protected override void OnUseSubSkill()
+    {
+        if (proficiencyLv < 4 || isAttaking == true || isSubSkillCool == true)
+        {
+            return;
+        }
+
+        playerMove.Flash();
+
+        SubSkillCoolDown();
+    }
 }

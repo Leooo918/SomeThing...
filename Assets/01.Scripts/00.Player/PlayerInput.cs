@@ -7,12 +7,15 @@ public class PlayerInput : MonoBehaviour
 
     public event Action<Vector2> onMove = null;
     public event Action<Vector2> onMouseMove = null;
-    public Action onAttackButtonPress = null;
-    public Action onAttackButtonRelease = null;
-    public Action onUseSkill = null;
+    public event Action onAttackButtonPress = null;
+    public event Action onAttackButtonRelease = null;
+    public event Action onUseSkill = null;
+    public event Action onUseSubSkill = null;
+
     public event Action onInteraction = null;
     public event Action onHit = null;
     public event Action onOpenInventory = null;
+    public event Action onChangeWeapon = null;
 
     private void Awake()
     {
@@ -33,6 +36,10 @@ public class PlayerInput : MonoBehaviour
             {
                 onAttackButtonPress?.Invoke();
             }
+            if (Input.GetMouseButtonUp(0))
+            {
+                onAttackButtonRelease?.Invoke();
+            }
 
             if (Input.GetMouseButtonDown(1))
             {
@@ -42,6 +49,16 @@ public class PlayerInput : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 onInteraction?.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                onChangeWeapon?.Invoke();
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                onUseSubSkill?.Invoke();
             }
         }
 

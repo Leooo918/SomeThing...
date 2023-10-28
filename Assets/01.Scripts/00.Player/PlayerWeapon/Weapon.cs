@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public abstract class Weapon : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public abstract class Weapon : MonoBehaviour
     protected PlayerInput playerAction = null;
     protected PlayerStatus playerStatus = null;
     protected WeaponSO weaponSO = null;
+    protected PlayerMove playerMove = null;
     protected WeaponStruct weaponStruct = new WeaponStruct();
 
     protected float originDamage = 0f;
@@ -15,7 +18,10 @@ public abstract class Weapon : MonoBehaviour
 
     protected float attackCoolTime = 0f;
     protected float skillCoolTime = 0f;
+    protected float subSkillCoolTime = 0f;
+
     protected float curSkillCoolDown = 0f;
+    protected float curSubSkillCoolTime = 0f;
 
     protected float proficiency = 0f;       //숙련도
     protected float durability = 100f;      //내구도
@@ -25,8 +31,14 @@ public abstract class Weapon : MonoBehaviour
 
     protected bool isAttackCool = false;
     protected bool isSkillCool = false;
+    protected bool isSubSkillCool = false;
     protected bool isUsingSkill = false;
     protected bool isAttaking = false;
+
+    protected Image mainSkillCool = null;
+    protected Image subSkillCool = null;
+    protected TextMeshProUGUI mainSkillCoolTxt = null;
+    protected TextMeshProUGUI subSkillCoolTxt = null;
 
     public string ItemName => itemName;
     public float Durability => durability;
@@ -34,10 +46,11 @@ public abstract class Weapon : MonoBehaviour
     protected virtual void Awake()
     {
         playerAction = GetComponentInParent<PlayerInput>();
+        playerMove = GetComponentInParent<PlayerMove>();
         playerStatus = playerAction.GetComponent<PlayerStatus>();
     }
 
-    protected virtual void Start()
+    protected virtual void OnEnable()
     {
         weaponSO = GameManager.instance.weaponSO;
 
@@ -50,36 +63,49 @@ public abstract class Weapon : MonoBehaviour
                 originDamage = damage;
                 attackCoolTime = weaponStruct.weaponStatus.normalAttackCool;
                 skillCoolTime = weaponStruct.weaponStatus.skillCool[proficiencyLv];
-                print(skillCoolTime);
-                print(attackCoolTime);
+                subSkillCoolTime = weaponStruct.weaponStatus.subSkillCool;
             }
         }
+
+        UIManager.instance.SetPlayerSkill(durability, weaponStruct.weaponImageObj, weaponStruct.weaponSkillIcon, weaponStruct.weaponSubSkillIcon);
+
+        mainSkillCool = UIManager.instance.MainSkillCool;
+        subSkillCool = UIManager.instance.SubSkillCool;
+
+        mainSkillCoolTxt = mainSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
+        subSkillCoolTxt = subSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
     }
 
     protected virtual void Update()
     {
         if (curSkillCoolDown > 0)
         {
+            mainSkillCool.fillAmount = curSkillCoolDown / skillCoolTime;
+            mainSkillCoolTxt.SetText(((int)curSkillCoolDown).ToString());
             curSkillCoolDown -= Time.deltaTime;
         }
         else
         {
             isSkillCool = false;
+            if (mainSkillCoolTxt != null)
+            {
+                mainSkillCoolTxt.gameObject.SetActive(false);
+            }
         }
-    }
 
-    protected virtual void OnEnable()
-    {
-        playerAction.onAttackButtonPress = OnAttack;
-        playerAction.onUseSkill = OnUseSkill;
-    }
-
-    protected virtual void OnDisable()
-    {
-        if (playerAction != null)
+        if (curSubSkillCoolTime > 0)
         {
-            playerAction.onAttackButtonPress -= OnAttack;
-            playerAction.onUseSkill -= OnUseSkill;
+            subSkillCool.fillAmount = curSubSkillCoolTime / subSkillCoolTime;
+            subSkillCoolTxt.SetText(((int)curSubSkillCoolTime).ToString());
+            curSubSkillCoolTime -= Time.deltaTime;
+        }
+        else
+        {
+            isSubSkillCool = false;
+            if (subSkillCoolTxt != null)
+            {
+                subSkillCoolTxt.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -94,15 +120,24 @@ public abstract class Weapon : MonoBehaviour
         DurabilityDown();
     }
 
+    protected abstract void OnUseSubSkill();
+
     protected void AttackCoolDown()
     {
         StartCoroutine("AttackCoolRoutine");
     }
 
-    protected void SKillCoolDown()
+    protected void SkillCoolDown()
     {
+        mainSkillCoolTxt.gameObject.SetActive(true);
         curSkillCoolDown = skillCoolTime;
         isSkillCool = true;
+    }
+    protected void SubSkillCoolDown()
+    {
+        subSkillCoolTxt.gameObject.SetActive(true);
+        curSubSkillCoolTime = subSkillCoolTime;
+        isSubSkillCool = true;
     }
 
     IEnumerator AttackCoolRoutine()

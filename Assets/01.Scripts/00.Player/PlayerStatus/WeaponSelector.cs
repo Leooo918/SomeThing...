@@ -37,7 +37,7 @@ public class WeaponSelector : MonoBehaviour
             transform.GetChild(i).gameObject.SetActive(false);
         }
 
-        playerStatus.OnChangeWeapon(num);
+        //playerStatus.OnChangeWeapon(num);
     }
 
 }

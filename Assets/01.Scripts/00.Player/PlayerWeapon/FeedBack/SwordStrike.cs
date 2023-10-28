@@ -9,6 +9,7 @@ public class SwordStrike : MonoBehaviour
 
     private void Update()
     {
+        print("½½ÇÂ");
         transform.position += moveDir * Time.deltaTime * speed;
     }
 

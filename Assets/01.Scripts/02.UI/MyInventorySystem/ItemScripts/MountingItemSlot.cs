@@ -12,6 +12,7 @@ public abstract class MountingItemSlot : MonoBehaviour, IPointerEnterHandler, IP
 
     protected bool isSelected = false;
 
+    public Item assignedItem => item;
 
     protected virtual void Update()
     {
