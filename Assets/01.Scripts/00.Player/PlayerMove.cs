@@ -59,7 +59,7 @@ public class PlayerMove : MonoBehaviour
                 GameObject particle = Instantiate(flashParticle);
                 particle.transform.position = transform.position;
 
-                for (int i = 4; i > 0; i--)
+                for (int i = (int)Mathf.Clamp(mouseDir.magnitude, 0, 4); i > 0; i--)
                 {
                     if (Physics2D.OverlapCircle(transform.position + (Vector3)mouseDir.normalized * i / 2, 0.5f) == null)
                     {

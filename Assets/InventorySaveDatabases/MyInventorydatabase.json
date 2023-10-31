@@ -1,21 +1,9 @@
 {
     "inventoryName": "MyInventory",
-    "itemName": [
-        "Axe"
-    ],
-    "itemAmount": [
-        1
-    ],
-    "positionX": [
-        1
-    ],
-    "positionY": [
-        7
-    ],
-    "rotation": [
-        0.0
-    ],
-    "durability": [
-        66.40001678466797
-    ]
+    "itemName": [],
+    "itemAmount": [],
+    "positionX": [],
+    "positionY": [],
+    "rotation": [],
+    "durability": []
 }

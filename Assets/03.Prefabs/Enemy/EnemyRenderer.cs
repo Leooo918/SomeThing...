@@ -32,7 +32,5 @@ public class EnemyRenderer : MonoBehaviour
             render.material.SetFloat("_DisolveValue", Mathf.Lerp(1, 0, a));
             yield return null;
         }
-        
     }
-
 }

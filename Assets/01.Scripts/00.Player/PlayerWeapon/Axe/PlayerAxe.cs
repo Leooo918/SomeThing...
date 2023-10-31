@@ -12,7 +12,7 @@ public class PlayerAxe : Weapon
 
     private bool isThrowing = false;
     [SerializeField] private float throwSpeed = 10f;
-    private float flyingTime = 1f;
+    private float flyingTime = 0.5f;
     private Vector2 throwDir;
 
     private bool isAxeStoped = false;
@@ -22,10 +22,10 @@ public class PlayerAxe : Weapon
         base.Awake();
 
         animator = GetComponent<Animator>();
-        damageSource = GetComponentInChildren<DamageSource>();
+        damageSource = GetComponent<DamageSource>();
         status = GetComponentInParent<PlayerStatus>();
-        coll = GetComponentInChildren<Collider2D>();
-        rigid = GetComponentInChildren<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
+        rigid = GetComponent<Rigidbody2D>();
         coll.enabled = false;
     }
 
@@ -56,15 +56,16 @@ public class PlayerAxe : Weapon
 
         if (isThrowing == true)
         {
-            float rot = transform.eulerAngles.z + Time.deltaTime * -800;
+            float rot = transform.eulerAngles.z + Time.deltaTime * -1000;
 
             transform.eulerAngles = new Vector3(0, 0, rot);
-            rigid.velocity = throwDir * throwSpeed;
+            rigid.velocity = throwDir.normalized * throwSpeed;
+            print($"{rot} {throwDir} {throwSpeed}");
         }
-        else
-        {
-            rigid.velocity = new Vector3(0, 0, 0);
-        }
+        //else
+        //{
+        //    rigid.velocity = new Vector3(0, 0, 0);
+        //}
 
         if (isAxeStoped == false && isThrowing == false)
         {
@@ -73,6 +74,7 @@ public class PlayerAxe : Weapon
 
         if (isAxeStoped == true)
         {
+            rigid.velocity = Vector2.zero;
             Collider2D coll = Physics2D.OverlapCircle(transform.position, 1f);
 
             if (coll != null)
@@ -125,25 +127,25 @@ public class PlayerAxe : Weapon
     {
         base.OnUseSkill();
 
-        if (playerAction != null)
+        if (playerAction != null)       //playerAction이 널이 아니라면
         {
             playerAction.onAttackButtonPress -= OnAttack;
             playerAction.onUseSkill -= OnUseSkill;
             playerAction.onMouseMove -= PlayerDir;
         }
 
-        coll.enabled = true;
-        playerStatus.GetCurWeaponSlot().UnEquipWithOutDestroyGameObject();
-        transform.parent = null;
-        throwDir = playerMove.MouseDir;
-        StartCoroutine(ThrowAxeRoutine());
+        coll.enabled = true;            //콜라이더를 켜고
+        playerStatus.GetCurWeaponSlot().UnEquipWithOutDestroyGameObject();  //도끼를 장착 해제해
+        transform.parent = null;        //부모를 없애고?
+        throwDir = playerMove.MouseDir; //마우스방향으로 날라갈 준비
+        OnUseSubSkill();                //보조스킬도 사용해
+        StartCoroutine("ThrowAxeRoutine");  //
 
-        OnUseSubSkill();
     }
 
     protected override void OnUseSubSkill()
     {
-        status.SpeedDown(-5, 2);
+        status.SpeedDown(-3, 2);
     }
 
     public void OnAttackStart()
@@ -180,11 +182,19 @@ public class PlayerAxe : Weapon
 
     IEnumerator ThrowAxeRoutine()
     {
+        print("제발");
         isThrowing = true;
         yield return new WaitForSeconds(flyingTime);
         isThrowing = false;
         isAxeStoped = true;
-        print("제발");
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isThrowing == true && collision.CompareTag("Wall"))
+        {
+            isThrowing = false;
+            isAxeStoped = true;
+        }
+    }
 }

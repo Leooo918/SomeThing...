@@ -88,6 +88,7 @@ public class PlayerKatana : Weapon
             isUsingSkill = false;
             readyUseSkill = false;
             playerStatus.ChangeSpeed(originSpeed);
+            damageSource.damageMultiple = 1f;
         }
 
         if (isAttackCool == true || isUsingSkill == true || isAttaking == true) 

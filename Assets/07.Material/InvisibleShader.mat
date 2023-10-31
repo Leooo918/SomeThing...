@@ -58,8 +58,8 @@ Material:
     - _InvisibleValue: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 100
-    - _Speed: 3
+    - _Scale: 55
+    - _Speed: 0.75
     - _disolveValue: 1
     m_Colors:
     - _DisolveColor: {r: 0.2781058, g: 3.509434, b: 2.936108, a: 0}
