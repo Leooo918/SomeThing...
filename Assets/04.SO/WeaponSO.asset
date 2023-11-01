@@ -96,3 +96,25 @@ MonoBehaviour:
       weaponExplain: "\uACFC\uAC70 \uBC14\uC774\uD0B9\uB4E4\uC774 \uC560\uC6A9\uD55C
         \uBB34\uAE30\uC778 \uB9CC\uD07C \uBB34\uC2DD\uD558\uAE30 \uC9DD\uC774\uC5C6\uB294
         \uBB34\uAE30\\n\uADF8\uB9CC\uD07C \uAC15\uB825\uD558\uACE0 \uC704\uD5D8\uD558\uB2E4!"
+  - name: Dagger
+    weaponImage: {fileID: 1179076021, guid: 1786e5c7a1d87614a89e0cf5676f62c4, type: 3}
+    weapon: {fileID: 6572369478419077649, guid: 5d757d77576553041a105e7a2d32d07e, type: 3}
+    weaponImageObj: {fileID: 331416368723791241, guid: 933335f7e69fcae4ca2eb87151032164, type: 3}
+    weaponSkillIcon: {fileID: 631792989471129562, guid: e37c0f828bb28fa47944a90fc88b1490, type: 3}
+    weaponSubSkillIcon: {fileID: 631792989471129562, guid: dff97375ad2e98d46a8fb0bd9a637ba3, type: 3}
+    weaponStatus:
+      normalAttackCool: 0.1
+      subSkillCool: 7
+      damage:
+      - 30
+      - 70
+      - 100
+      - 110
+      - 180
+      skillCool:
+      - 25
+      - 22
+      - 20
+      - 17
+      - 15
+      weaponExplain: "\uC289.\uC288\uC289.\uC288\uC288\uC289.\uC289.\uC289.\uC288\uBC14"

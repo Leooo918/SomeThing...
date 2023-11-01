@@ -48,6 +48,12 @@ MonoBehaviour:
     pfItem: {fileID: 3366919235249711578, guid: 352b3da8b2c9ca840b64501402685c45, type: 3}
     itemType: 0
     itemValue: 20
+  - itemName: Dagger
+    itemExplain: "\uB2E8\uB2E8\uD55C \uAC80 \uB2E8-\uAC80"
+    size: {x: 1, y: 1}
+    pfItem: {fileID: 3366919235249711578, guid: e5117faf1bacb3d4dac631ad985d4e9c, type: 3}
+    itemType: 0
+    itemValue: 30
   expendableItems:
   - itemName: Ammo
     itemExplain: "\uC77C\uB2E8 \uADC0\uCC2E\uC544\uC11C \uCD1D\uAE30\uC5D0 \uB9DE\uAC8C

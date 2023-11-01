@@ -70,20 +70,20 @@ public class PlayerWeaponSlot : MountingItemSlot
     {
         if (item == null) return;
 
-        for (int i = 0; i < InventoryManager.instance.openInventoryList.Count; i++)
-        {
-            if (InventoryManager.instance.openInventoryList[i].SetItem(item) == true)
-            {
-                item.gameObject.SetActive(true);
-                break;
-            }
-        }
+        //for (int i = 0; i < InventoryManager.instance.openInventoryList.Count; i++)
+        //{
+        //    if (InventoryManager.instance.openInventoryList[i].SetItem(item) == true)
+        //    {
+        //        item.gameObject.SetActive(true);
+        //        break;
+        //    }
+        //}
 
-        transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 0);
-        GameManager.instance.Save();
         item = null;
 
         assignedWeapon = null;
+        //GameManager.instance.Save();
+        transform.Find("Frame/Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 0);
         transform.Find("Frame/Sprite").GetComponent<Image>().sprite = null;
     }
 

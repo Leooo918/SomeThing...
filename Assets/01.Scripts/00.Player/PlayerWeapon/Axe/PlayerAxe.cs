@@ -62,10 +62,6 @@ public class PlayerAxe : Weapon
             rigid.velocity = throwDir.normalized * throwSpeed;
             print($"{rot} {throwDir} {throwSpeed}");
         }
-        //else
-        //{
-        //    rigid.velocity = new Vector3(0, 0, 0);
-        //}
 
         if (isAxeStoped == false && isThrowing == false)
         {
@@ -134,11 +130,11 @@ public class PlayerAxe : Weapon
             playerAction.onMouseMove -= PlayerDir;
         }
 
-        coll.enabled = true;            //콜라이더를 켜고
+        coll.enabled = true;                //콜라이더를 켜고
         playerStatus.GetCurWeaponSlot().UnEquipWithOutDestroyGameObject();  //도끼를 장착 해제해
-        transform.parent = null;        //부모를 없애고?
-        throwDir = playerMove.MouseDir; //마우스방향으로 날라갈 준비
-        OnUseSubSkill();                //보조스킬도 사용해
+        transform.parent = null;            //부모를 없애고?
+        throwDir = playerMove.MouseDir;     //마우스방향으로 날라갈 준비
+        OnUseSubSkill();                    //보조스킬도 사용해
         StartCoroutine("ThrowAxeRoutine");  //
 
     }

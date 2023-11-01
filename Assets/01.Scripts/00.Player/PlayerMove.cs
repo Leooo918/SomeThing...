@@ -20,6 +20,7 @@ public class PlayerMove : MonoBehaviour
     private float dashSpeed = 10f;
 
     private bool isDashing = false;
+    public bool canNotMove = false;
 
     public Vector2 MouseDir => mouseDir;
 
@@ -37,11 +38,24 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         if (isDashing) rigid.velocity = dashDir * dashSpeed;
+
+        if (GameManager.instance.isUIInput == true)
+        {
+            rigid.velocity = Vector2.zero;
+        }
     }
 
     private void Move(Vector2 moveDir)
     {
-        if (isDashing) return;
+        if(canNotMove == true)
+        {
+            rigid.velocity = Vector2.zero;
+        }
+
+        if (isDashing == true) 
+        {
+            return;
+        } 
         rigid.velocity = moveDir * status.GetPlayerSpeed();
     }
     private void GetMouseDir(Vector2 mouseDir)
@@ -49,7 +63,7 @@ public class PlayerMove : MonoBehaviour
         this.mouseDir = mouseDir;
     }
 
-    public void Flash()
+    public void Flash(float distance)
     {
         seq = DOTween.Sequence();
 
@@ -59,7 +73,7 @@ public class PlayerMove : MonoBehaviour
                 GameObject particle = Instantiate(flashParticle);
                 particle.transform.position = transform.position;
 
-                for (int i = (int)Mathf.Clamp(mouseDir.magnitude, 0, 4); i > 0; i--)
+                for (int i = (int)Mathf.Clamp(mouseDir.magnitude, 0, distance); i > 0; i--)
                 {
                     if (Physics2D.OverlapCircle(transform.position + (Vector3)mouseDir.normalized * i / 2, 0.5f) == null)
                     {

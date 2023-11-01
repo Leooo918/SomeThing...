@@ -2,19 +2,22 @@
     "weaponName": [
         "Katana",
         "Pistol",
-      "Lantern",
-      "Axe"
+        "Lantern",
+        "Axe",
+        "Dagger"
     ],
     "weaponProficiencyLv": [
         4,
         1,
-      0,
-      4
+        0,
+        4,
+        4
     ],
     "weaponProficiencyProgress": [
         35.676422119140628,
         30.0,
-      0.0,
-      0.0
+        0.0,
+        0.0,
+        4.699997901916504
     ]
 }

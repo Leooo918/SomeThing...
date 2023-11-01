@@ -216,7 +216,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         }
         if (myBackpack.SetItem(item))
         {
-            Destroy(item);
+            //Destroy(item);
             return;
         }
         print("공간이 없다 게이야");

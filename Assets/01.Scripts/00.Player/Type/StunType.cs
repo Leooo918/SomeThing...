@@ -4,16 +4,28 @@ using UnityEngine;
 
 public class StunType : Type
 {
+    private DamageSource damageSource;
     public float stunTime = 1f;
 
-    protected override void Effect()
-    {
 
+    private void Awake()
+    {
+        damageSource = GetComponent<DamageSource>();
+
+        damageSource.onAttack += Effect;
+    }
+    private void OnEnable()
+    {
+        
+    }
+    private void OnDisable()
+    {
+        
     }
 
-    protected override void OnTriggerEnter2D(Collider2D collision)
+    protected override void Effect(Collider2D collision)
     {
-        if(collision.TryGetComponent<EnemyStatus>(out EnemyStatus enemyStat))
+        if (collision.TryGetComponent<EnemyStatus>(out EnemyStatus enemyStat))
         {
             enemyStat.Stun(stunTime);
         }

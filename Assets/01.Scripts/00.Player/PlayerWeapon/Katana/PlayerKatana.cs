@@ -98,6 +98,7 @@ public class PlayerKatana : Weapon
 
         base.OnAttack();
 
+        playerMove.canNotMove = true;
         StartCoroutine(BooleanAnimation("Attack"));
     }
 
@@ -178,7 +179,7 @@ public class PlayerKatana : Weapon
     public void OnAttackEnd()
     {
         attackColl.enabled = false;
-
+        playerMove.canNotMove = false;
         isAttaking = false;
         swordHolder.MouseFollow();
         AttackCoolDown();
@@ -195,12 +196,12 @@ public class PlayerKatana : Weapon
 
     protected override void OnUseSubSkill()
     {
-        if (proficiencyLv < 4 || isAttaking == true || isSubSkillCool == true)
+        if (proficiencyLv < 4 || isSubSkillCool == true)
         {
             return;
         }
 
-        playerMove.Flash();
+        playerMove.Flash(5);
 
         SubSkillCoolDown();
     }
