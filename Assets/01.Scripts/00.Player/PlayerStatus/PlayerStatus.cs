@@ -8,7 +8,7 @@ using System.IO;
 
 public interface IDamageable
 {
-    void Damaged(float value);
+    void Damaged(float value, Vector2 hitPoint);
     void ReduceMaxHp(float value);
 }
 
@@ -39,20 +39,20 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private float playerSpeed = 5f;         //이동속도
     private float playerReducedSpeed = 0f;  //감소된 이동속도
 
-    [SerializeField] private float skillChangeTime = 5f;
+    [SerializeField] private float skillChangeTime = 5f;    //스킬 교체 쿨타임
     private float skillChangeTimeDown = 0f;
 
     public float PlayerCurHp => playerCurHp;
     public float PlayerAttact => playerAttact;
     public float PlayerSpeed => playerSpeed;
 
-    public Weapon[] mountingWeapon = new Weapon[2];
-    private PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[2];
-    private Weapon curMountedWeapon = null;
-    private List<Effect> effects = new List<Effect>();
+    public Weapon[] mountingWeapon = new Weapon[2]; //장착 무기 2개
+    private PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[2];   //무기 슬롯
+    private Weapon curMountedWeapon = null; //현재 무기
+    private List<Effect> effects = new List<Effect>();  //효과 ex)디버프, 버프
     private ItemSO itemSO = null;
-    private WeaponSO weaponSO = null;
     private Inventory myBackpack = null;
+    private PlayerMove playerMove = null;
 
     private GameObject playerStatusUI = null;
     private OpenInventory playerInventory = null;
@@ -61,27 +61,50 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private Image skillChangeCoolImg = null;
 
     private int curWeaponNum = 0;
-
     public int CurWeaponNum => curWeaponNum;
+    public PlayerLanternSlot LanternSlot => lantern;
+
 
     private void Awake()
     {
         path = Path.Combine(Application.dataPath, "PlayerStatus.json");
 
+        playerMove = GetComponent<PlayerMove>();
         playerBrain = GetComponent<PlayerInput>();
         playerInventory = GetComponent<OpenInventory>();
         myBackpack = playerInventory.MyInventory;
 
-        playerBrain.onOpenInventory += OnPressTab;
-        playerBrain.onChangeWeapon += OnChangeWeapon;
+        try
+        {
+            playerBrain.onOpenInventory += OnPressTab;
+            playerBrain.onChangeWeapon += OnChangeWeapon;
+        }
+        catch
+        {
+            Debug.Log("인게임이 아녀");
+        }
+
     }
 
     private void Update()
     {
+        //디버그 용
+        if (Input.GetKeyDown(KeyCode.Slash))
+        {
+            Damaged(1, new Vector2(0, 0));
+        }
+
         if (skillChangeTimeDown > 0)
         {
             skillChangeTimeDown -= Time.deltaTime;
+            try
+            {
             skillChangeCoolImg.fillAmount = skillChangeTimeDown / skillChangeTime;
+            }
+            catch
+            {
+
+            }
         }
     }
 
@@ -158,22 +181,36 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         playerAttact = value;
     }
 
-    public void Damaged(float value)
+    public void Damaged(float value, Vector2 hitPoint)
     {
+        playerMove.KnockBack((Vector2)transform.position - hitPoint);
+        CameraManager.instance.ShakeCam(5, 1, 0.1f);
+
         playerCurHp -= value;
 
         playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
         UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
 
+        if(playerCurHp <= 100)
+        {
+            CameraManager.instance.ScreenHurt(true);
+        }
+        else 
+        {
+            CameraManager.instance.ScreenHurt(false);
+        }
+
         if (playerCurHp <= 0)
         {
             Die();
         }
+        Debug.Log(playerCurHp);
     }
 
     public void ReduceMaxHp(float value)
     {
         reducedMaxHp = value;
+        playerCurHp -= value;
 
         playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
         UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
@@ -200,6 +237,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         return weaponSlots[curWeaponNum];
     }
 
+    //이 새끼 문제 많으니까 나중에 무조건 바꿔야함 진짜 존나 문제 많음 걍 시발임ㅠㅠ 지금 도끼 줍는 용도로만 쓰이는데 먹으면 아이템이 사라지는 버그 생김 => 상점에서 아이템 사는거 참고 해서 고쳐야 함
     public void GetItem(Item item, float durability)
     {
         for (int i = 0; i < weaponSlots.Length; i++)
@@ -258,6 +296,8 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         saves.playerAttact = playerAttact;
         saves.playerSpeed = playerSpeed;
 
+        path = Path.Combine(Application.dataPath, "PlayerStatus.json");
+
         string json = JsonUtility.ToJson(saves, true);
         File.WriteAllText(path, json);
     }
@@ -315,7 +355,6 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     public void Init(ItemSO itemSO, WeaponSO weaponSO, GameObject playerStatusUI, PlayerWeaponSlot[] weaponSlots, PlayerLanternSlot lantern)
     {
         this.itemSO = itemSO;
-        this.weaponSO = weaponSO;
 
         this.playerStatusUI = playerStatusUI;
         playerStatusUI.SetActive(false);
@@ -326,7 +365,14 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             weaponSlots[i].Init(weaponSO, itemSO, transform.Find("PlayerWeapon"), this);
         }
 
-        skillChangeCoolImg = UIManager.instance.PlayerSkills.Find("Weapon/WeaponChangeCoolTime").GetComponent<Image>();
+        try
+        {
+            skillChangeCoolImg = UIManager.instance.PlayerSkills.Find("Weapon/WeaponChangeCoolTime").GetComponent<Image>();
+        }
+        catch
+        {
+            Debug.Log("인게임이 아녀");
+        }
 
         lantern.Init(itemSO);
         this.lantern = lantern;

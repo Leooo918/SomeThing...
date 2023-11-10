@@ -5,12 +5,12 @@
         ""
     ],
     "durability": [
-        93.5999984741211,
-        97.4000015258789,
+        100.0,
+        100.0,
         0.0
     ],
-    "lantern": false,
-    "lanternDurability": 100.0,
+    "lantern": true,
+    "lanternDurability": 99.80000305175781,
     "playerMaxHp": 10.0,
     "playerAttact": 0.0,
     "playerSpeed": 5.0,

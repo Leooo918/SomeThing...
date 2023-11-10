@@ -1,0 +1,45 @@
+.script-type {
+    flex-direction: row;
+    color: rgb(255, 255, 255);
+}
+
+.contents {
+    flex-direction: row;
+    color: rgb(255, 255, 255);
+}
+
+.contents > #unity-text-input {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+}
+
+.name-label {
+    flex-direction: row;
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+}
+
+.name-label > #unity-text-input {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-size: 15px;
+    color: rgb(0, 0, 0);
+    flex-grow: 1;
+}
+
+.next-scripts {
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    justify-content: space-around;
+    align-items: center;
+    -unity-font-style: normal;
+    -unity-text-align: upper-center;
+    white-space: normal;
+    text-overflow: clip;
+}

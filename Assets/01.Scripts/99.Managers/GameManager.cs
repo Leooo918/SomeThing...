@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         CreateSoundManager();
         CreateSettingManager();
         CreateUIManager();
+        CreateCameraManager();
     }
 
     private void CreateShopManager()
@@ -85,6 +86,13 @@ public class GameManager : MonoBehaviour
         if (WeaponManager.instance != null) Destroy(WeaponManager.instance);
         WeaponManager.instance = gameObject.AddComponent<WeaponManager>();
         WeaponManager.instance.Init(weaponSO);
+    }
+
+    private void CreateCameraManager()
+    {
+        if (CameraManager.instance != null) Destroy(CameraManager.instance);
+        CameraManager.instance = GameObject.Find("Camera").AddComponent<CameraManager>();
+        CameraManager.instance.Init();
     }
 
     public void Save()

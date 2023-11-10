@@ -95,7 +95,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.1381, y: -423.6236}
+  m_AnchoredPosition: {x: 149.7, y: -417.7}
   m_SizeDelta: {x: 45.7398, y: 44.7085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6602869719300577744
@@ -149,6 +149,7 @@ GameObject:
   - component: {fileID: 5682875027066310612}
   - component: {fileID: 3429603123049294560}
   - component: {fileID: 6787269003397840422}
+  - component: {fileID: 2272962611958131376}
   m_Layer: 5
   m_Name: InventoryBackground
   m_TagString: Untagged
@@ -172,7 +173,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: 0}
+  m_AnchoredPosition: {x: 550, y: 0}
   m_SizeDelta: {x: 700, y: 900}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7871927282371687464
@@ -252,6 +253,18 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 7, y: 7}
   m_UseGraphicAlpha: 1
+--- !u!114 &2272962611958131376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081178925774924741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1dd85f00846f04197dd208b3b76347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8400059740597812739
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108.8041, y: -424.8}
+  m_AnchoredPosition: {x: 150.366, y: -418.8764}
   m_SizeDelta: {x: 70, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5977462297649214808

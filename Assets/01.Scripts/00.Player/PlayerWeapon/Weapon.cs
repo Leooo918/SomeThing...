@@ -47,11 +47,21 @@ public abstract class Weapon : MonoBehaviour
     {
         playerAction = GetComponentInParent<PlayerInput>();
         playerMove = GetComponentInParent<PlayerMove>();
-        playerStatus = playerAction.GetComponent<PlayerStatus>();
+        playerStatus = GetComponentInParent<PlayerStatus>();
     }
 
     protected virtual void OnEnable()
     {
+        if (playerAction == null)
+        {
+            if (gameObject.activeSelf == true)
+            {
+                Destroy(gameObject);
+            }
+            return;
+        }
+
+
         weaponSO = GameManager.instance.weaponSO;
 
         for (int i = 0; i < weaponSO.weapons.Length; i++)
@@ -177,6 +187,11 @@ public abstract class Weapon : MonoBehaviour
 
     public void Init(float durability)
     {
+        if (GetComponentInParent<PlayerInput>() == null && gameObject.activeSelf == true)
+        {
+            Destroy(gameObject);
+            return;
+        }
         this.durability = durability;
         this.proficiency = WeaponManager.instance.GetWeaponProficiencyValue(itemName);
         this.proficiencyLv = WeaponManager.instance.GetWeaponProficiencyLv(itemName);

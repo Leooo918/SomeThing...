@@ -25,3 +25,7 @@ MonoBehaviour:
     pfItem: {fileID: 2999265541510268186, guid: dc5f11b89b079bd48abd7f0eb7d19d1f, type: 3}
     value: 15
     size: {x: 1, y: 4}
+  - goodsName: Lantern
+    pfItem: {fileID: 2999265541510268186, guid: dc5f11b89b079bd48abd7f0eb7d19d1f, type: 3}
+    value: 20
+    size: {x: 1, y: 2}

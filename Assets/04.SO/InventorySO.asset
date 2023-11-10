@@ -25,3 +25,9 @@ MonoBehaviour:
     slotSize: 100
     pfInvnetory: {fileID: 611539462182061560, guid: 360b0e58adf14b24292646e3e6eee01f, type: 3}
     pfSlot: {fileID: 8078821638899943036, guid: 3d5b23375921bca45a19df1b7f82e444, type: 3}
+  - inventoryName: Storeage
+    width: 9
+    height: 9
+    slotSize: 100
+    pfInvnetory: {fileID: 611539462182061560, guid: 54dd805bc7eea274ebe4a86214a21bd0, type: 3}
+    pfSlot: {fileID: 8078821638899943036, guid: 3d5b23375921bca45a19df1b7f82e444, type: 3}

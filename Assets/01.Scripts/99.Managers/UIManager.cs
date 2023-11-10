@@ -153,30 +153,70 @@ public class UIManager : MonoBehaviour
 
     public void Init(Transform canvas, PlayerStatus player, ItemSO itemSO, WeaponSO weaponSO)
     {
-        interactUI = canvas.Find("InteractionUI").GetComponent<RectTransform>();
-        unEquipUI = canvas.Find("Unequip").GetComponent<RectTransform>();
-        playerStatusUI = canvas.Find("PlayerStatusBackground").GetComponent<RectTransform>();
-        itemBuyHelper = canvas.Find("BuyHelper").GetComponent<RectTransform>();
-        itemBuyError = canvas.Find("CannotBuyItem").GetComponent<RectTransform>();
-        itemDeviderHelper = canvas.Find("ItemDeviderHelper").GetComponent<RectTransform>();
-        obstacles = canvas.Find("Obstacle").GetComponent<RectTransform>();
-        warningBoxExit = canvas.Find("Warning").GetComponent<RectTransform>();
-        checkProfileUI = canvas.Find("CheckProfile");
-        lanternSlot = playerStatusUI.Find("PlayerStatue/PlayerLanternSlot").GetComponent<PlayerLanternSlot>();
-        inventories = FindObjectsByType<OpenInventory>(FindObjectsSortMode.InstanceID).ToList();
-        skillCheck = canvas.Find("SkillCheck");
-        playerSkills = canvas.Find("PlayerSkill");
+        if (canvas.Find("InteractionUI") != null)
+            interactUI = canvas.Find("InteractionUI").GetComponent<RectTransform>();
 
-        for (int i = 0; i < weaponSlots.Length; i++)
+        if (canvas.Find("Unequip") != null)
+            unEquipUI = canvas.Find("Unequip").GetComponent<RectTransform>();
+
+        if (canvas.Find("PlayerStatusBackground") != null)
+            playerStatusUI = canvas.Find("PlayerStatusBackground").GetComponent<RectTransform>();
+
+        if (canvas.Find("BuyHelper") != null)
+            itemBuyHelper = canvas.Find("BuyHelper").GetComponent<RectTransform>();
+
+        if (canvas.Find("CannotBuyItem") != null)
+            itemBuyError = canvas.Find("CannotBuyItem").GetComponent<RectTransform>();
+
+        if (canvas.Find("ItemDeviderHelper") != null)
+            itemDeviderHelper = canvas.Find("ItemDeviderHelper").GetComponent<RectTransform>();
+
+        if (canvas.Find("Obstacle") != null)
         {
-            weaponSlots[i] = playerStatusUI.Find("PlayerStatue/MountingWeapons").GetChild(i).GetComponent<PlayerWeaponSlot>();
+            obstacles = canvas.Find("Obstacle").GetComponent<RectTransform>();
+            obstacles.gameObject.SetActive(false);
         }
-        player.Init(itemSO, weaponSO, playerStatusUI.gameObject, weaponSlots, lanternSlot);
 
-        skillCheck.gameObject.SetActive(false);
-        obstacles.gameObject.SetActive(false);
-        warningBoxExit.gameObject.SetActive(false);
-        checkProfileUI.gameObject.SetActive(false);
+        if (canvas.Find("Warning") != null)
+        {
+            warningBoxExit = canvas.Find("Warning").GetComponent<RectTransform>();
+            warningBoxExit.gameObject.SetActive(false);
+        }
+
+        if (canvas.Find("CheckProfile") != null)
+        {
+            checkProfileUI = canvas.Find("CheckProfile");
+            checkProfileUI.gameObject.SetActive(false);
+        }
+
+        if (playerStatusUI.Find("PlayerStatue/PlayerLanternSlot") != null)
+            lanternSlot = playerStatusUI.Find("PlayerStatue/PlayerLanternSlot").GetComponent<PlayerLanternSlot>();
+
+        if (canvas.Find("SkillCheck") != null)
+        {
+            skillCheck = canvas.Find("SkillCheck");
+            skillCheck.gameObject.SetActive(false);
+        }
+
+        if (canvas.Find("PlayerSkill") != null)
+            playerSkills = canvas.Find("PlayerSkill");
+
+        inventories = FindObjectsByType<OpenInventory>(FindObjectsSortMode.InstanceID).ToList();
+
+        if (playerStatusUI != null)
+        {
+            for (int i = 0; i < weaponSlots.Length; i++)
+            {
+                weaponSlots[i] = playerStatusUI.Find("PlayerStatue/MountingWeapons").GetChild(i).GetComponent<PlayerWeaponSlot>();
+            }
+        }
+
+        if (player != null)
+        {
+            player.Init(itemSO, weaponSO, playerStatusUI.gameObject, weaponSlots, lanternSlot);
+        }
+
+
 
 
     }

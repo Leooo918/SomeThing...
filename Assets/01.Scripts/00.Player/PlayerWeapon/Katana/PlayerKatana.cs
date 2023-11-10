@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlayerKatana : Weapon
 {
-    private PlayerMove playerMove = null;
     private DamageSource damageSource = null;
     private KatanaSwordHolder swordHolder = null;
     private SkillCheckFeedBack skillCheckFeedBack = null;
@@ -22,7 +21,6 @@ public class PlayerKatana : Weapon
     {
         base.Awake();
 
-        playerMove = GetComponentInParent<PlayerMove>();
         damageSource = GetComponentInChildren<DamageSource>();
         swordHolder = transform.Find("SwordParents").GetComponent<KatanaSwordHolder>();
         skillCheckFeedBack = GetComponent<SkillCheckFeedBack>();
@@ -31,14 +29,6 @@ public class PlayerKatana : Weapon
         attackColl = katanaTrm.GetComponent<BoxCollider2D>();
     }
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-
-        playerAction.onAttackButtonPress += OnAttack;
-        playerAction.onUseSkill += OnUseSkill;
-        playerAction.onUseSubSkill += OnUseSubSkill;
-    }
 
     protected void OnDisable()
     {
@@ -135,6 +125,10 @@ public class PlayerKatana : Weapon
     public void OnReadyEnd()
     {
         swordHolder.MouseFollow();
+
+        playerAction.onAttackButtonPress += OnAttack;
+        playerAction.onUseSkill += OnUseSkill;
+        playerAction.onUseSubSkill += OnUseSubSkill;
     }
 
     public void SkillCheck()

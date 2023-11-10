@@ -4,6 +4,8 @@ public class OpenShop : MonoBehaviour
 {
     private Shop assignedShop = null;
 
+    public Shop AssignedShop => assignedShop;
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.K))

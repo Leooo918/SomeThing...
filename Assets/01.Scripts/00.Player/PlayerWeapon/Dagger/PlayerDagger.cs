@@ -13,7 +13,7 @@ public class PlayerDagger : Weapon
     private Transform daggerTrm = null;
     private Vector2 dir;
 
-
+    private bool isAttacking = false;
 
     protected override void Awake()
     {
@@ -29,7 +29,7 @@ public class PlayerDagger : Weapon
     protected override void OnEnable()
     {
         base.OnEnable();
-
+        if (playerAction == null) return;
         playerAction.onAttackButtonPress += OnAttack;
         playerAction.onUseSkill += OnUseSkill;
         playerAction.onUseSubSkill += OnUseSubSkill;
@@ -57,9 +57,10 @@ public class PlayerDagger : Weapon
     protected override void Update()
     {
         base.Update();
-        if (isAttaking == false || isUsingSkill == false)
+          
+        if (isAttacking == false)
         {
-            transform.position = playerStatus.transform.position;
+            transform.localPosition = Vector2.zero;
         }
     }
 
@@ -72,7 +73,7 @@ public class PlayerDagger : Weapon
 
         base.OnAttack();
 
-        AttackOnece();
+        AttackOnce();
 
         AttackCoolDown();
     }
@@ -114,11 +115,13 @@ public class PlayerDagger : Weapon
 
         for (int i = 0; i < 5; i++)
         {
-            seq.Append(transform.DOMove((Vector2)status.transform.position + dir.normalized * 0.5f, 0.1f))
-                .Append(transform.DOMove(status.transform.position, 0.01f));
+            seq.AppendCallback(() => coll.enabled = true)
+                .Append(transform.DOMove((Vector2)status.transform.position + dir.normalized * 0.5f, 0.1f))
+                .Append(transform.DOMove(status.transform.position, 0.01f))
+                .AppendCallback(() => coll.enabled = false);
         }
 
-        seq.OnStart(() => coll.enabled = true)
+        seq.OnStart(() => isAttacking = true)
             .OnComplete(() =>
             {
                 coll.enabled = false;
@@ -126,6 +129,7 @@ public class PlayerDagger : Weapon
                 damageSource.onAttack -= OnSkillHit;
                 playerAction.onMouseMove += PlayerDir;
                 playerMove.canNotMove = false;
+                isAttacking = false;
             });
 
     }
@@ -133,6 +137,7 @@ public class PlayerDagger : Weapon
     public void OnSkillHit(Collider2D collision)
     {
         damageSource.damageMultiple += 0.2f; //
+        print(damageSource.damageMultiple);
     }
 
     public void OnSkillEnd()
@@ -148,13 +153,21 @@ public class PlayerDagger : Weapon
         transform.eulerAngles = new Vector3(0, 0, rotation);
     }
 
-    private void AttackOnece()
+    private void AttackOnce()
     {
         seq = DOTween.Sequence();
 
         seq.Append(transform.DOMove((Vector2)status.transform.position + dir.normalized * 0.5f, 0.1f))
             .Append(transform.DOMove(status.transform.position, 0.01f))
-            .OnStart(() => coll.enabled = true)
-            .OnComplete(() => coll.enabled = false);
+            .OnStart(() => 
+            {
+                coll.enabled = true;
+                isAttacking = true;
+            })
+            .OnComplete(() => 
+            {
+                coll.enabled = false;
+                isAttacking = false;
+            });
     }
 }

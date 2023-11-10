@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMove : MonoBehaviour
@@ -50,6 +51,7 @@ public class PlayerMove : MonoBehaviour
         if(canNotMove == true)
         {
             rigid.velocity = Vector2.zero;
+            return;
         }
 
         if (isDashing == true) 
@@ -96,5 +98,12 @@ public class PlayerMove : MonoBehaviour
         isDashing = true;
         yield return new WaitForSeconds(time);
         isDashing = false;
+    }
+
+    internal void KnockBack(Vector2 dir)
+    {
+        dashDir = dir;
+        this.dashSpeed = 10 - Mathf.Clamp(dir.magnitude, 0, 8);
+        StartCoroutine(DashRoutine(0.05f));
     }
 }

@@ -1,0 +1,1550 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8437034337508747374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uBE14\uB07C\uC57C\uC544\uC544\uC544\uC557"
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: bc67b0720696b3244a6118d8eca5daa8
+  scriptType: 0
+  position: {x: 500, y: 162.40002}
+  nextSO: {fileID: -2165017811252053550}
+--- !u!114 &-8323574181336499035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: ????????????????
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 99fb33aefb11ece4680b31241db27c4b
+  scriptType: 0
+  position: {x: 2536, y: 496.00006}
+  nextSO: {fileID: 383759878796008899}
+--- !u!114 &-8127566328496318059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: ...
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 5aa046b74ec00d54f837fa3ccb469b6e
+  scriptType: 0
+  position: {x: 1920, y: 875.2}
+  nextSO: {fileID: 4037438999717084010}
+--- !u!114 &-8012881170340170670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5C4...\uB204..\uB204\uAD6C\uC138\uC694?!!!"
+  image: {fileID: 4626648768467519734, guid: b7406f7ca944fed47bac070be559a3c7, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 0ba82a32c6e09394abcaeefcc1295ad9
+  scriptType: 0
+  position: {x: 1530.4, y: 496.00024}
+  nextSO: {fileID: 4759008985418974848}
+--- !u!114 &-7386463391097070924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uB0A8\uC5D0 \uC9D1\uC5D0\uC11C \uC6D0\uC591\uC5B4\uC120\uC5D0\uC11C
+    \uB9C9 \uC7A1\uC544\uC62C\uB9B0 \uD65C\uC5B4 \uB9C8\uB0E5 \uD314\uB531\uAC70\uB9AC\uACE0
+    \uACC4\uC2E0\uBD84\uC740 \uB204\uAD6C\uC2DC\uC8E0?!"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: f3668e9d0d2808246a1e44337f4af6f2
+  scriptType: 0
+  position: {x: 1081.1284, y: 162.40001}
+  nextSO: {fileID: 2521999193647518870}
+--- !u!114 &-7120231988678264752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uBB50\uC57C \uC65C \uC548 \uC370\uB824..."
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: bbcc612d2f0720e4eb11b75c73374af8
+  scriptType: 0
+  position: {x: 1722.4, y: 28.800049}
+  nextSO: {fileID: 0}
+--- !u!114 &-5713558898012075238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "'\uADFC\uB370 \uC774\uB140\uC11D \uC5B4\uB514\uC11C \uD280\uC5B4\uB098\uC628
+    \uAC70\uC9C0'"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 721961fa415b66949ba7f37a017f8fc5
+  scriptType: 0
+  position: {x: -282.3999, y: 480.79993}
+  nextSO: {fileID: 8660377332895188268}
+--- !u!114 &-5256510667523126841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC544\uB2C8 \uC9C4\uC9DC \uBAB0?\uB8E8\uC694."
+  image: {fileID: 4498595012265136987, guid: 07fb9b1f44b3d184a81214e9d06c303a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 88452a6759812e440bf291cf3eb55822
+  scriptType: 0
+  position: {x: 1530.3999, y: 621.6}
+  nextSO: {fileID: 8972085791575526129}
+--- !u!114 &-5199233598581056877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uBAB0?\uB8E8"
+  image: {fileID: 4498595012265136987, guid: 28a103bc41ba2be4e8b941d40c40cfd3, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 78535989ef0e94c4f92faf4c58d1443d
+  scriptType: 0
+  position: {x: 2331.2, y: 496.00006}
+  nextSO: {fileID: -8323574181336499035}
+--- !u!114 &-5184343860088147192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uBB50...\uBB50\uC600\uC9C0?!"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 1
+  changeLikeyValue: 0
+  guid: 2751810503a7835429b2a63f5ea89989
+  scriptType: 0
+  position: {x: 92, y: -9.599976}
+  nextSO: {fileID: 1477424993274793750}
+--- !u!114 &-4751796205699890457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uBB50\uC57C \uC65C \uC4F0\uB7EC\uC838"
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 210ab3af9c36fca4291b4c2ac1c9375f
+  scriptType: 0
+  position: {x: 1722.4, y: 996.8001}
+  nextSO: {fileID: 0}
+--- !u!114 &-4011840559420277446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC77C\uB2E8 \uBA40\uCA61\uD574 \uBCF4\uC774\uB2C8 119\uB97C..."
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 2125f017dfecbf34e914e74397700d4d
+  scriptType: 0
+  position: {x: 690.4001, y: 324}
+  nextSO: {fileID: 8600298515247529842}
+--- !u!114 &-3996461551280351504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uADF8\uBCF4\uB2E4 \uC65C \uB0A8\uC5D0 \uC9D1\uC5D0 \uCE68\uC785\uD574\uC788\uB294
+    \uAC70\uC8E0?"
+  image: {fileID: 4626648768467519734, guid: b7406f7ca944fed47bac070be559a3c7, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 844408d78c46c6748a55320735beea82
+  scriptType: 0
+  position: {x: 2128, y: 496.00006}
+  nextSO: {fileID: -5199233598581056877}
+--- !u!114 &-3893765465983924262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uD37D!"
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: e694ae7fda37e70488c99e2834bf2470
+  scriptType: 0
+  position: {x: 92.000015, y: 162.40013}
+  nextSO: {fileID: -1633231066000036648}
+--- !u!114 &-3859985034395444281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC73C\uC73C\uC5CC \uC4F0\uB7EC\uC9D0"
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 8876563880057043735, guid: 462b0bd13442c4d41a6c8420f88ba58f, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 089ad6b09038baa4fa2729a014e13717
+  scriptType: 0
+  position: {x: 1530.4, y: 996.80005}
+  nextSO: {fileID: -4751796205699890457}
+--- !u!114 &-3774432545676655633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uB180\uB798\uB77C"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: b9e48dd24b1d36e4b93996654bb0098a
+  scriptType: 0
+  position: {x: 1530.4003, y: 874.9034}
+  nextSO: {fileID: 4799190613767342171}
+--- !u!114 &-3725924130396448706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5B4?"
+  image: {fileID: 4498595012265136987, guid: aedb9c35e38493c47bcfe52009c454f6, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 29b40d864d74e094e94be6f01ff9d8ee
+  scriptType: 0
+  position: {x: 2331.2, y: 753.6}
+  nextSO: {fileID: 365152439504267138}
+--- !u!114 &-3653922751391024838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC624..."
+  image: {fileID: 4498595012265136987, guid: 28a103bc41ba2be4e8b941d40c40cfd3, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 2d4eb2a1417bde3498aef2eaaffb3afe
+  scriptType: 0
+  position: {x: 298.40018, y: 480.80002}
+  nextSO: {fileID: -3036028968356878336}
+--- !u!114 &-3132718499467126180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC624... \uADF8\uBCF4\uB2E4 \uC800 \uACF5\uAC04\uC758 \uB4A4\uD2C0\uB9BC\uAC19\uC740
+    \uAD34\uC0C1 \uB9DD\uCE21\uD55C\uAC74 \uBB50\uC9C0?!"
+  image: {fileID: 5499516962759638786, guid: 032f9d58912bb994a8ca4cc78c66d76a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 5e19555cf42c39d4ea4cb5ebf91ef8de
+  scriptType: 0
+  position: {x: 2331.2, y: 621.6}
+  nextSO: {fileID: 2373545786929474992}
+--- !u!114 &-3036028968356878336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a9a31f1704dbd4da4042a261314d5a, type: 3}
+  m_Name: ImageSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: 
+  image: {fileID: 4626648768467519734, guid: f67d94250860a7441acb3fdeeed7135f, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: -3868115439430893772, guid: b39ba13279968bb40ace2d0e081012d3, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: b9cbf6994b7d4464399fdcd2efb4af45
+  scriptType: 3
+  position: {x: 509.60013, y: 480.80002}
+  nextScript: {fileID: 5394960578377222808}
+--- !u!114 &-2372832459361965972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "200000%\uD655\uB960\uB85C \uC9E4\uB9AC\uACE0 \uB9D0\uAC70\uC57C..."
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: f077b8fad56834443b184558794cbdf4
+  scriptType: 0
+  position: {x: 308, y: 324}
+  nextSO: {fileID: 563143186448796574}
+--- !u!114 &-2313321572664594702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uCFF5..."
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 1
+  changeLikeyValue: 0
+  guid: 700d4d24469e86a468b680c1973e0454
+  scriptType: 0
+  position: {x: 690.40027, y: -9.599949}
+  nextSO: {fileID: 2970360878499753843}
+--- !u!114 &-2165017811252053550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uB204.....\uB204\uAD6C\uC138\uC6A7!"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 70edff43e3d31864eaa181e5d6c8d7fd
+  scriptType: 0
+  position: {x: 690.40015, y: 162.40002}
+  nextSO: {fileID: 668996282515022690}
+--- !u!114 &-1850414128723820664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uD558..."
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: c1524361200c95a4daa9ce8a95c9f713
+  scriptType: 0
+  position: {x: 1530.3999, y: 753.6}
+  nextSO: {fileID: 1414932191978644411}
+--- !u!114 &-1633231066000036648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uB454\uD0C1\uD55C \uD0C0\uACA9\uC74C\uC774 \uB4E4\uB9AC\uACE0
+    \uC774\uC5B4\uC9C0\uB294..."
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 54745415cb1d31d49930123ce1874db1
+  scriptType: 0
+  position: {x: 298.3999, y: 162.40009}
+  nextSO: {fileID: -8437034337508747374}
+--- !u!114 &-972604170063871609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC73C\uAC38\uAC39"
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: c6977dd479c66c6429034a11aa7bd2e3
+  scriptType: 0
+  position: {x: 499.99994, y: -9.599949}
+  nextSO: {fileID: -2313321572664594702}
+--- !u!114 &-530029135559866294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5B4...\uC5B4\uC5B4\u3153\u3153\u3153\u3153....\uC5B4\u3153\uC5B4\uC5B4\uC5B4\uC5B4\uC5B4\u3153\u3153\u3153\u3153..............."
+  image: {fileID: 5499516962759638786, guid: 49dd8ea901e879c408131f1a672c2fdb, type: 3}
+  background: {fileID: 21300000, guid: cc1d14caaf04bf141997ad7bdcee3ffa, type: 3}
+  anim: {fileID: 0}
+  charactor: 1
+  changeLikeyValue: 0
+  guid: 5154cf589ef67ec4294cc07a34471df6
+  scriptType: 0
+  position: {x: -101.599884, y: 162.40002}
+  nextSO: {fileID: -3893765465983924262}
+--- !u!114 &-363661957876687345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5B4...\uC5B4???\uC804 \uC288\uBC14. \uC288\uBC14 \uB974\uCE20..."
+  image: {fileID: 4626648768467519734, guid: b7406f7ca944fed47bac070be559a3c7, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 976c42be1f8fa2640991a4e5b96fe1fe
+  scriptType: 0
+  position: {x: 1920.2064, y: 496}
+  nextSO: {fileID: -3996461551280351504}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 732824df00c0acd4b9a15629c7ca57c7, type: 3}
+  m_Name: PrologDialog
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4805960170995954222}
+  - {fileID: 1516515964521095126}
+  - {fileID: -5184343860088147192}
+  - {fileID: -972604170063871609}
+  - {fileID: 2970360878499753843}
+  - {fileID: -2313321572664594702}
+  - {fileID: 921685392364490605}
+  - {fileID: 6377052361072169588}
+  - {fileID: -530029135559866294}
+  - {fileID: -3893765465983924262}
+  - {fileID: -1633231066000036648}
+  - {fileID: -8437034337508747374}
+  - {fileID: -2165017811252053550}
+  - {fileID: 668996282515022690}
+  - {fileID: -7386463391097070924}
+  - {fileID: 2521999193647518870}
+  - {fileID: 2162320255500748475}
+  - {fileID: 7482137944135788581}
+  - {fileID: -2372832459361965972}
+  - {fileID: 563143186448796574}
+  - {fileID: -4011840559420277446}
+  - {fileID: 8600298515247529842}
+  - {fileID: 4948538453365572246}
+  - {fileID: -5713558898012075238}
+  - {fileID: 8660377332895188268}
+  - {fileID: 1477424993274793750}
+  - {fileID: 6401399098179561910}
+  - {fileID: -3653922751391024838}
+  - {fileID: -3036028968356878336}
+  - {fileID: 5394960578377222808}
+  - {fileID: 852769134914882084}
+  - {fileID: 4759008985418974848}
+  - {fileID: -8012881170340170670}
+  - {fileID: -7120231988678264752}
+  - {fileID: 65968456580252666}
+  - {fileID: -363661957876687345}
+  - {fileID: -3996461551280351504}
+  - {fileID: -5199233598581056877}
+  - {fileID: -8323574181336499035}
+  - {fileID: 383759878796008899}
+  - {fileID: -5256510667523126841}
+  - {fileID: 8972085791575526129}
+  - {fileID: 219933410183371264}
+  - {fileID: 518698533445324373}
+  - {fileID: -3132718499467126180}
+  - {fileID: 2373545786929474992}
+  - {fileID: 2849000429342381944}
+  - {fileID: -1850414128723820664}
+  - {fileID: 1414932191978644411}
+  - {fileID: 1670647961070415367}
+  - {fileID: 2549700883313487130}
+  - {fileID: -3725924130396448706}
+  - {fileID: 365152439504267138}
+  - {fileID: 2026901148189592849}
+  - {fileID: -3774432545676655633}
+  - {fileID: 4799190613767342171}
+  - {fileID: -8127566328496318059}
+  - {fileID: 4037438999717084010}
+  - {fileID: 6372428826328743236}
+  - {fileID: 4104082302146821389}
+  - {fileID: -3859985034395444281}
+  - {fileID: 7159458616582668573}
+  - {fileID: -4751796205699890457}
+--- !u!114 &65968456580252666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5D0\uC787"
+  image: {fileID: 4626648768467519734, guid: 52375b1b638e8f143a4a33ce4baf6782, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: -9173006843262997674, guid: 54535028cf057fb408700b3a8fb49dd9, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 7c58c9debeafa204f9e45d0e3987b86a
+  scriptType: 0
+  position: {x: 1530.4, y: 28.799988}
+  nextSO: {fileID: -7120231988678264752}
+--- !u!114 &219933410183371264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5D0? \uB358\uC804? \uC774\uC138\uACC4 \uC804\uC0DD \uADF8\uB7F0\uAC74\uAC00?"
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: b618e9e30cfb7614fab573fbf48f1243
+  scriptType: 0
+  position: {x: 1920, y: 621.6}
+  nextSO: {fileID: 518698533445324373}
+--- !u!114 &365152439504267138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: ...
+  image: {fileID: 5499516962759638786, guid: 032f9d58912bb994a8ca4cc78c66d76a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: c5e5559430b803a4cba1f6d7b696edaa
+  scriptType: 0
+  position: {x: 2536, y: 753.6}
+  nextSO: {fileID: 2026901148189592849}
+--- !u!114 &383759878796008899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uCE7C\uB9DE\uC744\uB798\uC694?"
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: a3f619de8240d1747bc09298e2fd1ad9
+  scriptType: 0
+  position: {x: 2759.2, y: 496.00006}
+  nextSO: {fileID: -5256510667523126841}
+--- !u!114 &518698533445324373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC544 \uB531 \uADF8 \uADF8 \uC774\uC138\uACC4 \uC804\uC0DD \uBB50\uC2DC\uAE30
+    \uD558\uB294\uAC74\uAC00?"
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 2a65620ba3735eb4b928a195ac3cb125
+  scriptType: 0
+  position: {x: 2128, y: 621.6}
+  nextSO: {fileID: -3132718499467126180}
+--- !u!114 &563143186448796574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5B4\uC9DC\uD53C \uC9E4\uB9B4\uAC70\uBA74 \uC88B\uC740\uAC70
+    \uBCF4\uACE0 \uAC00\uB294\uAC8C \uC88B\uC73C\uB824\uB098?"
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 41f0dfa9032c19749a60601cb0a2e82f
+  scriptType: 0
+  position: {x: 500.00003, y: 324.00003}
+  nextSO: {fileID: -4011840559420277446}
+--- !u!114 &668996282515022690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC754...\uC73C\uC5CC...\uC73C\uC5B4\uC5B4\uC5B4\uC5CC"
+  image: {fileID: 4498595012265136987, guid: 11b7db91eda540b4b9135b03c899645b, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 6281f60c81f582d459ae4ad3d405cba7
+  scriptType: 0
+  position: {x: 874.7284, y: 162.40001}
+  nextSO: {fileID: -7386463391097070924}
+--- !u!114 &852769134914882084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e387c4f654141d409b58ef3192fbd5f, type: 3}
+  m_Name: OptionSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC5B4...\uC5B4..."
+  image: {fileID: 4626648768467519734, guid: b7406f7ca944fed47bac070be559a3c7, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: b8fb24c2d2ad1044380f5414692ecc0f
+  scriptType: 2
+  position: {x: 1271.9999, y: 480.79996}
+  options:
+  - "\uCE7C\uC744 \uB4E0\uCC44\uB85C \uB2EC\uB824\uB4E0\uB2E4"
+  - "\uB300\uD654\uB97C \uC2DC\uB3C4\uD55C\uB2E4."
+  optionPf: {fileID: 1748593612290805991, guid: bb752a0a65bde2447af8bd2d80b30281, type: 3}
+  nextScriptsByOption:
+  - {fileID: 65968456580252666}
+  - {fileID: -8012881170340170670}
+  - {fileID: 0}
+--- !u!114 &921685392364490605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC73C\uC544\uC55C!  \uB204...\uB204\uAD6C\uC138\uC694?!"
+  image: {fileID: 5499516962759638786, guid: 49dd8ea901e879c408131f1a672c2fdb, type: 3}
+  background: {fileID: 21300000, guid: cc1d14caaf04bf141997ad7bdcee3ffa, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: a68b88fde3a94e948ace11ba128862ab
+  scriptType: 0
+  position: {x: 1080.7998, y: -9.599842}
+  nextSO: {fileID: 6377052361072169588}
+--- !u!114 &1414932191978644411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uD22D"
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 9e9cb681bd12aeb44bd13d13f0b98bfa
+  scriptType: 0
+  position: {x: 1722.3999, y: 753.6}
+  nextSO: {fileID: 1670647961070415367}
+--- !u!114 &1477424993274793750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a9a31f1704dbd4da4042a261314d5a, type: 3}
+  m_Name: ImageSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: 
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 8281351470721884505, guid: c81195158fa7c0b4a81849df278cd900, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 58da56b11c0d7594598b8371af043b5e
+  scriptType: 3
+  position: {x: 308, y: -9.599999}
+  nextScript: {fileID: -972604170063871609}
+--- !u!114 &1516515964521095126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uC9C0\uD558\uC2E4\uC5D0\uC11C \uC758\uBB38\uC758 \uC18C\uB9AC\uAC00
+    \uB4E4\uB838\uB2E4."
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: d59ca51f466f2d34baa6e8335df6c2ac
+  scriptType: 0
+  position: {x: -101.599976, y: -9.599976}
+  nextSO: {fileID: -5184343860088147192}
+--- !u!114 &1670647961070415367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC73C\uC544\uC544\u314F\uC55C"
+  image: {fileID: 4498595012265136987, guid: 7434664323fc91a4bbe8606466ca9036, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 68eb493bfc009b045ad50b3c36cfeae3
+  scriptType: 0
+  position: {x: 1920, y: 753.6}
+  nextSO: {fileID: 2549700883313487130}
+--- !u!114 &2026901148189592849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: 
+  image: {fileID: 4498595012265136987, guid: cfe60decf61a03c4b8bcd419c2afb59d, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 6d1617b0e70bb724ab8000126be0cf35
+  scriptType: 0
+  position: {x: 2759.2002, y: 753.6}
+  nextSO: {fileID: -3774432545676655633}
+--- !u!114 &2162320255500748475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uBB3C\uC744 \uBFCC\uB9AC\uBA74..."
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 4ea17db386c7d5e4086602a1cd1c9ae3
+  scriptType: 0
+  position: {x: -101.600174, y: 324}
+  nextSO: {fileID: 7482137944135788581}
+--- !u!114 &2373545786929474992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC624 \uC800\uAC74!"
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 126670e2a3298184e8576c557d96a6c3
+  scriptType: 0
+  position: {x: 2536, y: 621.6}
+  nextSO: {fileID: 2849000429342381944}
+--- !u!114 &2521999193647518870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC751..\uC544\uC787...\uD478\uB974\uB974....\uC5C4...\uC751..\uC544\uC787!"
+  image: {fileID: 4498595012265136987, guid: 11b7db91eda540b4b9135b03c899645b, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 10781c3b826aaa143aab51057d6cc4b4
+  scriptType: 0
+  position: {x: -282.40002, y: 324.0056}
+  nextSO: {fileID: 2162320255500748475}
+--- !u!114 &2549700883313487130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uAC00\uC11C \uD55C \uC228 \uB354 \uC790\uC57C\uACA0\uB2E4..."
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 95d103662cf2dd84cb299c080008ef31
+  scriptType: 0
+  position: {x: 2128, y: 753.6}
+  nextSO: {fileID: -3725924130396448706}
+--- !u!114 &2849000429342381944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uBB50\uC8E0?"
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 10c2491c6fd03eb48b064817ef7ec881
+  scriptType: 0
+  position: {x: 2759.2, y: 621.6}
+  nextSO: {fileID: -1850414128723820664}
+--- !u!114 &2970360878499753843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a9a31f1704dbd4da4042a261314d5a, type: 3}
+  m_Name: ImageSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: 
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: cc1d14caaf04bf141997ad7bdcee3ffa, type: 3}
+  anim: {fileID: 0}
+  charactor: 1
+  changeLikeyValue: 0
+  guid: 4a42250685004b441854492fbf89dc31
+  scriptType: 3
+  position: {x: 883.99963, y: -9.599949}
+  nextScript: {fileID: 921685392364490605}
+--- !u!114 &4037438999717084010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC800\uAE30\uB85C \uB4E4\uC5B4\uAC00\uBA74 \uB3CC\uC544\uAC00\uB294\uAC70
+    \uC544\uB2D8?"
+  image: {fileID: 5499516962759638786, guid: 032f9d58912bb994a8ca4cc78c66d76a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 62eafc119f70530498e14e873aab0f79
+  scriptType: 0
+  position: {x: 2128, y: 875.2}
+  nextSO: {fileID: 7159458616582668573}
+--- !u!114 &4104082302146821389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uB0B4 \uC190\uC5D0 \uB4E4\uB824\uC788\uB294\uAC78 \uBCF4\uACE0
+    \uB2E4\uC2DC \uB9D0\uD560 \uAE30\uD68C\uB97C \uC904\uAC8C"
+  image: {fileID: 4626648768467519734, guid: 75786f17661506240934f5daee146466, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: e37a45779e25de34e94e6bfd581e87ea
+  scriptType: 0
+  position: {x: 2536, y: 875.2}
+  nextSO: {fileID: 6372428826328743236}
+--- !u!114 &4759008985418974848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC800...\uC804 \uC544\uBA5C\uB9AC\uC544\uB77C\uACE0 \uD558\uB294\uB370\uC694?!
+    \uC544\uBA5C\uB9AC\uC544 \uC653\uC2A8..."
+  image: {fileID: 4498595012265136987, guid: 28a103bc41ba2be4e8b941d40c40cfd3, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 7d7d24ca8a2a58b46b0fd80cfb3c2b2c
+  scriptType: 0
+  position: {x: 1722.3999, y: 495.9999}
+  nextSO: {fileID: -363661957876687345}
+--- !u!114 &4799190613767342171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC0AC\uB78C\uC744 \uB9C9 \uBC00\uACE0 \uBB50\uD558\uB294..."
+  image: {fileID: 4498595012265136987, guid: 28a103bc41ba2be4e8b941d40c40cfd3, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 71fbf517470538a40a3d655835b2e7c3
+  scriptType: 0
+  position: {x: 1722.3999, y: 875.2}
+  nextSO: {fileID: -8127566328496318059}
+--- !u!114 &4805960170995954222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: "\uCF85\uCF70\uC544\uC544\uC544\u314F\u3147"
+  image: {fileID: 0}
+  background: {fileID: 21300000, guid: 13eb3c9189c3b2642acc5a85d65b99f3, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 80e6e94b9e7da214fba1d2c26b6a4ff5
+  scriptType: 0
+  position: {x: -282.40002, y: -9.714144}
+  nextSO: {fileID: 1516515964521095126}
+--- !u!114 &4948538453365572246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC0C1\uD0DC\uAC00 \uC601 \uC88B\uC9C0 \uBABB\uD558\uAD70;;;"
+  image: {fileID: 4626648768467519734, guid: 16e700a8393849e439ee34cd7e5a6120, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 3c6234518f7b66947bcbb12339b27a60
+  scriptType: 0
+  position: {x: 1080.7999, y: 323.99994}
+  nextSO: {fileID: -5713558898012075238}
+--- !u!114 &5394960578377222808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC0AC...\uC0B4\uB824\uC8FC\uC138\uC694..."
+  image: {fileID: 4498595012265136987, guid: 07fb9b1f44b3d184a81214e9d06c303a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: e5bb0d51a56baac48b756af78cd352f2
+  scriptType: 0
+  position: {x: 690.39996, y: 480.8}
+  nextSO: {fileID: 852769134914882084}
+--- !u!114 &6372428826328743236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC5C4...\uC5B4.."
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: c79f8f5b1cddb754eb4bb520daebe71b
+  scriptType: 0
+  position: {x: 2759.2, y: 875.2}
+  nextSO: {fileID: -3859985034395444281}
+--- !u!114 &6377052361072169588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uC65C \uC81C \uBC11\uC5D0 \uAE54\uB824 \uACC4\uC2E0\uAC70\uC8E0?"
+  image: {fileID: 5499516962759638786, guid: 49dd8ea901e879c408131f1a672c2fdb, type: 3}
+  background: {fileID: 21300000, guid: cc1d14caaf04bf141997ad7bdcee3ffa, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: ad5fbfaa394d7274d9ccde5a4b8c8bd1
+  scriptType: 0
+  position: {x: -282.40015, y: 162.63849}
+  nextSO: {fileID: -530029135559866294}
+--- !u!114 &6401399098179561910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a9a31f1704dbd4da4042a261314d5a, type: 3}
+  m_Name: ImageSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: 
+  talkingDetails: 
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 2691639047427653131, guid: cc3d270e2ebbb834195793376ce555e7, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: bcb011cabdcfe184684b073c92377b90
+  scriptType: 3
+  position: {x: 101.59999, y: 480.80002}
+  nextScript: {fileID: -3653922751391024838}
+--- !u!114 &7159458616582668573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uC5C4...\uAC08 \uC218\uB294 \uC788\uB294\uB370 \uAC08 \uC218
+    \uC5C6\uC5B4\uC694"
+  image: {fileID: 4498595012265136987, guid: 95fae6a7383506b4689ab7d0063f3644, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 8a81eee655ba5ab4fb3a5ec3d6a1edc4
+  scriptType: 0
+  position: {x: 2331.2, y: 875.19995}
+  nextSO: {fileID: 4104082302146821389}
+--- !u!114 &7482137944135788581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC7A0\uC2DC\uB9CC... \uBB3C\uC744 \uBFCC\uB9AC\uBA74 \uC785\uACE0\uC788\uB294
+    \uC154\uCE20\uB54C\uBB38\uC5D0..."
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 513ebc0d14c56dc4484aedd20ac7411e
+  scriptType: 0
+  position: {x: 92, y: 324}
+  nextSO: {fileID: -2372832459361965972}
+--- !u!114 &8600298515247529842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: ???
+  talkingDetails: "\uD5E4\uC73C\uC751......."
+  image: {fileID: 4498595012265136987, guid: 11b7db91eda540b4b9135b03c899645b, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: 3991a5fac3ec8244fbaa89d09d95aa66
+  scriptType: 0
+  position: {x: 874.40027, y: 323.99997}
+  nextSO: {fileID: 4948538453365572246}
+--- !u!114 &8660377332895188268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC288\uBC14"
+  talkingDetails: "\uC77C\uC5B4\uB0A0 \uB54C\uB97C \uB300\uBE44\uD574\uB458 \uD544\uC694\uAC00
+    \uC788\uACA0\uAD70"
+  image: {fileID: 4498595012265136987, guid: e25530b68d4361b4db62aae2afcc0977, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 7373788412606440993, guid: e5a665d9fd11d5e4496a13fd0e844ce2, type: 3}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: b1abcd7bc73869640a4a86f38f6ea92d
+  scriptType: 0
+  position: {x: -101.6001, y: 480.79993}
+  nextSO: {fileID: 6401399098179561910}
+--- !u!114 &8972085791575526129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e33134f00ca4b504bab097a154bd5b3f, type: 3}
+  m_Name: NormalScriptSO
+  m_EditorClassIdentifier: 
+  talkingPeopleName: "\uC544\uBA5C\uB9AC\uC544"
+  talkingDetails: "\uB358\uC804 \uC870\uC0AC\uB97C \uAC14\uB2E4\uAC00 \uD3ED\uBC1C\uC5D0
+    \uD718\uB9D0\uB838\uB294\uB370 \uC5EC\uAE30\uC600\uB294\uB370\uC694?!"
+  image: {fileID: 4498595012265136987, guid: 07fb9b1f44b3d184a81214e9d06c303a, type: 3}
+  background: {fileID: 21300000, guid: 717ba608362a8c0439e8af4da40b20d7, type: 3}
+  anim: {fileID: 0}
+  charactor: 0
+  changeLikeyValue: 0
+  guid: ccc7142335bfbf8418073df3c75b5dd5
+  scriptType: 0
+  position: {x: 1722.3999, y: 621.6}
+  nextSO: {fileID: 219933410183371264}

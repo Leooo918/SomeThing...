@@ -310,7 +310,7 @@ public class Inventory : MonoBehaviour
 
         slots = new Slot[width, height];                                    //슬롯의 크기 지정
 
-        Transform parent = transform.Find("InventoryBackground");           //인벤토리 Background의 자식으로 둘거다!
+        Transform parent = GetComponentInChildren<InventoryBackgroundFinder>().transform;          //인벤토리 Background의 자식으로 둘거다!
 
         RectTransform background = parent.GetComponent<RectTransform>();
         background.sizeDelta = new Vector2(width * 100, height * 100);

@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/10.UI/TItleScene.uss?fileID=7433441132597879392&amp;guid=00e76ddc995276f4fa64e71d8a46ca6d&amp;type=3#TItleScene" />
+    <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; border-left-color: rgba(255, 255, 255, 0); border-right-color: rgba(255, 255, 255, 0); border-top-color: rgba(255, 255, 255, 0); border-bottom-color: rgba(255, 255, 255, 0); background-color: rgba(255, 255, 255, 0);">
+        <ui:Label tabindex="-1" text="Escape\nFrom\nDungeon" parse-escape-sequences="true" display-tooltip-when-elided="true" name="main-txt" style="-unity-font-definition: initial; -unity-font: url(&apos;project://database/Assets/05.Fonts/neodgm%20(3).ttf?fileID=12800000&amp;guid=7c7f76e895e7d594989981d148ece6d3&amp;type=3#neodgm (3)&apos;); font-size: 150px; -unity-text-align: upper-left; position: relative; left: auto; white-space: nowrap; text-overflow: clip; color: rgb(255, 255, 255); -unity-text-outline-width: 5px; -unity-text-outline-color: rgb(0, 0, 0); margin-bottom: 50px; margin-top: 24px;" />
+        <ui:Button text="Start" parse-escape-sequences="true" display-tooltip-when-elided="true" name="start-btn" class="start-btn">
+            <ui:VisualElement name="start-icon" style="flex-grow: 0; background-color: rgba(255, 255, 255, 0); width: 70px; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; margin-left: 0; background-image: url(&apos;project://database/Assets/02.Sprite/AAA/playBtn.png?fileID=21300000&amp;guid=f9e9176601e1d3d41bcd109af50b3082&amp;type=3#playBtn&apos;); height: 70px; flex-shrink: 0;" />
+        </ui:Button>
+        <ui:Button text="Option" parse-escape-sequences="true" display-tooltip-when-elided="true" name="option-btn" class="option-btn">
+            <ui:VisualElement name="option-icon" style="flex-grow: 0; width: 60px; margin-top: 10px; margin-right: 10px; margin-bottom: 10px; margin-left: 0; background-image: url(&apos;project://database/Assets/02.Sprite/UI/%ED%86%B1%EB%8B%88%EB%B0%94%ED%80%B4.png?fileID=21300000&amp;guid=e717e500229672d4aa2bf1eb980925df&amp;type=3#톱니바퀴&apos;); flex-shrink: 0; height: 60px;" />
+        </ui:Button>
+        <ui:Button text="Exit" parse-escape-sequences="true" display-tooltip-when-elided="true" name="exit-btn" class="exit-btn">
+            <ui:VisualElement name="exit-icon" style="flex-grow: 1; margin-top: 5px; margin-right: 5px; margin-bottom: 5px; width: 70px; background-image: url(&apos;project://database/Assets/02.Sprite/UI/New%20Piskel%20(16).png?fileID=21300000&amp;guid=24c9c858063875c4e9609fa5fe145107&amp;type=3#New Piskel (16)&apos;); height: 70px; flex-shrink: 0;" />
+        </ui:Button>
+    </ui:VisualElement>
+</ui:UXML>

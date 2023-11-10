@@ -456,6 +456,7 @@ GameObject:
   - component: {fileID: 5682875027066310612}
   - component: {fileID: 3429603123049294560}
   - component: {fileID: 6787269003397840422}
+  - component: {fileID: 5995393578957749073}
   m_Layer: 5
   m_Name: InventoryBackground
   m_TagString: Untagged
@@ -559,3 +560,15 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 7, y: 7}
   m_UseGraphicAlpha: 1
+--- !u!114 &5995393578957749073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081178925774924741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1dd85f00846f04197dd208b3b76347, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

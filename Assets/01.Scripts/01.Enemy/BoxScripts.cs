@@ -42,6 +42,11 @@ public class BoxScripts : MonoBehaviour
         openInventory.onOpenInventory += OnOpenInventory;
     }
 
+    private void OnDisable()
+    {
+        StopCoroutine("DisolveRoutine");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.TryGetComponent<PlayerInput>(out input))

@@ -38,7 +38,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
         speed = maxSpeed;
     }
 
-    public void Damaged(float value)
+    public void Damaged(float value, Vector2 hitPoint)
     {
         hp -= value;
 

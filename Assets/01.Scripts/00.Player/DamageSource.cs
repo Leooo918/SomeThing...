@@ -17,7 +17,7 @@ public class DamageSource : MonoBehaviour
             Debug.Log(damage * damageMultiple);
             Debug.Log(collision.name);
             onAttack?.Invoke(collision);
-            damageAble.Damaged(damage * damageMultiple);
+            damageAble.Damaged(damage * damageMultiple, transform.position);
         }
     }
 }

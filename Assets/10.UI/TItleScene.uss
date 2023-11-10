@@ -1,0 +1,84 @@
+.start-btn {
+    width: 350px;
+    height: 100px;
+    -unity-font: url('project://database/Assets/05.Fonts/neodgm%20(3).ttf?fileID=12800000&guid=7c7f76e895e7d594989981d148ece6d3&type=3#neodgm (3)');
+    -unity-font-definition: initial;
+    font-size: 100px;
+    -unity-text-align: middle-right;
+    background-color: rgba(178, 178, 178, 0);
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    align-items: flex-start;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.option-btn {
+    width: 400px;
+    height: 100px;
+    -unity-font: url('project://database/Assets/05.Fonts/neodgm%20(3).ttf?fileID=12800000&guid=7c7f76e895e7d594989981d148ece6d3&type=3#neodgm (3)');
+    -unity-font-definition: initial;
+    font-size: 100px;
+    -unity-text-align: middle-right;
+    background-color: rgba(188, 188, 188, 0);
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    flex-direction: row;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.exit-btn {
+    width: 300px;
+    height: 100px;
+    -unity-font: url('project://database/Assets/05.Fonts/neodgm%20(3).ttf?fileID=12800000&guid=7c7f76e895e7d594989981d148ece6d3&type=3#neodgm (3)');
+    -unity-font-definition: initial;
+    font-size: 100px;
+    -unity-text-align: middle-right;
+    background-color: rgba(188, 188, 188, 0);
+    margin-top: 25px;
+    margin-right: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    align-items: flex-start;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.start-btn:hover {
+    transition-duration: 0.1s;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 5px;
+    border-left-width: 0;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.option-btn:hover {
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-bottom-width: 5px;
+}
+
+.exit-btn:hover {
+    border-bottom-width: 5px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}

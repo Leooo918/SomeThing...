@@ -13,4 +13,14 @@ public class Lantern : ItemWeapon
     {
         base.Update();
     }
+
+    public void DurabilityDown(float value)
+    {
+        durability -= value;
+
+        if(durability <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 }

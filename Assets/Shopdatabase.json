@@ -2,10 +2,12 @@
     "shopLv": 0,
     "itemNames": [
         "Medkit",
-        "Katana"
+        "Katana",
+        "Lantern"
     ],
     "itemAmounts": [
-        5,
-        1
+        2,
+        0,
+        2
     ]
 }
