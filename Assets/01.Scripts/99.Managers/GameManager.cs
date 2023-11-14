@@ -13,14 +13,19 @@ public class GameManager : MonoBehaviour
     public InventorySO inventorySO = null;
     public ShopGoodsSO shopGoodsSO = null;
     public WeaponSO weaponSO = null;
-    public Transform player = null;
-    public Transform canvas = null;
+    public Transform mapTrm = null;
     public GameObject boxPf = null;
     public PoolSO pool = null;
 
-    public bool isUIInput = false;
 
     public List<AudioClip> audioClips = null;
+
+    public bool isUIInput = false;
+
+    [HideInInspector]
+    public Transform player = null;
+    [HideInInspector]
+    public Transform canvas = null;
 
     private void Awake()
     {
@@ -42,6 +47,7 @@ public class GameManager : MonoBehaviour
         CreateSettingManager();
         CreateUIManager();
         CreateCameraManager();
+        CreateMapManager();
         CreatePoolManager();
     }
 
@@ -63,10 +69,10 @@ public class GameManager : MonoBehaviour
 
     private void CreateSoundManager()
     {
-        if (UISoundManager.instance != null) Destroy(UISoundManager.instance);
-        UISoundManager.instance = gameObject.AddComponent<UISoundManager>();
+        if (SoundManager.instance != null) Destroy(SoundManager.instance);
+        SoundManager.instance = gameObject.AddComponent<SoundManager>();
 
-        UISoundManager.instance.Init(audioClips.ToArray());
+        SoundManager.instance.Init(audioClips.ToArray());
     }
 
     private void CreateUIManager()
@@ -103,6 +109,13 @@ public class GameManager : MonoBehaviour
         if (PoolManager.instance != null) Destroy(PoolManager.instance);
         PoolManager.instance = gameObject.AddComponent<PoolManager>();
         PoolManager.instance.Init(pool, GameObject.Find("Pool").transform);
+    }
+
+    private void CreateMapManager()
+    {
+        if (PoolManager.instance != null) Destroy(PoolManager.instance);
+        MapManager.Instance = gameObject.AddComponent<MapManager>();
+        MapManager.Instance.Init(mapTrm);
     }
 
     public void Save()

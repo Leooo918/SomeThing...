@@ -45,7 +45,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || inventory == null) return;
 
-        UISoundManager.instance.PlayOneShot(Sound.CursurMoveSound);
+        SoundManager.instance.PlayOneShot(Sound.CursurMoveSound);
 
         isMouseOn = true;
         if (InventoryManager.instance.currentItem == null)

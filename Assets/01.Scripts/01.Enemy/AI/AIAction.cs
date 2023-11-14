@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class AIAction : MonoBehaviour
 {
-    protected EnemyBrain _enemyBrain;
+    protected EnemyBrain enemyBrain;
 
     public virtual void SetUp(Transform parentTrm)
     {
-        _enemyBrain = parentTrm.GetComponent<EnemyBrain>();
+        enemyBrain = parentTrm.GetComponent<EnemyBrain>();
     }
 
     public abstract void TakeAcion();

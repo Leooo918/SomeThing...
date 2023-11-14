@@ -70,8 +70,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1330340259
-  m_SortingLayer: -4
+  m_SortingLayerID: -176029123
+  m_SortingLayer: -1
   m_SortingOrder: 20
   m_Sprite: {fileID: 2079548412, guid: 06b4c23faf1698744a24ee0498c0ecba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -131,9 +131,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.115
+  m_FalloffIntensity: 0.502
   m_Color: {r: 0, g: 0.581419, b: 1, a: 1}
-  m_Intensity: 2.5
+  m_Intensity: 10
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: a3614b4f3d0282f500000000
@@ -150,8 +150,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.00060001016, y: -0.2523, z: 0}
-    m_Extent: {x: 0.67719996, y: 0.6747, z: 0}
+    m_Center: {x: 0.0026000142, y: -0.252, z: 0}
+    m_Extent: {x: 1.0304999, y: 1.0381, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.3
+  m_ShapeLightFalloffSize: 0.66
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0.035931714, y: -0.6237673, z: 0}
@@ -247,8 +247,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1330340259
-  m_SortingLayer: -4
+  m_SortingLayerID: -176029123
+  m_SortingLayer: -1
   m_SortingOrder: 20
   m_Sprite: {fileID: -118694574, guid: 06b4c23faf1698744a24ee0498c0ecba, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -379,7 +379,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1104478876767988315, guid: ac9a40f4d612cfb448b678170e22a188, type: 3}
       propertyPath: m_SortingLayer
-      value: -4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1104478876767988315, guid: ac9a40f4d612cfb448b678170e22a188, type: 3}
       propertyPath: m_SortingOrder
@@ -387,7 +387,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1104478876767988315, guid: ac9a40f4d612cfb448b678170e22a188, type: 3}
       propertyPath: m_SortingLayerID
-      value: 1330340259
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4930262506451065078, guid: ac9a40f4d612cfb448b678170e22a188, type: 3}
       propertyPath: m_Name

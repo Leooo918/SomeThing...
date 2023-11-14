@@ -67,9 +67,9 @@ public class AlphaAttack : AIAttack
         skillDir = (target - transform.position).normalized;
         float angle = Mathf.Atan2(skillDir.y, skillDir.x) * Mathf.Rad2Deg;
 
-        skillWarning.transform.eulerAngles = new Vector3(0, 0, angle);
+        skillWarning.transform.up =  skillDir;
         skillWarning.SetActive(true);
-        skillWarning.transform.position = transform.position + attackDir * 3f;
+        skillWarning.transform.position = transform.position + skillDir * 3f;
         skillWarning.GetComponent<EnemyWarning>().StartWarning(skillDelay);
         StartCoroutine("StartSkill");
     }

@@ -83,7 +83,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
         if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
         transform.Find("Sprite").GetComponent<Image>().color = new Color(1, 1, 1, 1);
 
-        UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);         //소리함 기깔나게 나야지
+        SoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);         //소리함 기깔나게 나야지
 
         image.raycastTarget = false;
 
@@ -121,7 +121,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     {
         if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true || ShopManager.instance.isBuying == true) return;
 
-        UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
+        SoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
 
         bool canSetPosition = false;
         Setup();                        //아이템 초기 상태로 돌려놓고
@@ -317,7 +317,7 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     {
         if (Input.GetKeyDown(KeyCode.R) && isItemSelected == true)   //R키를 눌렀을 때 이미 회전 중이 아니고 지금 들고 있는 아이템이라면
         {
-            UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
+            SoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
 
             StartCoroutine(Rotate());
         }
@@ -394,6 +394,6 @@ public abstract class Item : MonoBehaviour, IPointerDownHandler, IDragHandler, I
     {
         if (eventData.button != PointerEventData.InputButton.Left || InventoryManager.instance.isDeviding == true) return;
 
-        UISoundManager.instance.PlayOneShot(Sound.CursurMoveSound);
+        SoundManager.instance.PlayOneShot(Sound.CursurMoveSound);
     }
 }

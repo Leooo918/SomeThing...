@@ -22,11 +22,9 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     public bool canUseSkill { get; private set; }
 
 
-    private void OnEnable()
+    private void Awake()
     {
         transform.GetComponent<Collider2D>().enabled = true;
-        hp = maxhp;
-        speed = maxSpeed;
     }
 
     public void Damaged(float value, Vector2 hitPoint)
@@ -81,6 +79,9 @@ public class EnemyStatus : MonoBehaviour, IDamageable
                 maxhp = enemyContents.maxHp;
                 attack = enemyContents.maxAttack;
                 maxSpeed = enemyContents.maxSpeed;
+
+                hp = maxhp;
+                speed = maxSpeed;
 
                 aiAttack.SetCoolTime(enemyContents.attackCool, enemyContents.skillCool);
             }

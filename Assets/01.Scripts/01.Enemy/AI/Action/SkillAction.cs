@@ -2,6 +2,6 @@ public class SkillAction : AIAction
 {
     public override void TakeAcion()
     {
-        _enemyBrain.GetComponent<AIAttack>().Skill(_enemyBrain.playerTrm.position);
+        enemyBrain.GetComponent<AIAttack>().Skill(enemyBrain.playerTrm.position);
     }
 }

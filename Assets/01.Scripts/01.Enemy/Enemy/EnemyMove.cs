@@ -25,6 +25,8 @@ public class EnemyMove : MonoBehaviour
         status = GetComponent<EnemyStatus>();
         brain = GetComponent<EnemyBrain>();
         enemyRenderer = GetComponent<EnemyRenderer>();
+
+        brain.onMove += Move;
     }
 
     private void Update()
@@ -60,7 +62,7 @@ public class EnemyMove : MonoBehaviour
         moveDir = dir;
     }
 
-    public void Init(float moveSpeed, float dashSpeed)
+    public void Init(float moveSpeed)
     {
         this.moveSpeed = moveSpeed;
     }

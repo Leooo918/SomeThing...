@@ -52,7 +52,7 @@ public class Inventory : MonoBehaviour
 
     public void SortingInventory()
     {
-        UISoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
+        SoundManager.instance.PlayOneShot(Sound.ButtonClilckSound);
 
         List<Item> itemList = new List<Item>();
         List<ExpendableItem> expendableItemList = new List<ExpendableItem>();

@@ -12,6 +12,7 @@ public class EnemyBrain : MonoBehaviour
     private EnemySpawner spawner;
     private AIAttack attack;
     private EnemyRenderer render;
+    private NavAgent agent;
 
     public Transform playerTrm { get; private set; }
 
@@ -21,21 +22,20 @@ public class EnemyBrain : MonoBehaviour
 
     private AIState currentState;
 
-    private void Start()
+    private Vector3Int nextPosition;
+
+    private void Awake()
     {
         enemyStatus = GetComponent<EnemyStatus>();
         enemyMove = GetComponent<EnemyMove>();
         attack = GetComponent<AIAttack>();
-        render = transform.Find("Sprite").GetComponent<EnemyRenderer>();
-        currentState = transform.Find("AI/IdleState").GetComponent<AIState>();
+        agent = GetComponent<NavAgent>();
+        render = transform.Find("Sprite").GetComponent<EnemyRenderer>();   
+    }
 
+    private void Start()
+    {
         playerTrm = GameManager.instance.player;
-
-        transform.Find("AI").GetComponentsInChildren<AIState>()
-            .ToList()
-            .ForEach(s => s.SetUp(transform));
-
-        enemyStatus.Init(GameManager.instance.enemySO);
     }
 
     private void Update()
@@ -43,9 +43,30 @@ public class EnemyBrain : MonoBehaviour
         currentState.UpdateState();
     }
 
-    public void Move(Vector2 moveDir)
+    public void Move(Vector2 targetPosition)
     {
-        onMove?.Invoke(moveDir);
+        Vector3Int destination = MapManager.Instance.GetTilePos(targetPosition);
+        agent.Destination = destination; //경로 설정을 시작할 거고
+
+        Vector3 nextWorld = MapManager.Instance.GetWorldPosition(nextPosition);
+
+        if (Vector3.Distance(nextWorld, transform.position) < 0.2f)
+        {
+            if (agent.GetNextPath(out Vector3Int next))
+            {
+                nextPosition = next;
+            }
+            else
+            {
+                onMove?.Invoke(Vector2.zero);
+            }
+        }
+        else
+        {
+            Vector2 dir = (nextWorld - transform.position).normalized;
+            onMove?.Invoke(dir);
+            //적이 바라보는 방향
+        }
     }
 
     public void Die()
@@ -61,10 +82,6 @@ public class EnemyBrain : MonoBehaviour
 
     public void Init(EnemySpawner spawner)
     {
-        enemyStatus = GetComponent<EnemyStatus>();
-        enemyMove = GetComponent<EnemyMove>();
-        attack = GetComponent<AIAttack>();
-        render = transform.Find("Sprite").GetComponent<EnemyRenderer>();
         currentState = transform.Find("AI/IdleState").GetComponent<AIState>();
 
         transform.Find("AI").GetComponentsInChildren<AIState>()
@@ -73,5 +90,6 @@ public class EnemyBrain : MonoBehaviour
 
         this.spawner = spawner;
         enemyStatus.Init(GameManager.instance.enemySO);
+        nextPosition = MapManager.Instance.GetTilePos(transform.position);
     }
 }

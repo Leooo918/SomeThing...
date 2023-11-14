@@ -8,12 +8,6 @@ public class MapManager : MonoBehaviour
 
     public static MapManager Instance = null;
 
-    public MapManager(Transform tileMapTrm)
-    {
-        _collisionMap = tileMapTrm.Find("Collision").GetComponent<Tilemap>();
-        _mainMap = tileMapTrm.Find("Floor").GetComponent<Tilemap>();
-        _mainMap.CompressBounds();
-    }
 
     public Vector3Int GetTilePos(Vector3 worldPos)
     {
@@ -28,12 +22,18 @@ public class MapManager : MonoBehaviour
     public bool CanMove(Vector3Int tilePos)
     {
         BoundsInt mapBound = _mainMap.cellBounds; //Compress시켰던 타일의 바운드가 나오게 된다.
-        if (tilePos.x < mapBound.xMin || tilePos.x > mapBound.xMax
-                                      || tilePos.y < mapBound.yMin || tilePos.y > mapBound.yMax)
+        if (tilePos.x < mapBound.xMin || tilePos.x > mapBound.xMax || tilePos.y < mapBound.yMin || tilePos.y > mapBound.yMax)
         {
             return false;
         }
 
         return _collisionMap.GetTile(tilePos) is null;
+    }
+
+    public void Init(Transform tileMapTrm)
+    {
+        _collisionMap = tileMapTrm.Find("Collision").GetComponent<Tilemap>();
+        _mainMap = tileMapTrm.Find("Floor").GetComponent<Tilemap>();
+        _mainMap.CompressBounds();
     }
 }

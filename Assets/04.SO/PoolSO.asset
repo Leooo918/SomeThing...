@@ -16,9 +16,3 @@ MonoBehaviour:
   - poolName: Alpha
     toPool: {fileID: 6045532583630517577, guid: e6b316194aa2e1a4d9d3fd96313e1d68, type: 3}
     amount: 100
-  - poolName: Beta
-    toPool: {fileID: 0}
-    amount: 100
-  - poolName: Bullet
-    toPool: {fileID: 0}
-    amount: 500

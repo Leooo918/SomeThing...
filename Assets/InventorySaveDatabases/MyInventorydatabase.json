@@ -1,6 +1,8 @@
 {
     "inventoryName": "MyInventory",
     "itemName": [
+        "Ammo",
+        "Ammo",
         "Medkit",
         "Medkit",
         "Medkit",
@@ -23,6 +25,8 @@
         "Ammo"
     ],
     "itemAmount": [
+        17,
+        20,
         1,
         1,
         1,
@@ -45,6 +49,8 @@
         20
     ],
     "positionX": [
+        5,
+        6,
         0,
         2,
         4,
@@ -67,6 +73,8 @@
         6
     ],
     "positionY": [
+        0,
+        0,
         1,
         1,
         1,
@@ -108,9 +116,13 @@
         0.0,
         0.0,
         0.0,
+        0.0,
+        0.0,
         0.0
     ],
     "durability": [
+        100.0,
+        100.0,
         100.0,
         100.0,
         100.0,
