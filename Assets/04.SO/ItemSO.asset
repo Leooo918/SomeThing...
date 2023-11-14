@@ -54,6 +54,12 @@ MonoBehaviour:
     pfItem: {fileID: 3366919235249711578, guid: e5117faf1bacb3d4dac631ad985d4e9c, type: 3}
     itemType: 0
     itemValue: 30
+  - itemName: LongSword
+    itemExplain: "\uC8FC\uC778\uACF5\uC758 \uAC70\uB300\uD55C \uB85C~~~~~~~~~~~~~~~~~~~~~~~~\u3147\uC18C\uB4DC"
+    size: {x: 2, y: 4}
+    pfItem: {fileID: 5446612954618887651, guid: 792f6f0ee70472740a11998dc6f8ad53, type: 3}
+    itemType: 0
+    itemValue: 70
   expendableItems:
   - itemName: Ammo
     itemExplain: "\uC77C\uB2E8 \uADC0\uCC2E\uC544\uC11C \uCD1D\uAE30\uC5D0 \uB9DE\uAC8C

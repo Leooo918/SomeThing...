@@ -118,3 +118,26 @@ MonoBehaviour:
       - 17
       - 15
       weaponExplain: "\uC289.\uC288\uC289.\uC288\uC288\uC289.\uC289.\uC289.\uC288\uBC14"
+  - name: LongSword
+    weaponImage: {fileID: 1319118734, guid: 1786e5c7a1d87614a89e0cf5676f62c4, type: 3}
+    weapon: {fileID: 5288369007236315702, guid: 4ca23e8de712056418fb19ca78314c09, type: 3}
+    weaponImageObj: {fileID: 331416368723791241, guid: 933335f7e69fcae4ca2eb87151032164, type: 3}
+    weaponSkillIcon: {fileID: 631792989471129562, guid: e37c0f828bb28fa47944a90fc88b1490, type: 3}
+    weaponSubSkillIcon: {fileID: 631792989471129562, guid: dff97375ad2e98d46a8fb0bd9a637ba3, type: 3}
+    weaponStatus:
+      normalAttackCool: 2
+      subSkillCool: 20
+      damage:
+      - 90
+      - 150
+      - 220
+      - 270
+      - 500
+      skillCool:
+      - 17
+      - 15
+      - 12
+      - 8
+      - 5
+      weaponExplain: "\uADF8\uAC74 \uAC80\uC774\uB77C\uACE0 \uD558\uAE30\uC5D0\uB294
+        \uB108\uBB34 \uAC70\uB300\uD588\uB2E4..."

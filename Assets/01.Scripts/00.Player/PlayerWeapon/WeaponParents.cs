@@ -11,24 +11,24 @@ public class WeaponParents : MonoBehaviour
 
     private void Awake()
     {
-        player = transform.root.GetComponent<PlayerInput>();
-
-        player.onMouseMove += WeaponDir;
-
+        player = GetComponentInParent<PlayerInput>();
 
         Weapon[] w = GetComponentsInChildren<Weapon>();
-        for (int i = 0; i < w.Length; i++)
-        {
-            weaponList.Add(w[i]);
-            w[i].gameObject.SetActive(false);
-        }
 
-        if (transform.childCount > curWeaponNum)
-        {
-            transform.GetChild(curWeaponNum).TryGetComponent<Weapon>(out currentWeapon);
-            currentWeapon.gameObject.SetActive(true);
-        }
         return;
+    }
+
+    public void WeaponDirByMove()
+    {
+        player = GetComponentInParent<PlayerInput>();
+        player.onMouseMove -= WeaponDir;
+        Debug.Log("어째서..............");
+    }
+    public void WeaponDirByMouse()
+    {
+        player = GetComponentInParent<PlayerInput>();
+        player.onMouseMove += WeaponDir;
+        Debug.Log("코코");
     }
 
     private void WeaponDir(Vector2 dir)
@@ -43,36 +43,5 @@ public class WeaponParents : MonoBehaviour
         else if (dot < 0) // 오른쪽
         {
             transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    public void SetWeaponFollow()
-    {
-        print(player);
-        player.onMouseMove += WeaponFollow;
-    }
-    public void UnSetWeaponFollow()
-    {
-        player.onMouseMove -= WeaponFollow;
-    }
-
-
-    private void WeaponFollow(Vector2 dir)
-    {
-        float rot = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.eulerAngles = new Vector3(0, 0, rot);
-    }
-
-    private void SwitchWeapon()
-    {
-        if (transform.childCount == 0) return;
-
-        curWeaponNum++;
-        if (curWeaponNum >= transform.childCount)
-        {
-            curWeaponNum = 0;
-        }
-        transform.GetChild(curWeaponNum).TryGetComponent<Weapon>(out currentWeapon);
-        currentWeapon.gameObject.SetActive(true);
-    }
-}
+        };
+    }}

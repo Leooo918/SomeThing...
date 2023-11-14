@@ -9,7 +9,6 @@ using System.IO;
 public interface IDamageable
 {
     void Damaged(float value, Vector2 hitPoint);
-    void ReduceMaxHp(float value);
 }
 
 public class StatusSave
@@ -43,9 +42,10 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     private float skillChangeTimeDown = 0f;
 
     public float PlayerCurHp => playerCurHp;
-    public float PlayerAttact => playerAttact;
+    public float PlayerAttact => playerAttact; 
     public float PlayerSpeed => playerSpeed;
 
+    private WeaponParents weaponParents = null;
     public Weapon[] mountingWeapon = new Weapon[2]; //장착 무기 2개
     private PlayerWeaponSlot[] weaponSlots = new PlayerWeaponSlot[2];   //무기 슬롯
     private Weapon curMountedWeapon = null; //현재 무기
@@ -72,6 +72,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         playerMove = GetComponent<PlayerMove>();
         playerBrain = GetComponent<PlayerInput>();
         playerInventory = GetComponent<OpenInventory>();
+        weaponParents = GetComponentInChildren<WeaponParents>();
         myBackpack = playerInventory.MyInventory;
 
         try
@@ -99,7 +100,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             skillChangeTimeDown -= Time.deltaTime;
             try
             {
-            skillChangeCoolImg.fillAmount = skillChangeTimeDown / skillChangeTime;
+                skillChangeCoolImg.fillAmount = skillChangeTimeDown / skillChangeTime;
             }
             catch
             {
@@ -112,10 +113,17 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     {
         if (skillChangeTimeDown > 0) return;
 
-
         if (curWeaponNum == 0 && mountingWeapon[1] != null) curWeaponNum = 1;
         else if (curWeaponNum == 1 && mountingWeapon[0] != null) curWeaponNum = 0;
-        else if (curMountedWeapon != null) return;
+        else if (curMountedWeapon == null)
+        {
+            if (mountingWeapon[0] != null) curMountedWeapon = mountingWeapon[0];
+            else if (mountingWeapon[1] != null) curMountedWeapon = mountingWeapon[1];
+
+            curMountedWeapon.gameObject.SetActive(true);
+            curMountedWeapon.GetComponent<Weapon>().SetSkill();
+        }
+        else return;
 
         skillChangeTimeDown = skillChangeTime;
 
@@ -129,7 +137,9 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         {
             curMountedWeapon = mountingWeapon[curWeaponNum];
             curMountedWeapon.gameObject.SetActive(true);
+            curMountedWeapon.GetComponent<Weapon>().SetSkill();
         }
+
         JsonSave();
     }
 
@@ -191,11 +201,11 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         playerCurHp = Mathf.Clamp(playerCurHp, 0, playerMaxHp - reducedMaxHp);
         UIManager.instance.SetHp(playerCurHp, playerMaxHp - reducedMaxHp);
 
-        if(playerCurHp <= 100)
+        if (playerCurHp <= 100)
         {
             CameraManager.instance.ScreenHurt(true);
         }
-        else 
+        else
         {
             CameraManager.instance.ScreenHurt(false);
         }
@@ -259,6 +269,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
         }
         print("공간이 없다 게이야");
     }
+
 
     public void JsonSave()
     {

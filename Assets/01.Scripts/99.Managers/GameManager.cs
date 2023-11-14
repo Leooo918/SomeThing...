@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public ItemSO itemSO = null;
     public EnemyBoxSO boxSO = null;
+    public EnemySO enemySO = null;
     public ShopSO shopSO = null;
     public InventorySO inventorySO = null;
     public ShopGoodsSO shopGoodsSO = null;
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     public Transform player = null;
     public Transform canvas = null;
     public GameObject boxPf = null;
+    public PoolSO pool = null;
 
     public bool isUIInput = false;
 
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
         CreateSettingManager();
         CreateUIManager();
         CreateCameraManager();
+        CreatePoolManager();
     }
 
     private void CreateShopManager()
@@ -93,6 +96,13 @@ public class GameManager : MonoBehaviour
         if (CameraManager.instance != null) Destroy(CameraManager.instance);
         CameraManager.instance = GameObject.Find("Camera").AddComponent<CameraManager>();
         CameraManager.instance.Init();
+    }
+
+    private void CreatePoolManager()
+    {
+        if (PoolManager.instance != null) Destroy(PoolManager.instance);
+        PoolManager.instance = gameObject.AddComponent<PoolManager>();
+        PoolManager.instance.Init(pool, GameObject.Find("Pool").transform);
     }
 
     public void Save()

@@ -17,4 +17,13 @@ MonoBehaviour:
     maxHp: 2000
     maxAttack: 10
     maxSpeed: 10
+    attackCool: 0
+    skillCool: 0
+    box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}
+  - name: Alpha
+    maxHp: 2000
+    maxAttack: 100
+    maxSpeed: 3
+    attackCool: 1
+    skillCool: 5
     box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}

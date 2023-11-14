@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0267dc4686650794da57d35bab849740, type: 3}
+  m_Name: PoolSO
+  m_EditorClassIdentifier: 
+  pools:
+  - poolName: Alpha
+    toPool: {fileID: 6045532583630517577, guid: e6b316194aa2e1a4d9d3fd96313e1d68, type: 3}
+    amount: 100
+  - poolName: Beta
+    toPool: {fileID: 0}
+    amount: 100
+  - poolName: Bullet
+    toPool: {fileID: 0}
+    amount: 500

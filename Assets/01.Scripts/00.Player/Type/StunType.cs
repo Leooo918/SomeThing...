@@ -12,15 +12,14 @@ public class StunType : Type
     {
         damageSource = GetComponent<DamageSource>();
 
-        damageSource.onAttack += Effect;
     }
     private void OnEnable()
     {
-        
+        damageSource.onAttack += Effect;
     }
     private void OnDisable()
     {
-        
+        damageSource.onAttack -= Effect;
     }
 
     protected override void Effect(Collider2D collision)

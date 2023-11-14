@@ -9,10 +9,14 @@ public struct EnemyContents
     public float maxHp;
     public float maxAttack;
     public float maxSpeed;
+
+    public float attackCool;
+    public float skillCool;
+    
     public EnemyBoxSO box;
 }
 
-[CreateAssetMenu(menuName = "SO/enemy")]
+[CreateAssetMenu(menuName = "SO/Enemy")]
 public class EnemySO : ScriptableObject
 {
     public EnemyContents[] enemyContents;

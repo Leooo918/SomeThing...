@@ -11,6 +11,7 @@ public abstract class Weapon : MonoBehaviour
     protected PlayerStatus playerStatus = null;
     protected WeaponSO weaponSO = null;
     protected PlayerMove playerMove = null;
+    protected WeaponParents parent = null;
     protected WeaponStruct weaponStruct = new WeaponStruct();
 
     protected float originDamage = 0f;
@@ -48,6 +49,7 @@ public abstract class Weapon : MonoBehaviour
         playerAction = GetComponentInParent<PlayerInput>();
         playerMove = GetComponentInParent<PlayerMove>();
         playerStatus = GetComponentInParent<PlayerStatus>();
+        parent = GetComponentInParent<WeaponParents>();
     }
 
     protected virtual void OnEnable()
@@ -77,13 +79,9 @@ public abstract class Weapon : MonoBehaviour
             }
         }
 
-        UIManager.instance.SetPlayerSkill(durability, weaponStruct.weaponImageObj, weaponStruct.weaponSkillIcon, weaponStruct.weaponSubSkillIcon);
+        
 
-        mainSkillCool = UIManager.instance.MainSkillCool;
-        subSkillCool = UIManager.instance.SubSkillCool;
-
-        mainSkillCoolTxt = mainSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
-        subSkillCoolTxt = subSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
+        parent.WeaponDirByMouse();
     }
 
     protected virtual void Update()
@@ -184,6 +182,18 @@ public abstract class Weapon : MonoBehaviour
             durability -= value;
         }
     }
+
+    public void SetSkill()
+    {
+        UIManager.instance.SetPlayerSkill(durability, weaponStruct.weaponImageObj, weaponStruct.weaponSkillIcon, weaponStruct.weaponSubSkillIcon);
+
+        mainSkillCool = UIManager.instance.MainSkillCool;
+        subSkillCool = UIManager.instance.SubSkillCool;
+
+        mainSkillCoolTxt = mainSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
+        subSkillCoolTxt = subSkillCool.transform.Find("CoolTime").GetComponent<TextMeshProUGUI>();
+    }
+
 
     public void Init(float durability)
     {

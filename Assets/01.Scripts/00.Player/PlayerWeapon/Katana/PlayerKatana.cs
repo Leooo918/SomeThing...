@@ -10,6 +10,7 @@ public class PlayerKatana : Weapon
     private Animator attackAnimator = null;
     private Collider2D attackColl = null;
     private Transform katanaTrm = null;
+    private StunType stunType = null;
     [SerializeField] private GameObject swordStrike = null;
 
     private bool readyGetSkillCheckResult = false;
@@ -27,6 +28,7 @@ public class PlayerKatana : Weapon
         attackAnimator = GetComponent<Animator>();
         katanaTrm = transform.Find("SwordParents/Sword");
         attackColl = katanaTrm.GetComponent<BoxCollider2D>();
+        stunType = katanaTrm.GetComponent<StunType>();
     }
 
 
@@ -161,8 +163,9 @@ public class PlayerKatana : Weapon
 
     public void OnStartUseSkill()
     {
+        stunType.enabled = true;
         playerStatus.ChangeSpeed(originSpeed);
-        playerMove.Dash(0.1f, 10);
+        playerMove.Dash(0.05f, 10);
     }
 
     public void OnAttackStart()
@@ -172,6 +175,7 @@ public class PlayerKatana : Weapon
     }
     public void OnAttackEnd()
     {
+        stunType.enabled = false;
         attackColl.enabled = false;
         playerMove.canNotMove = false;
         isAttaking = false;
@@ -195,7 +199,7 @@ public class PlayerKatana : Weapon
             return;
         }
 
-        playerMove.Flash(5);
+        playerMove.Flash(3.5f);
 
         SubSkillCoolDown();
     }

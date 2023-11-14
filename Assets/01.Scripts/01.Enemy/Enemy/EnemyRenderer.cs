@@ -6,12 +6,14 @@ using UnityEngine.Rendering;
 public class EnemyRenderer : MonoBehaviour
 {
     private EnemyBrain enemyBrain = null;
+    private EnemyStatus enemyStatus = null;
     private Renderer render = null;
     private SpriteRenderer spriteRenderer = null;
 
     private void Awake()
     {
         enemyBrain = GetComponentInParent<EnemyBrain>();
+        enemyStatus = GetComponentInParent<EnemyStatus>();
         render = GetComponent<Renderer>();
 
         enemyBrain.onDie += OnDisolve;
@@ -32,5 +34,6 @@ public class EnemyRenderer : MonoBehaviour
             render.material.SetFloat("_DisolveValue", Mathf.Lerp(1, 0, a));
             yield return null;
         }
+        PoolManager.instance.Enqueue(enemyStatus.enemyName,enemyStatus.gameObject);
     }
 }

@@ -55,11 +55,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _DisolveValue: 1
+    - _DistortionValue: -0.05
     - _InvisibleValue: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: -123.4567
-    - _Speed: 9.25
+    - _Scale: 30
+    - _Speed: 5
     - _disolveValue: 1
     m_Colors:
     - _DisolveColor: {r: 0.2781058, g: 3.509434, b: 2.936108, a: 0}
