@@ -27,3 +27,17 @@ MonoBehaviour:
     attackCool: 1
     skillCool: 5
     box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}
+  - name: BossHead
+    maxHp: 1000000
+    maxAttack: 100
+    maxSpeed: 0
+    attackCool: 5
+    skillCool: 10
+    box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}
+  - name: BossHand
+    maxHp: 50000
+    maxAttack: 100
+    maxSpeed: 3
+    attackCool: 1
+    skillCool: 10
+    box: {fileID: 11400000, guid: e069a3dd313b6a74aae050475e194c5e, type: 2}

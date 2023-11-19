@@ -99,23 +99,44 @@ public class GameManager : MonoBehaviour
 
     private void CreateCameraManager()
     {
-        if (CameraManager.instance != null) Destroy(CameraManager.instance);
-        CameraManager.instance = GameObject.Find("Camera").AddComponent<CameraManager>();
-        CameraManager.instance.Init();
+        try
+        {
+            if (CameraManager.instance != null) Destroy(CameraManager.instance);
+            CameraManager.instance = GameObject.Find("Camera").AddComponent<CameraManager>();
+            CameraManager.instance.Init();
+        }
+        catch
+        {
+
+        }
     }
 
     private void CreatePoolManager()
     {
-        if (PoolManager.instance != null) Destroy(PoolManager.instance);
-        PoolManager.instance = gameObject.AddComponent<PoolManager>();
-        PoolManager.instance.Init(pool, GameObject.Find("Pool").transform);
+        try
+        {
+            if (PoolManager.instance != null) Destroy(PoolManager.instance);
+            PoolManager.instance = gameObject.AddComponent<PoolManager>();
+            PoolManager.instance.Init(pool, GameObject.Find("Pool").transform);
+        }
+        catch
+        {
+
+        }
     }
 
     private void CreateMapManager()
     {
-        if (PoolManager.instance != null) Destroy(PoolManager.instance);
-        MapManager.Instance = gameObject.AddComponent<MapManager>();
-        MapManager.Instance.Init(mapTrm);
+        try
+        {
+            if (PoolManager.instance != null) Destroy(PoolManager.instance);
+            MapManager.Instance = gameObject.AddComponent<MapManager>();
+            MapManager.Instance.Init(mapTrm);
+        }
+        catch
+        {
+
+        }
     }
 
     public void Save()

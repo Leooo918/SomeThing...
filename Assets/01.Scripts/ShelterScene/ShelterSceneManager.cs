@@ -24,13 +24,17 @@ public class ShelterSceneManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (EventSystem.current.IsPointerOverGameObject() == true) return;
+        if (EventSystem.current.IsPointerOverGameObject() == true)
+        {
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
+        }
 
         Vector2 pointerPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Collider2D[] colls = Physics2D.OverlapCircleAll(pointerPos, 0.1f);
 
         foreach (Collider2D coll in colls)
         {
+            Debug.Log("¾ßÈ£");
             if (coll.TryGetComponent<ShelterObject>(out ShelterObject obj))
             {
                 obj.OnPointerEnter();

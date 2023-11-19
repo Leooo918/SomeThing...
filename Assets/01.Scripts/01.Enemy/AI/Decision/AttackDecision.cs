@@ -14,13 +14,21 @@ public class AttackDecision : AIDecision
     {
         Collider2D coll = Physics2D.OverlapCircle(transform.position, attackRange, LayerMask.GetMask("Player"));
 
+        AIAttack attack = _enemyBrain.GetComponent<AIAttack>();
+
         if (coll != null)
         {
-            AIAttack attack = _enemyBrain.GetComponent<AIAttack>();
             if (attack.canAttack && skill == AttackKind.Attack) return true;
 
             if (attack.canUseSkill && skill == AttackKind.Skill) return true;
         }
-        return false;
+        if (attack.isAttacking == false && attack.isUsingSkill == false)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

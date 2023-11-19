@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShelterScene.unity
     guid: 39a0b81426c89134091f5597bee7c29b
+  - enabled: 1
+    path: Assets/Scenes/InGameScene.unity
+    guid: c3676eca2d5c2224d9f190c185ec9d54
   m_configObjects: {}

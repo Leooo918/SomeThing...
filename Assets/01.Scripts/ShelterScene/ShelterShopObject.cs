@@ -33,13 +33,13 @@ public class ShelterShopObject : ShelterObject
         shopUI.DOAnchorPosX(-725f, 1f).SetEase(Ease.OutBounce).OnComplete(() => cover.SetActive(true));
     }
 
-    private void CloseUI()
+    public void CloseUI()
     {
         cover.SetActive(false);
         shopUI.DOAnchorPosX(-1200f, 0.5f).SetEase(Ease.Linear);
     }
 
-    private void OpenShop()
+    public void OpenShop()
     {
         CloseUI();
         shop.ShopOpen();
@@ -53,7 +53,7 @@ public class ShelterShopObject : ShelterObject
         });
     }
 
-    private void Talk()
+    public void Talk()
     {
         //일단 1번 인덱스꺼 해주는데 PlayerStatus에 curProgress에 따라 나올거 다르게 해서 해주는거임 ㅇㅋ?
 

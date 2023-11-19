@@ -15,4 +15,7 @@ MonoBehaviour:
   pools:
   - poolName: Alpha
     toPool: {fileID: 6045532583630517577, guid: e6b316194aa2e1a4d9d3fd96313e1d68, type: 3}
+    amount: 50
+  - poolName: Fire
+    toPool: {fileID: 4443342832939421998, guid: a6471d3297cc04b469b45caa6f87efc0, type: 3}
     amount: 100

@@ -9,6 +9,7 @@ public class MapLava : MonoBehaviour
     private bool isInteract = false;
     private bool isInteracted = false;
     private GameObject interactImg = null;
+    public bool isInteractOnce = false;
 
     private void Awake()
     {
@@ -18,7 +19,7 @@ public class MapLava : MonoBehaviour
 
     private void Update()
     {
-        if(isInteract && Input.GetKeyDown(KeyCode.F))
+        if (isInteract && Input.GetKeyDown(KeyCode.F))
         {
             isInteracted = true;
             isInteract = false;
@@ -33,7 +34,10 @@ public class MapLava : MonoBehaviour
     {
         if (isInteracted == true) return;
         interactImg.SetActive(true);
-        isInteract = true;
+        if (isInteractOnce)
+        {
+            isInteract = true;
+        }
     }
 
     private void OnCollisionExit2D(Collision2D collision)

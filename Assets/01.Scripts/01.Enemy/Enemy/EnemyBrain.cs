@@ -9,6 +9,7 @@ public class EnemyBrain : MonoBehaviour
 {
     private EnemyStatus enemyStatus;
     private EnemyMove enemyMove;
+    private BossBrain brain;
     private EnemySpawner spawner;
     private AIAttack attack;
     private EnemyRenderer render;
@@ -30,7 +31,7 @@ public class EnemyBrain : MonoBehaviour
         enemyMove = GetComponent<EnemyMove>();
         attack = GetComponent<AIAttack>();
         agent = GetComponent<NavAgent>();
-        render = transform.Find("Sprite").GetComponent<EnemyRenderer>();   
+        render = transform.Find("Sprite").GetComponent<EnemyRenderer>();
     }
 
     private void Start()
@@ -69,15 +70,40 @@ public class EnemyBrain : MonoBehaviour
         }
     }
 
+    public void Stop()
+    {
+        onMove?.Invoke(Vector2.zero);
+    }
+
     public void Die()
     {
         onDie?.Invoke();
-        spawner.EnemyDead();
+        if (spawner != null)
+        {
+            spawner.EnemyDead();
+        }
+        else if(brain != null && enemyStatus.enemyName == "BossHand")
+        {
+            brain.HandDestroyed();
+        }
     }
 
     public void ChangeState(AIState nextState)
     {
         currentState = nextState;
+    }
+
+    public void Init(BossBrain bossBrain)
+    {
+        brain = bossBrain;
+        currentState = transform.Find("AI/IdleState").GetComponent<AIState>();
+
+        transform.Find("AI").GetComponentsInChildren<AIState>()
+                    .ToList()
+                    .ForEach(s => s.SetUp(transform));
+
+        enemyStatus.Init(GameManager.instance.enemySO);
+        nextPosition = MapManager.Instance.GetTilePos(transform.position);
     }
 
     public void Init(EnemySpawner spawner)

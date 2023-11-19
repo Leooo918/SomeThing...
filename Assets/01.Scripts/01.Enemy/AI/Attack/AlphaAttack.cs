@@ -6,6 +6,7 @@ public class AlphaAttack : AIAttack
 {
     [SerializeField] private GameObject attackWarning;
     [SerializeField] private GameObject skillWarning;
+    private EnemyBrain brain = null;
     private Animator anim;
 
     private float attackDelay = 0.5f;
@@ -14,12 +15,16 @@ public class AlphaAttack : AIAttack
     private Vector3 attackDir;
     private Vector3 skillDir;
 
-    private bool isAttacking;
-    private bool isUsingSkill;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        brain = GetComponent<EnemyBrain>();
+    }
 
     public override void Attack(Vector3 target)
     { 
-        if (isAttacking == true && attackCoolDown <= 0) return;
+        if (canAttack == false || isAttacking) return;
 
         attackDir = (target - transform.position).normalized;
 
@@ -33,22 +38,24 @@ public class AlphaAttack : AIAttack
     {
         base.Update();
 
-        if (attackCoolDown > 0 || isAttacking) canAttack = false;
+        if (attackCoolDown > 0 ) canAttack = false;
         else canAttack = true;
 
-        if (skillCoolDown > 0 || isUsingSkill) canUseSkill = false;
+        if (skillCoolDown > 0 ) canUseSkill = false;
         else canUseSkill = true;
     }
 
     IEnumerator StartAttack()
     {
+        brain.Stop();
         isAttacking = true;
         yield return new WaitForSeconds(attackDelay);
         //anim.SetTrigger("Attack");
         Collider2D colls = Physics2D.OverlapCircle(transform.position + attackDir * 1f, 0.5f, LayerMask.GetMask("Player"));
        
         if (colls != null)  colls.GetComponent<PlayerStatus>().Damaged(status.attack, transform.position);
-        
+        attackCoolDown = attackCoolTime;
+        yield return new WaitForSeconds(0.1f);
         attackCoolDown = attackCoolTime;
         isAttacking = false;
     }
@@ -62,7 +69,7 @@ public class AlphaAttack : AIAttack
 
     public override void Skill(Vector3 target)
     {
-        if (isUsingSkill) return;
+        if (canUseSkill == false || isUsingSkill) return;
 
         skillDir = (target - transform.position).normalized;
         float angle = Mathf.Atan2(skillDir.y, skillDir.x) * Mathf.Rad2Deg;
@@ -76,15 +83,12 @@ public class AlphaAttack : AIAttack
 
     IEnumerator StartSkill()
     {
+        brain.Stop();
         isUsingSkill = true;
         yield return new WaitForSeconds(skillDelay);
         skillCoolDown = skillCoolTime;
-        //Collider2D colls = Physics2D.Overlap(transform.position, 0.5f, LayerMask.GetMask("Player"));
-
-        //if (colls != null)
-        //{
-        //    colls.GetComponent<PlayerStatus>().Damaged(status.attack, transform.position);
-        //}
+        yield return new WaitForSeconds(0.1f);
+        skillCoolDown = skillCoolTime;
         isUsingSkill = false;
     }
 

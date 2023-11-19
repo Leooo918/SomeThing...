@@ -15,6 +15,9 @@ public abstract class AIAttack : MonoBehaviour
     public bool canAttack { get; protected set; }
     public bool canUseSkill { get; protected set; }
 
+    public bool isAttacking { get; protected set; }
+    public bool isUsingSkill { get; protected set; }
+
 
     protected virtual void Awake()
     {

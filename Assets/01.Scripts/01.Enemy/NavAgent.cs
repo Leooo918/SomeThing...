@@ -29,7 +29,7 @@ public class NavAgent : MonoBehaviour
             SetCurrentPosition(); //내 현재 위치를 시작점을 설정하고
             destinationPos = value;
             CalculatePath(); //라우팅 경로 계산해주고
-            PrintRoute();
+            //PrintRoute();
         }
     }
 
