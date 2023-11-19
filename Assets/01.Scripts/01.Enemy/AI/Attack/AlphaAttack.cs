@@ -6,8 +6,10 @@ public class AlphaAttack : AIAttack
 {
     [SerializeField] private GameObject attackWarning;
     [SerializeField] private GameObject skillWarning;
-    private EnemyBrain brain = null;
+    private EnemyBrain brain;
+    private DamageSource damage ;
     private Animator anim;
+    private EnemyMove move;
 
     private float attackDelay = 0.5f;
     private float skillDelay = 2f;
@@ -19,7 +21,38 @@ public class AlphaAttack : AIAttack
     protected override void Awake()
     {
         base.Awake();
+        move = GetComponent<EnemyMove>();
         brain = GetComponent<EnemyBrain>();
+        damage = transform.Find("Dash"). GetComponent<DamageSource>();
+
+        damage.damage = status.attack;
+        damage.gameObject.SetActive(false);
+
+        damage.onAttack += (Collider2D c) =>
+        {
+            if(c. TryGetComponent<PlayerMove>(out PlayerMove p))
+            {
+                Debug.Log(skillDir);
+                p.KnockLong(skillDir, 20f, 0.2f);
+            }
+
+            if(c.TryGetComponent<EnemyMove>(out EnemyMove e))
+            {
+                Debug.Log(skillDir);
+                e.Dash(skillDir, 20f, 0.2f);
+            }
+        };
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+
+        if (attackCoolDown > 0 ) canAttack = false;
+        else canAttack = true;
+
+        if (skillCoolDown > 0 ) canUseSkill = false;
+        else canUseSkill = true;
     }
 
     public override void Attack(Vector3 target)
@@ -32,17 +65,6 @@ public class AlphaAttack : AIAttack
         attackWarning.transform.position = transform.position + attackDir * 1f;
         attackWarning.GetComponent<EnemyWarning>().StartWarning(attackDelay);
         StartCoroutine("StartAttack");
-    }
-
-    protected override void Update()
-    {
-        base.Update();
-
-        if (attackCoolDown > 0 ) canAttack = false;
-        else canAttack = true;
-
-        if (skillCoolDown > 0 ) canUseSkill = false;
-        else canUseSkill = true;
     }
 
     IEnumerator StartAttack()
@@ -86,6 +108,10 @@ public class AlphaAttack : AIAttack
         brain.Stop();
         isUsingSkill = true;
         yield return new WaitForSeconds(skillDelay);
+        damage.gameObject.SetActive(true);
+        move.Dash(skillDir, 0.5f,12);
+        yield return new WaitForSeconds(0.5f);
+        damage.gameObject.SetActive (false);
         skillCoolDown = skillCoolTime;
         yield return new WaitForSeconds(0.1f);
         skillCoolDown = skillCoolTime;

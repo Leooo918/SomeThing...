@@ -42,11 +42,21 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
+    public void Dash(Vector2 dir, float time, float speed)
+    {
+        this.knockTime = time;
+        knockSpeed = speed;
+        knockDir = dir.normalized;
+        StopCoroutine("KnockRoutine");
+        StartCoroutine("KnockRoutine");
+    }
+
     public void KnockBack(Vector2 hitpoint, float knockTime)
     {
         this.knockTime = knockTime;
         knockSpeed = Mathf.Clamp(hitpoint.magnitude, 3, 5) * 3;
         knockDir = (Vector2)transform.position - hitpoint;
+        StopCoroutine("KnockRoutine");
         StartCoroutine("KnockRoutine");
     }
 

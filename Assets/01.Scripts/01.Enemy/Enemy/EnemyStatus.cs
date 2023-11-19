@@ -11,7 +11,7 @@ public class EnemyStatus : MonoBehaviour, IDamageable
 
     public string enemyName;
     public float maxhp { get; private set; }
-    public  float maxSpeed { get; private set; }
+    public float maxSpeed { get; private set; }
     public float attack { get; private set; }
     public float speed { get; private set; }
     public float hp { get; private set; }
@@ -30,8 +30,15 @@ public class EnemyStatus : MonoBehaviour, IDamageable
     public void Damaged(float value, Vector2 hitPoint)
     {
         hp -= value;
-        CameraManager.instance.ShakeCam(5, 5, 0.05f);
-        move.KnockBack(hitPoint, 0.1f);
+        //CameraManager.instance.ShakeCam(5, 5, 0.05f);
+        try
+        {
+            move.KnockBack(hitPoint, 0.1f);
+        }
+        catch
+        {
+
+        }
 
         if (hp <= 0)
         {

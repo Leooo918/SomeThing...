@@ -2,25 +2,31 @@
     "inventoryName": "EnemyBox",
     "itemName": [
         "Medkit",
-        "Medkit"
+        "Ammo",
+        "Ammo"
     ],
     "itemAmount": [
         1,
-        1
+        16,
+        15
     ],
     "positionX": [
         0,
-        2
+        2,
+        3
     ],
     "positionY": [
         3,
-        3
+        4,
+        4
     ],
     "rotation": [
+        0.0,
         0.0,
         0.0
     ],
     "durability": [
+        100.0,
         100.0,
         100.0
     ]

@@ -14,10 +14,14 @@ public class DamageSource : MonoBehaviour
     {
         if(collision.TryGetComponent<IDamageable>(out IDamageable damageAble))
         {
+            if(GetComponentInParent<PlayerStatus>() != null)
+            {
+                CameraManager.instance.ShakeCam(5, 1, 0.1f);                    //카메라 흔들어
+            }
             Debug.Log(damage * damageMultiple);
             Debug.Log(collision.name);
-            onAttack?.Invoke(collision);
             damageAble.Damaged(damage * damageMultiple, transform.position);
+            onAttack?.Invoke(collision);
         }
     }
 }

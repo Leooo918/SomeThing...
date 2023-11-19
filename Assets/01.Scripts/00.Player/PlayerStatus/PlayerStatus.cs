@@ -120,7 +120,14 @@ public class PlayerStatus : MonoBehaviour, IDamageable
             if (mountingWeapon[0] != null) curMountedWeapon = mountingWeapon[0];
             else if (mountingWeapon[1] != null) curMountedWeapon = mountingWeapon[1];
 
+            try
+            {
             curMountedWeapon.gameObject.SetActive(true);
+            }
+            catch
+            {
+                Debug.Log("장착한 아이템이 없음");
+            }
             curMountedWeapon.GetComponent<Weapon>().SetSkill();
         }
         else return;
@@ -194,7 +201,7 @@ public class PlayerStatus : MonoBehaviour, IDamageable
     public void Damaged(float value, Vector2 hitPoint)
     {
         playerMove.KnockBack((Vector2)transform.position - hitPoint);
-        CameraManager.instance.ShakeCam(5, 1, 0.1f);
+        CameraManager.instance.ShakeCam(5, 1, 0.1f);                    //카메라 흔들어
 
         playerCurHp -= value;
 

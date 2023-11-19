@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
 
     private float moveSpeed = 5f;
     private float dashSpeed = 10f;
+    private float dashTime;
 
     private bool isDashing = false;
     public bool canNotMove = false;
@@ -90,20 +91,32 @@ public class PlayerMove : MonoBehaviour
     {
         dashDir = mouseDir;
         this.dashSpeed = dashSpeed;
-        StartCoroutine(DashRoutine(time));
+        dashTime = time;
+        StartCoroutine("DashRoutine");
     }
 
-    IEnumerator DashRoutine(float time)
+    IEnumerator DashRoutine()
     {
         isDashing = true;
-        yield return new WaitForSeconds(time);
+        yield return new WaitForSeconds(dashTime);
         isDashing = false;
     }
 
-    internal void KnockBack(Vector2 dir)
+    public void KnockBack(Vector2 dir)
     {
         dashDir = dir;
         this.dashSpeed = 10 - Mathf.Clamp(dir.magnitude, 0, 8);
-        StartCoroutine(DashRoutine(0.05f));
+        dashTime = 0.05f;
+        StopCoroutine("DashRoutine");
+        StartCoroutine("DashRoutine");
+    }
+
+    public void KnockLong(Vector2 dir, float speed, float time)
+    {
+        dashDir = dir.normalized;
+        dashSpeed = speed;
+        dashTime = time;
+        StopCoroutine("DashRoutine");
+        StartCoroutine("DashRoutine");
     }
 }

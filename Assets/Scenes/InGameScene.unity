@@ -144480,11 +144480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4975108015342227817, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4975108015342227817, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_SortingLayerID
-      value: -176029123
+      value: 1330340259
       objectReference: {fileID: 0}
     - target: {fileID: 5886550663976822162, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_LocalPosition.x
@@ -144528,11 +144528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6299386188040576243, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_SortingLayer
-      value: -1
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 6299386188040576243, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_SortingLayerID
-      value: -176029123
+      value: 1330340259
       objectReference: {fileID: 0}
     - target: {fileID: 7991770538868215174, guid: 1f062b1d1f86dab419654820353eccfa, type: 3}
       propertyPath: m_Name
